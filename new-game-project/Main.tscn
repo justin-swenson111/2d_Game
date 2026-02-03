@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Texture2D" uid="uid://dyugrp68drn57" path="res://sprites/Background.png" id="1_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://c28iup13032rr" path="res://sprites/Player.png" id="2_fos0i"]
+[ext_resource type="Texture2D" uid="uid://dpxlpe4gk8i0q" path="res://sprites/Rock.png" id="3_3dxm6"]
+[ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://player.gd" id="4_fos0i"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cm0pq"]
+texture = ExtResource("1_cm0pq")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fos0i"]
+sources/0 = SubResource("TileSetAtlasSource_cm0pq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
+
+[node name="Node2D" type="Node2D" unique_id=2100994548]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=201771210]
+tile_set = SubResource("TileSet_fos0i")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1750349541]
+collision_mask = 3
+script = ExtResource("4_fos0i")
+
+[node name="PlayerBox" type="CollisionShape2D" parent="Player" unique_id=1463224738]
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_trn2v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1784849466]
+texture = ExtResource("2_fos0i")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=731033619]
+zoom = Vector2(5, 5)
+
+[node name="Rock" type="RigidBody2D" parent="." unique_id=263484686]
+gravity_scale = 0.0
+
+[node name="RockBox" type="CollisionShape2D" parent="Rock" unique_id=1502397300]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_03owx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rock" unique_id=563755871]
+position = Vector2(50, 0)
+texture = ExtResource("3_3dxm6")
+
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=546027443]
+collision_mask = 3
+script = ExtResource("4_fos0i")
+
+[node name="EnemyBox" type="CollisionShape2D" parent="Enemy" unique_id=561367108]
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_trn2v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1728935795]
+texture = ExtResource("2_fos0i")
+
+[node name="Camera2D" type="Camera2D" parent="Enemy" unique_id=2018620526]
+zoom = Vector2(5, 5)
