@@ -1,61 +1,77 @@
-[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+[gd_scene format=4 uid="uid://cqow47bch5ocs"]
 
-[ext_resource type="Texture2D" uid="uid://dyugrp68drn57" path="res://sprites/Background.png" id="1_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://b2ygbvjkaxv6" path="res://tileset/proto.png" id="1_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://c28iup13032rr" path="res://sprites/Player.png" id="2_fos0i"]
-[ext_resource type="Texture2D" uid="uid://dpxlpe4gk8i0q" path="res://sprites/Rock.png" id="3_3dxm6"]
+[ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://enemy.gd" id="4_3dxm6"]
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://player.gd" id="4_fos0i"]
+[ext_resource type="Texture2D" uid="uid://dilk6v51gnj3l" path="res://sprites/Enemy.png" id="5_fos0i"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cm0pq"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cm0pq"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fos0i"]
 texture = ExtResource("1_cm0pq")
 0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cm0pq")
+1:0/0 = 0
+1:0/0/terrain_set = 0
 
-[sub_resource type="TileSet" id="TileSet_fos0i"]
-sources/0 = SubResource("TileSetAtlasSource_cm0pq")
+[sub_resource type="TileSet" id="TileSet_3dxm6"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.409283, 0.409283, 0.409283, 1)
+navigation_layer_0/layers = 1
+sources/3 = SubResource("TileSetAtlasSource_fos0i")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
-
 [node name="Node2D" type="Node2D" unique_id=2100994548]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=201771210]
-tile_set = SubResource("TileSet_fos0i")
+[node name="foreground" type="TileMapLayer" parent="." unique_id=2121356699]
+tile_map_data = PackedByteArray("AAD5//z/AwAAAAAAAAD5//3/AwAAAAAAAAD5//7/AwAAAAAAAAD5/wAAAwAAAAAAAAD5/wEAAwAAAAAAAAD5/wIAAwAAAAAAAAD6//z/AwAAAAAAAAD6/wAAAwAAAAAAAAD6/wEAAwAAAAAAAAD6/wIAAwAAAAAAAAD7//z/AwAAAAAAAAD7////AwAAAAAAAAD7/wAAAwAAAAAAAAD7/wEAAwAAAAAAAAD7/wIAAwAAAAAAAAD8//z/AwAAAAAAAAD8//3/AwAAAAAAAAD8//7/AwAAAAAAAAD8////AwAAAAAAAAD8/wAAAwAAAAAAAAD8/wEAAwAAAAAAAAD8/wIAAwAAAAAAAAD9//z/AwAAAAAAAAD9//3/AwAAAAAAAAD9//7/AwAAAAAAAAD9////AwAAAAAAAAD9/wAAAwAAAAAAAAD9/wEAAwAAAAAAAAD9/wIAAwAAAAAAAAD+//z/AwAAAAAAAAD+//3/AwAAAAAAAAD+//7/AwAAAAAAAAD+////AwAAAAAAAAD+/wAAAwAAAAAAAAD+/wEAAwAAAAAAAAD+/wIAAwAAAAAAAAD///z/AwAAAAAAAAD///3/AwAAAAAAAAD///7/AwAAAAAAAAD/////AwAAAAAAAAD//wAAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAAAAPz/AwAAAAAAAAAAAP3/AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AwAAAAAAAAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAIAAwAAAAAAAAD5/wMAAwAAAAAAAAD6/wMAAwAAAAAAAAD7/wMAAwAAAAAAAAD8/wMAAwAAAAAAAAD9/wMAAwAAAAAAAAD+/wMAAwAAAAAAAAD//wMAAwAAAAAAAAAAAAMAAwAAAAAAAAABAP3/AwAAAAAAAAABAP7/AwAAAAAAAAABAP//AwAAAAAAAAABAAAAAwAAAAAAAAABAAEAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAACAP3/AwAAAAAAAAACAP7/AwAAAAAAAAACAAAAAwAAAAAAAAACAAEAAwAAAAAAAAACAAIAAwAAAAAAAAACAAMAAwAAAAAAAAADAPz/AwAAAAAAAAADAP3/AwAAAAAAAAADAP7/AwAAAAAAAAADAP//AwAAAAAAAAADAAAAAwAAAAAAAAADAAEAAwAAAAAAAAADAAIAAwAAAAAAAAADAAMAAwAAAAAAAAD4//z/AwAAAAAAAAD4//3/AwAAAAAAAAD4//7/AwAAAAAAAAD4////AwAAAAAAAAD4/wAAAwAAAAAAAAD4/wEAAwAAAAAAAAD4/wIAAwAAAAAAAAD4/wMAAwAAAAAAAAD4//v/AwAAAAAAAAD5//v/AwAAAAAAAAD6//v/AwAAAAAAAAD7//v/AwAAAAAAAAD8//v/AwAAAAAAAAD9//v/AwAAAAAAAAD+//v/AwAAAAAAAAD///v/AwAAAAAAAAAAAPv/AwAAAAAAAAABAPv/AwAAAAAAAAACAPv/AwAAAAAAAAADAPv/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAP3/AwAAAAAAAAAEAP7/AwAAAAAAAAAEAP//AwAAAAAAAAAEAAAAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAIAAwAAAAAAAAAEAAMAAwAAAAAAAAAEAPv/AwAAAAAAAAACAP//AwABAAAAAAACAPz/AwABAAAAAAABAPz/AwABAAAAAAD6//3/AwABAAAAAAD7//3/AwABAAAAAAD7//7/AwABAAAAAAD6//7/AwABAAAAAAD6////AwABAAAAAAD5////AwABAAAAAAA=")
+tile_set = SubResource("TileSet_3dxm6")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1750349541]
+[node name="player" type="CharacterBody2D" parent="." unique_id=1750349541 groups=["player"]]
 collision_mask = 3
 script = ExtResource("4_fos0i")
 
-[node name="PlayerBox" type="CollisionShape2D" parent="Player" unique_id=1463224738]
+[node name="PlayerBox" type="CollisionShape2D" parent="player" unique_id=1463224738]
 scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_trn2v")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1784849466]
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1784849466]
 texture = ExtResource("2_fos0i")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=731033619]
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=731033619]
 zoom = Vector2(5, 5)
 
-[node name="Rock" type="RigidBody2D" parent="." unique_id=263484686]
-gravity_scale = 0.0
-
-[node name="RockBox" type="CollisionShape2D" parent="Rock" unique_id=1502397300]
-position = Vector2(50, 0)
-shape = SubResource("RectangleShape2D_03owx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Rock" unique_id=563755871]
-position = Vector2(50, 0)
-texture = ExtResource("3_3dxm6")
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="player" unique_id=1521031726]
+target_desired_distance = 4.0
+path_max_distance = 10.0
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=546027443]
+position = Vector2(-50, 0)
 collision_mask = 3
-script = ExtResource("4_fos0i")
+script = ExtResource("4_3dxm6")
 
 [node name="EnemyBox" type="CollisionShape2D" parent="Enemy" unique_id=561367108]
-scale = Vector2(0.9, 0.9)
+scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_trn2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1728935795]
-texture = ExtResource("2_fos0i")
+texture = ExtResource("5_fos0i")
 
-[node name="Camera2D" type="Camera2D" parent="Enemy" unique_id=2018620526]
-zoom = Vector2(5, 5)
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy" unique_id=142396287]
+target_desired_distance = 4.0
+path_max_distance = 10.0
+avoidance_enabled = true
+avoidance_layers = 2
+avoidance_mask = 2
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy" unique_id=1780185543]
+
+[connection signal="screen_entered" from="Enemy/VisibleOnScreenNotifier2D" to="Enemy" method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="Enemy/VisibleOnScreenNotifier2D" to="Enemy" method="_on_visible_on_screen_notifier_2d_screen_exited"]
