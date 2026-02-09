@@ -10,11 +10,22 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	move_and_slide()
 
- 
+func damage(body: Node2D):
+	if (body.is_in_group("dest")):
+		body.hurt()
 
 
-	
+func _on_left_atk_body_entered(body: Node2D) -> void:
+	damage(body) 
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(body.name) # Replace with function body.
+func _on_right_atk_body_entered(body: Node2D) -> void:
+	damage(body) # Replace with function body.
+
+
+func _on_up_atk_body_entered(body: Node2D) -> void:
+	damage(body) # Replace with function body.
+
+
+func _on_down_atk_body_entered(body: Node2D) -> void:
+	damage(body) # Replace with function body.

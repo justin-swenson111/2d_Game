@@ -4,12 +4,35 @@ extends CharacterBody2D
 
 var chasing := false
 var speed := 60.0
+var health=5
+
+@export var knockback_strength := 100.0
+@export var knockback_stun_time := 0.5
+
+var stunned := false
+
 
 func _ready():
 	agent.target_position = global_position
 	
 
+func hurt():
+	#takes damage then knockback
+	health-=1
+	knockback_from(player)
 	
+func knockback_from(player: Node2D):
+	#gets opposite direction from player and moves in that direction
+	var dir := (global_position - player.global_position).normalized()
+	velocity = dir * knockback_strength
+
+	#cannot update its velocity for stun_time
+	stunned = true
+
+	await get_tree().create_timer(knockback_stun_time).timeout
+	#enemy can move again
+	stunned = false
+
 
 func _physics_process(delta):
 	
@@ -24,16 +47,20 @@ func _physics_process(delta):
 	var next_pos = agent.get_next_path_position()
 
 	var direction = (next_pos - global_position).normalized()
-	velocity = direction * speed
+	#if not taking knockback move towards the player at speed
+	if not stunned:
+		velocity = direction * speed
 	move_and_slide()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	#if the player is in its pathfind area chase him
 	if (body.is_in_group("player")):
 		chasing=true
 	
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	#stop chasing player when leave area
 	if (body.is_in_group("player")):
 		chasing=false

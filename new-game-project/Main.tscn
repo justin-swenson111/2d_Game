@@ -73,22 +73,18 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_fos0i")
 
 [node name="rightAtk" type="Area2D" parent="player" unique_id=263241082]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/rightAtk" unique_id=986689203]
 position = Vector2(15, -0.5)
 shape = SubResource("RectangleShape2D_3dxm6")
-disabled = true
 
 [node name="upAtk" type="Area2D" parent="player" unique_id=105409644]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/upAtk" unique_id=1999871528]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_lgr22")
 
 [node name="downAtk" type="Area2D" parent="player" unique_id=361447322]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/downAtk" unique_id=83881766]
 position = Vector2(0, 15)
@@ -117,17 +113,15 @@ radius = 100.0
 avoidance_layers = 2
 avoidance_mask = 2
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy" unique_id=1780185543]
+[node name="pathfind area" type="Area2D" parent="Enemy" unique_id=1229835226]
 
-[node name="Area2D" type="Area2D" parent="Enemy" unique_id=1229835226]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=1751497588]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/pathfind area" unique_id=1751497588]
 scale = Vector2(15, 15)
 shape = SubResource("CircleShape2D_fos0i")
 
-[connection signal="area_entered" from="player/leftAtk" to="player" method="_on_left_atk_area_entered"]
 [connection signal="body_entered" from="player/leftAtk" to="player" method="_on_left_atk_body_entered"]
-[connection signal="screen_entered" from="Enemy/VisibleOnScreenNotifier2D" to="Enemy" method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="screen_exited" from="Enemy/VisibleOnScreenNotifier2D" to="Enemy" method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="player/rightAtk" to="player" method="_on_right_atk_body_entered"]
+[connection signal="body_entered" from="player/upAtk" to="player" method="_on_up_atk_body_entered"]
+[connection signal="body_entered" from="player/downAtk" to="player" method="_on_down_atk_body_entered"]
+[connection signal="body_entered" from="Enemy/pathfind area" to="Enemy" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Enemy/pathfind area" to="Enemy" method="_on_area_2d_body_exited"]
