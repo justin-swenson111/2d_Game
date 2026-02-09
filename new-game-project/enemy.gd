@@ -9,6 +9,8 @@ func _ready():
 	agent.target_position = global_position
 	
 
+	
+
 func _physics_process(delta):
 	
 	agent.target_position = player.global_position
@@ -25,10 +27,13 @@ func _physics_process(delta):
 	velocity = direction * speed
 	move_and_slide()
 
-func _on_visible_on_screen_notifier_2d_screen_entered():
-	chasing = true
-	agent.target_position = player.global_position
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	chasing = false
-	agent.target_position = global_position
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if (body.is_in_group("player")):
+		chasing=true
+	
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if (body.is_in_group("player")):
+		chasing=false

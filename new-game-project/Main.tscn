@@ -41,6 +41,8 @@ size = Vector2(32, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
 size = Vector2(30, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fos0i"]
+
 [node name="Node2D" type="Node2D" unique_id=2100994548]
 
 [node name="foreground" type="TileMapLayer" parent="." unique_id=2121356699]
@@ -56,10 +58,8 @@ scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_trn2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1784849466]
+visible = false
 texture = ExtResource("2_fos0i")
-
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=731033619]
-zoom = Vector2(5, 5)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="player" unique_id=1521031726]
 target_desired_distance = 4.0
@@ -73,6 +73,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_fos0i")
 
 [node name="rightAtk" type="Area2D" parent="player" unique_id=263241082]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/rightAtk" unique_id=986689203]
 position = Vector2(15, -0.5)
@@ -80,20 +81,25 @@ shape = SubResource("RectangleShape2D_3dxm6")
 disabled = true
 
 [node name="upAtk" type="Area2D" parent="player" unique_id=105409644]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/upAtk" unique_id=1999871528]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_lgr22")
 
 [node name="downAtk" type="Area2D" parent="player" unique_id=361447322]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/downAtk" unique_id=83881766]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_03owx")
 
-[node name="Enemy" type="CharacterBody2D" parent="." unique_id=546027443]
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1970411111]
+zoom = Vector2(4, 4)
+
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=546027443 groups=["dest"]]
 position = Vector2(-150, 0)
-collision_layer = 2
+collision_layer = 15
 script = ExtResource("4_3dxm6")
 
 [node name="EnemyBox" type="CollisionShape2D" parent="Enemy" unique_id=561367108]
@@ -113,5 +119,15 @@ avoidance_mask = 2
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Enemy" unique_id=1780185543]
 
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=1229835226]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=1751497588]
+scale = Vector2(15, 15)
+shape = SubResource("CircleShape2D_fos0i")
+
+[connection signal="area_entered" from="player/leftAtk" to="player" method="_on_left_atk_area_entered"]
+[connection signal="body_entered" from="player/leftAtk" to="player" method="_on_left_atk_body_entered"]
 [connection signal="screen_entered" from="Enemy/VisibleOnScreenNotifier2D" to="Enemy" method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="Enemy/VisibleOnScreenNotifier2D" to="Enemy" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_exited"]

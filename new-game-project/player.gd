@@ -9,3 +9,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	move_and_slide()
+
+ 
+
+
+	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body.name) # Replace with function body.
