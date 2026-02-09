@@ -16,14 +16,14 @@ func _ready():
 	agent.target_position = global_position
 	
 
-func hurt():
+func hurt(source: Node2D):
 	#takes damage then knockback
 	health-=1
-	knockback_from(player)
+	knockback_from(source)
 	
-func knockback_from(player: Node2D):
-	#gets opposite direction from player and moves in that direction
-	var dir := (global_position - player.global_position).normalized()
+func knockback_from(source: Node2D):
+	#gets opposite direction from damage source and moves in that direction
+	var dir := (global_position - source.global_position).normalized()
 	velocity = dir * knockback_strength
 
 	#cannot update its velocity for stun_time

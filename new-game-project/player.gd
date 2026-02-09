@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 
 func damage(body: Node2D):
 	if (body.is_in_group("dest")):
-		body.hurt()
+		body.hurt(self)
 
 
 func _on_left_atk_body_entered(body: Node2D) -> void:
