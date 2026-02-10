@@ -70,24 +70,28 @@ path_max_distance = 10.0
 position = Vector2(-15, -0.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_fos0i")
+disabled = true
 
 [node name="rightAtk" type="Area2D" parent="player" unique_id=263241082]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/rightAtk" unique_id=986689203]
 position = Vector2(15, -0.5)
 shape = SubResource("RectangleShape2D_3dxm6")
+disabled = true
 
 [node name="upAtk" type="Area2D" parent="player" unique_id=105409644]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/upAtk" unique_id=1999871528]
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_lgr22")
+disabled = true
 
 [node name="downAtk" type="Area2D" parent="player" unique_id=361447322]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/downAtk" unique_id=83881766]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_03owx")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1970411111]
 zoom = Vector2(4, 4)

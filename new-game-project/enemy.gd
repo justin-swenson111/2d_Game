@@ -20,6 +20,8 @@ func hurt(source: Node2D):
 	#takes damage then knockback
 	health-=1
 	knockback_from(source)
+	if health==0:
+		self.queue_free()
 	
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage source and moves in that direction
