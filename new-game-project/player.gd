@@ -7,10 +7,10 @@ extends CharacterBody2D
 	"atkU" : $upAtk
 }
 @onready var weaponList :={
-	"sword" : [1,1],
-	"spear" : [2,0.5],
-	"axe" : [0.5,1],
-	"mace" : [1,1]
+	"sword" : [1,1,0.5,1],
+	"spear" : [2,0.5,0.5,1],
+	"axe" : [0.5,1,0.75,1.25],
+	"mace" : [1,1,1,2]
 }
 var w1 = "sword"
 var w2 = "spear"
@@ -61,11 +61,21 @@ func switch():
 		curWeapon=w2
 	else: 
 		curWeapon=w1
-	for type in weaponList:
-		if type == curWeapon:
-			height= weaponList[ type[0] ]
-			width = weaponList[ type[1] ]
-		
+	for t in weaponList:
+		var type = weaponList[t]
+		if t == curWeapon:
+			height= type[0]
+			width = type[1]
+			atkTime=type[2]
+			atkDelayLng=type[3]
+	for i in atkList:
+		if atkList[i]==$leftAtk or atkList[i]==$rightAtk:
+			atkList[i].scale.x=height
+			atkList[i].scale.y=width
+		else:
+			atkList[i].scale.y=height
+			atkList[i].scale.x=width
+			
 	
 
 
