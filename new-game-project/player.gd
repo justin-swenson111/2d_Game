@@ -6,11 +6,22 @@ extends CharacterBody2D
 	"atkR" : $rightAtk,
 	"atkU" : $upAtk
 }
-
+@onready var weaponList :={
+	"sword" : [1,1],
+	"spear" : [2,0.5],
+	"axe" : [0.5,1],
+	"mace" : [1,1]
+}
+var w1 = "sword"
+var w2 = "spear"
+var curWeapon = w1
 
 const SPEED = 100
 var atkDelay =false
-var atkDelayLng =2
+
+var atkDelayLng =1
+var atkTime =0.5
+
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
 	if input.length() > 0:
@@ -27,27 +38,43 @@ func _input(event: InputEvent) -> void:
 	for k in atkList.keys():
 		if event.is_action_pressed(k):
 			atk(atkList[k])
+	if event.is_action_pressed("switch"):
+		switch()
 
 func atk(dmg: Area2D):
 	if not atkDelay:
 		var coll = dmg.get_node("CollisionShape2D")
-
-		coll.disabled=false
-		await get_tree().create_timer(1).timeout
-		coll.disabled=true
+		attack(coll)
 		atkDelay = true
 		await get_tree().create_timer(atkDelayLng).timeout
 		atkDelay=false
 	
+func attack(coll: Node2D):
+	coll.disabled=false
+	await get_tree().create_timer(atkTime).timeout
+	coll.disabled=true
+
+func switch():
+	var height =0
+	var width =0
+	if curWeapon==w1:
+		curWeapon=w2
+	else: 
+		curWeapon=w1
+	for type in weaponList:
+		if type == curWeapon:
+			height= weaponList[ type[0] ]
+			width = weaponList[ type[1] ]
+		
+	
 
 
+#attack hit box calls
 func _on_left_atk_body_entered(body: Node2D) -> void:
 	damage(body) 
 
-
 func _on_right_atk_body_entered(body: Node2D) -> void:
 	damage(body) # Replace with function body.
-
 
 func _on_up_atk_body_entered(body: Node2D) -> void:
 	damage(body) # Replace with function body.

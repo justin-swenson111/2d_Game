@@ -52,6 +52,8 @@ func _physics_process(delta):
 	#if not taking knockback move towards the player at speed
 	if not stunned:
 		velocity = direction * speed
+
+
 	move_and_slide()
 
 
