@@ -53,8 +53,6 @@ func _physics_process(delta):
 	#if not taking knockback move towards the player at speed
 	if not stunned:
 		velocity = direction * speed
-
-
 	move_and_slide()
 
 
@@ -63,7 +61,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
 		chasing=true
 	
-
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	#stop chasing player when leave area

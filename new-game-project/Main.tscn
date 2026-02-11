@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c28iup13032rr" path="res://sprites/Player.png" id="2_fos0i"]
 [ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://enemy.gd" id="4_3dxm6"]
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://player.gd" id="4_fos0i"]
-[ext_resource type="PackedScene" uid="uid://dur3vn0anxkt7" path="res://arrow.tscn" id="4_lgr22"]
 [ext_resource type="Texture2D" uid="uid://dilk6v51gnj3l" path="res://sprites/Enemy.png" id="5_fos0i"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fos0i"]
@@ -22,7 +21,7 @@ texture = ExtResource("1_fos0i")
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_3dxm6"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
 navigation_layer_0/layers = 1
 navigation_layer_1/layers = 0
 sources/6 = SubResource("TileSetAtlasSource_3dxm6")
@@ -47,10 +46,8 @@ tile_map_data = PackedByteArray("AAD5//z/BgABAAAAAAD5/wEABgABAAAAAAD5/wIABgAAAAA
 tile_set = SubResource("TileSet_3dxm6")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=1750349541 groups=["player"]]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("4_fos0i")
-
-[node name="arrow" parent="player" unique_id=1079714428 instance=ExtResource("4_lgr22")]
 
 [node name="PlayerBox" type="CollisionShape2D" parent="player" unique_id=1463224738]
 scale = Vector2(0.9, 0.9)
@@ -105,7 +102,7 @@ zoom = Vector2(4, 4)
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=546027443 groups=["dest"]]
 position = Vector2(-150, 0)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("4_3dxm6")
 
 [node name="EnemyBox" type="CollisionShape2D" parent="Enemy" unique_id=561367108]
@@ -132,7 +129,8 @@ shape = SubResource("CircleShape2D_fos0i")
 
 [node name="Enemy2" type="CharacterBody2D" parent="." unique_id=678903441 groups=["dest"]]
 position = Vector2(200, 50)
-collision_layer = 15
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("4_3dxm6")
 
 [node name="EnemyBox" type="CollisionShape2D" parent="Enemy2" unique_id=746220027]
@@ -159,7 +157,8 @@ shape = SubResource("CircleShape2D_fos0i")
 
 [node name="Enemy3" type="CharacterBody2D" parent="." unique_id=468229683 groups=["dest"]]
 position = Vector2(150, -200)
-collision_layer = 15
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("4_3dxm6")
 
 [node name="EnemyBox" type="CollisionShape2D" parent="Enemy3" unique_id=570950657]
@@ -186,7 +185,8 @@ shape = SubResource("CircleShape2D_fos0i")
 
 [node name="Enemy4" type="CharacterBody2D" parent="." unique_id=1740942442 groups=["dest"]]
 position = Vector2(-150, 150)
-collision_layer = 15
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("4_3dxm6")
 
 [node name="EnemyBox" type="CollisionShape2D" parent="Enemy4" unique_id=826440343]

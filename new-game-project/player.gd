@@ -59,8 +59,13 @@ func _input(event: InputEvent) -> void:
 		switch()
 	if event.is_action_pressed("switchRgd"):
 		if melee:
+			#set the dmg and atk delay correctly
+			setWeapon()
 			melee=false	
 		else:
+			#set delay to ranged time
+			#dmg is set in arrow.gd
+			atkDelayLng=1
 			melee=true
 
 #getting the collision to be used and running the attack delay
@@ -68,28 +73,31 @@ func atk(dmg: Area2D):
 	if not atkDelay:
 		var coll = dmg.get_node("CollisionShape2D")
 		attack(coll)
-		atkDelay = true
-		await get_tree().create_timer(atkDelayLng).timeout
-		atkDelay=false
-	
+		atkDly()
+
 #turning on the collisionshape and keeping it on for the atk time
 func attack(coll: Node2D):
 	coll.disabled=false
 	await get_tree().create_timer(atkTime).timeout
 	coll.disabled=true
 
+func atkDly():
+	atkDelay = true
+	await get_tree().create_timer(atkDelayLng).timeout
+	atkDelay=false
 #switching weapon
 func switch():
-	var height = 0
-	var width = 0
-	
 	#switching the current weapon
 	if curWeapon==w1:
 		curWeapon=w2
 	else: 
 		curWeapon=w1
-		
-	#iteracting through keys in weapon dictionary
+	setWeapon()
+
+func setWeapon():
+	var height = 0
+	var width = 0
+		#iteracting through keys in weapon dictionary
 	for t in weaponList:
 		#getting the array in the disctionary value
 		var type = weaponList[t]
@@ -120,15 +128,25 @@ func switch():
 
 #ranged attack
 func rgdAtk(dir: String):
-	var nArrow = arrow.instantiate()
-	if dir =="atkU":
-		nArrow.dir=Vector2(0,-1)
-	elif dir =="atlD":
-		nArrow.dir=Vector2(0,1)
-	elif dir == "atkL":
-		nArrow.dir=Vector2(-1,0)
-	else:
-		nArrow.dir=Vector2(1,0)
+	#if the atk dely is not active
+	if not atkDelay:
+		#create an instance of the arrow object and set its 
+		#rotation and velocity depending on where it got spawned
+		var nArrow = arrow.instantiate()
+		if dir =="atkU":
+			nArrow.dir=Vector2(0,-1)
+			nArrow.rotation=deg_to_rad(270)
+		elif dir =="atkD":
+			nArrow.dir=Vector2(0,1)
+			nArrow.rotation=deg_to_rad(90)
+		elif dir == "atkL":
+			nArrow.dir=Vector2(-1,0)
+			nArrow.rotation=deg_to_rad(180)
+		else:
+			nArrow.dir=Vector2(1,0)
+		#create the arrow and start the atk delay
+		add_child(nArrow)
+		atkDly()
 
 #attack hit box calls
 func _on_left_atk_body_entered(body: Node2D) -> void:

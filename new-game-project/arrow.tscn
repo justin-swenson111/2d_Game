@@ -1,15 +1,23 @@
 [gd_scene format=3 uid="uid://dur3vn0anxkt7"]
 
 [ext_resource type="Script" uid="uid://dxw2y2kwhwmbj" path="res://arrow.gd" id="1_l5ahi"]
+[ext_resource type="Texture2D" uid="uid://cake607upqnse" path="res://sprites/arrow.png" id="2_2ndhl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kks1g"]
 
 [node name="arrow" type="RigidBody2D" unique_id=1079714428]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 6
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_l5ahi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=526607444]
 scale = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_kks1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2059037404]
+position = Vector2(40, 35)
+scale = Vector2(2, 2)
+texture = ExtResource("2_2ndhl")
