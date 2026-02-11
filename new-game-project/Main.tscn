@@ -2,9 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://w5vd61etlotd" path="res://tileset/t.png" id="1_fos0i"]
 [ext_resource type="Texture2D" uid="uid://c28iup13032rr" path="res://sprites/Player.png" id="2_fos0i"]
-[ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://enemy.gd" id="4_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://4oovtax3voq0" path="res://enemy.tscn" id="4_cm0pq"]
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://player.gd" id="4_fos0i"]
-[ext_resource type="Texture2D" uid="uid://dilk6v51gnj3l" path="res://sprites/Enemy.png" id="5_fos0i"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fos0i"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -36,8 +35,6 @@ tile_proxies/coords_level = [[0, Vector2i(0, 0)], [2, Vector2i(0, 0)], [1, Vecto
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fos0i"]
 
 [node name="Node2D" type="Node2D" unique_id=2100994548]
 
@@ -99,127 +96,13 @@ disabled = true
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1970411111]
 zoom = Vector2(4, 4)
 
-[node name="Enemy" type="CharacterBody2D" parent="." unique_id=546027443 groups=["dest"]]
-position = Vector2(-150, 0)
-collision_layer = 2
-collision_mask = 13
-script = ExtResource("4_3dxm6")
+[node name="Enemy" parent="." unique_id=1783438828 instance=ExtResource("4_cm0pq")]
+position = Vector2(100, 0)
 
-[node name="EnemyBox" type="CollisionShape2D" parent="Enemy" unique_id=561367108]
-scale = Vector2(1.1, 1.1)
-shape = SubResource("RectangleShape2D_trn2v")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1728935795]
-texture = ExtResource("5_fos0i")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy" unique_id=142396287]
-target_desired_distance = 4.0
-path_max_distance = 10.0
-avoidance_enabled = true
-radius = 100.0
-avoidance_layers = 2
-avoidance_mask = 2
-
-[node name="pathfind area" type="Area2D" parent="Enemy" unique_id=1229835226]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/pathfind area" unique_id=1751497588]
-scale = Vector2(15, 15)
-shape = SubResource("CircleShape2D_fos0i")
-
-[node name="Enemy2" type="CharacterBody2D" parent="." unique_id=678903441 groups=["dest"]]
-position = Vector2(200, 50)
-collision_layer = 2
-collision_mask = 13
-script = ExtResource("4_3dxm6")
-
-[node name="EnemyBox" type="CollisionShape2D" parent="Enemy2" unique_id=746220027]
-scale = Vector2(1.1, 1.1)
-shape = SubResource("RectangleShape2D_trn2v")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy2" unique_id=1854550223]
-texture = ExtResource("5_fos0i")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy2" unique_id=957570672]
-target_desired_distance = 4.0
-path_max_distance = 10.0
-avoidance_enabled = true
-radius = 100.0
-avoidance_layers = 2
-avoidance_mask = 2
-
-[node name="pathfind area" type="Area2D" parent="Enemy2" unique_id=2076884010]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy2/pathfind area" unique_id=1356642673]
-scale = Vector2(15, 15)
-shape = SubResource("CircleShape2D_fos0i")
-
-[node name="Enemy3" type="CharacterBody2D" parent="." unique_id=468229683 groups=["dest"]]
-position = Vector2(150, -200)
-collision_layer = 2
-collision_mask = 13
-script = ExtResource("4_3dxm6")
-
-[node name="EnemyBox" type="CollisionShape2D" parent="Enemy3" unique_id=570950657]
-scale = Vector2(1.1, 1.1)
-shape = SubResource("RectangleShape2D_trn2v")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy3" unique_id=2144643922]
-texture = ExtResource("5_fos0i")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy3" unique_id=1855554579]
-target_desired_distance = 4.0
-path_max_distance = 10.0
-avoidance_enabled = true
-radius = 100.0
-avoidance_layers = 2
-avoidance_mask = 2
-
-[node name="pathfind area" type="Area2D" parent="Enemy3" unique_id=230683939]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy3/pathfind area" unique_id=1606978076]
-scale = Vector2(15, 15)
-shape = SubResource("CircleShape2D_fos0i")
-
-[node name="Enemy4" type="CharacterBody2D" parent="." unique_id=1740942442 groups=["dest"]]
-position = Vector2(-150, 150)
-collision_layer = 2
-collision_mask = 13
-script = ExtResource("4_3dxm6")
-
-[node name="EnemyBox" type="CollisionShape2D" parent="Enemy4" unique_id=826440343]
-scale = Vector2(1.1, 1.1)
-shape = SubResource("RectangleShape2D_trn2v")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy4" unique_id=746406976]
-texture = ExtResource("5_fos0i")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy4" unique_id=396505524]
-target_desired_distance = 4.0
-path_max_distance = 10.0
-avoidance_enabled = true
-radius = 100.0
-avoidance_layers = 2
-avoidance_mask = 2
-
-[node name="pathfind area" type="Area2D" parent="Enemy4" unique_id=80754447]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy4/pathfind area" unique_id=260653120]
-scale = Vector2(15, 15)
-shape = SubResource("CircleShape2D_fos0i")
+[node name="Enemy2" parent="." unique_id=2039846680 instance=ExtResource("4_cm0pq")]
+position = Vector2(0, 50)
 
 [connection signal="body_entered" from="player/leftAtk" to="player" method="_on_left_atk_body_entered"]
 [connection signal="body_entered" from="player/rightAtk" to="player" method="_on_right_atk_body_entered"]
 [connection signal="body_entered" from="player/upAtk" to="player" method="_on_up_atk_body_entered"]
 [connection signal="body_entered" from="player/downAtk" to="player" method="_on_down_atk_body_entered"]
-[connection signal="body_entered" from="Enemy/pathfind area" to="Enemy" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Enemy/pathfind area" to="Enemy" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Enemy2/pathfind area" to="Enemy2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Enemy2/pathfind area" to="Enemy2" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Enemy3/pathfind area" to="Enemy3" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Enemy3/pathfind area" to="Enemy3" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Enemy4/pathfind area" to="Enemy4" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Enemy4/pathfind area" to="Enemy4" method="_on_area_2d_body_exited"]
