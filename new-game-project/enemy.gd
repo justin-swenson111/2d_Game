@@ -16,11 +16,12 @@ func _ready():
 	agent.target_position = global_position
 	
 
-func hurt(source: Node2D):
+func hurt(source: Node2D,dmg: int):
 	#takes damage then knockback
-	health-=1
+	print(health, dmg)
+	health-=dmg
 	knockback_from(source)
-	if health==0:
+	if health<=0:
 		self.queue_free()
 	
 func knockback_from(source: Node2D):
