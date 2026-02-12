@@ -7,7 +7,7 @@ extends CharacterBody2D
 	"atkU" : $upAtk
 }
 
-const arrow = preload("res://arrow.tscn")
+const arrow = preload("res://objects/arrow.tscn")
 
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList :={
@@ -67,6 +67,9 @@ func _input(event: InputEvent) -> void:
 			#dmg is set in arrow.gd
 			atkDelayLng=1
 			melee=true
+	if event.is_action_pressed("openMenu"):
+		get_tree().change_scene_to_file("res://scenes/playerMenu.tscn")
+		
 
 #getting the collision to be used and running the attack delay
 func atk(dmg: Area2D):
