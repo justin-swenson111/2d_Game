@@ -119,7 +119,7 @@ shape = SubResource("RectangleShape2D_03owx")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1970411111]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="Enemy" parent="." unique_id=1783438828 instance=ExtResource("5_q8u5g")]
 position = Vector2(100, 0)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4oovtax3voq0"]
 
 [ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://scripts/enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://dilk6v51gnj3l" path="res://sprites/Enemy.png" id="2_qi2p4"]
+[ext_resource type="Texture2D" uid="uid://bcdnbwaabpkmm" path="res://sprites/bweh.png" id="2_7jlpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
 
@@ -17,7 +17,7 @@ scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_trn2v")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1004811504]
-texture = ExtResource("2_qi2p4")
+texture = ExtResource("2_7jlpp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1934326883]
 target_desired_distance = 4.0
