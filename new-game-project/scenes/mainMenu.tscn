@@ -1,6 +1,74 @@
 [gd_scene format=3 uid="uid://d3osofxcsi7ls"]
 
 [ext_resource type="Script" uid="uid://cqvnqn6fyko75" path="res://scripts/startMenu.gd" id="1_qkhwq"]
+[ext_resource type="Texture2D" uid="uid://4g1x1l3m02xu" path="res://tileset/Rock.png" id="2_3d1i7"]
+[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scenes/load.gd" id="3_48ign"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkhwq"]
 
 [node name="MainMenu" type="Node2D" unique_id=1646271237]
 script = ExtResource("1_qkhwq")
+
+[node name="Settings" type="Area2D" parent="." unique_id=1047439959]
+position = Vector2(0, -50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Settings" unique_id=893230366]
+scale = Vector2(10, 5)
+shape = SubResource("RectangleShape2D_qkhwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Settings" unique_id=1324858563]
+scale = Vector2(10, 5)
+texture = ExtResource("2_3d1i7")
+
+[node name="Label" type="Label" parent="Settings" unique_id=1975364460]
+offset_left = -79.0
+offset_top = -10.0
+offset_right = 80.0
+offset_bottom = 13.0
+text = "Settings for da game"
+
+[node name="Start" type="Area2D" parent="." unique_id=606575156]
+position = Vector2(0, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start" unique_id=1453064848]
+scale = Vector2(10, 5)
+shape = SubResource("RectangleShape2D_qkhwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Start" unique_id=1610194232]
+scale = Vector2(10, 5)
+texture = ExtResource("2_3d1i7")
+
+[node name="Label" type="Label" parent="Start" unique_id=719633252]
+offset_left = -54.0
+offset_top = -10.0
+offset_right = 54.0
+offset_bottom = 13.0
+text = "Start da game"
+
+[node name="Load" type="Area2D" parent="." unique_id=1528579225]
+position = Vector2(0, 200)
+script = ExtResource("3_48ign")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Load" unique_id=2021639308]
+scale = Vector2(10, 5)
+shape = SubResource("RectangleShape2D_qkhwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Load" unique_id=320416681]
+scale = Vector2(10, 5)
+texture = ExtResource("2_3d1i7")
+
+[node name="Label" type="Label" parent="Load" unique_id=818966249]
+offset_left = -54.0
+offset_top = -10.0
+offset_right = 54.0
+offset_bottom = 13.0
+text = "Load da game"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=758538753]
+
+[node name="Label" type="Label" parent="." unique_id=1825339950]
+offset_left = -62.0
+offset_top = -175.0
+offset_right = 62.0
+offset_bottom = -152.0
+text = "Title of da game"
