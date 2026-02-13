@@ -41,8 +41,9 @@ func _physics_process(delta):
 	
 	agent.target_position = player.global_position
 	if not chasing:
+		$AnimationPlayer.stop()
 		return
-
+	$AnimationPlayer.play("bweh walk")
 	# Update target every tick
 	agent.target_position = player.global_position
 
@@ -56,10 +57,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	#if the player is in its pathfind area chase him
 	if (body.is_in_group("player")):
 		chasing=true
+		
 	
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

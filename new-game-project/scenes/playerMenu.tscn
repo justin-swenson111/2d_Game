@@ -1,3 +1,190 @@
 [gd_scene format=3 uid="uid://d8o2cwwb07hq"]
 
+[ext_resource type="Texture2D" uid="uid://cy04ojipe3j6s" path="res://sprites/player/mainFw.png" id="1_fdbot"]
+[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scenes/load.gd" id="2_cxu76"]
+[ext_resource type="Texture2D" uid="uid://4g1x1l3m02xu" path="res://tileset/Rock.png" id="3_hc25o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27edg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfe1u"]
+
 [node name="PlayerMenu" type="Node2D" unique_id=475428009]
+
+[node name="artifact" type="Area2D" parent="." unique_id=319379924]
+position = Vector2(-20, -45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="artifact" unique_id=1498878718]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_27edg")
+
+[node name="MenuButton" type="MenuButton" parent="artifact" unique_id=521584227]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -22.0
+offset_bottom = -2.0
+
+[node name="wOption1" type="OptionButton" parent="artifact/MenuButton" unique_id=460454182]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+item_count = 2
+popup/item_0/text = "Hi"
+popup/item_0/id = 0
+popup/item_1/text = "Hi again"
+popup/item_1/id = 1
+
+[node name="weapon2" type="Area2D" parent="." unique_id=1191012553]
+position = Vector2(-20, 0)
+
+[node name="MenuButton" type="MenuButton" parent="weapon2" unique_id=645578995]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -22.0
+offset_bottom = -2.0
+
+[node name="wOption1" type="OptionButton" parent="weapon2/MenuButton" unique_id=587826105]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+item_count = 2
+popup/item_0/text = "Hi"
+popup/item_0/id = 0
+popup/item_1/text = "Hi again"
+popup/item_1/id = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon2" unique_id=427937062]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_27edg")
+
+[node name="weapon1" type="Area2D" parent="." unique_id=1230593616]
+position = Vector2(-20, -22.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon1" unique_id=521861261]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_27edg")
+
+[node name="MenuButton" type="MenuButton" parent="weapon1" unique_id=405051053]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -22.0
+offset_bottom = -2.0
+
+[node name="wOption1" type="OptionButton" parent="weapon1/MenuButton" unique_id=1072616016]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+item_count = 2
+popup/item_0/text = "Hi"
+popup/item_0/id = 0
+popup/item_1/text = "Hi again"
+popup/item_1/id = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1620224281]
+zoom = Vector2(5, 5)
+
+[node name="Player" type="Area2D" parent="." unique_id=657105332]
+position = Vector2(-85, -25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=138148971]
+scale = Vector2(2.5, 3.5)
+shape = SubResource("RectangleShape2D_27edg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1270973370]
+scale = Vector2(2, 2)
+texture = ExtResource("1_fdbot")
+
+[node name="bow" type="Area2D" parent="." unique_id=1490394399]
+position = Vector2(45, -45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bow" unique_id=746690750]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_27edg")
+
+[node name="MenuButton" type="MenuButton" parent="bow" unique_id=1454420338]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -22.0
+offset_bottom = -2.0
+
+[node name="wOption1" type="OptionButton" parent="bow/MenuButton" unique_id=659582867]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+item_count = 2
+popup/item_0/text = "Hi"
+popup/item_0/id = 0
+popup/item_1/text = "Hi again"
+popup/item_1/id = 1
+
+[node name="magWeapon2" type="Area2D" parent="." unique_id=1543615438]
+position = Vector2(45, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magWeapon2" unique_id=1618107861]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_27edg")
+
+[node name="MenuButton" type="MenuButton" parent="magWeapon2" unique_id=2120614246]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -22.0
+offset_bottom = -2.0
+
+[node name="wOption1" type="OptionButton" parent="magWeapon2/MenuButton" unique_id=78361093]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+item_count = 2
+popup/item_0/text = "Hi"
+popup/item_0/id = 0
+popup/item_1/text = "Hi again"
+popup/item_1/id = 1
+
+[node name="magWeapon1" type="Area2D" parent="." unique_id=1955633243]
+position = Vector2(45, -22.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magWeapon1" unique_id=1449241348]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_27edg")
+
+[node name="MenuButton" type="MenuButton" parent="magWeapon1" unique_id=1449287334]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -22.0
+offset_bottom = -2.0
+
+[node name="wOption1" type="OptionButton" parent="magWeapon1/MenuButton" unique_id=1246459764]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+item_count = 2
+popup/item_0/text = "Hi"
+popup/item_0/id = 0
+popup/item_1/text = "Hi again"
+popup/item_1/id = 1
+
+[node name="Load" type="Area2D" parent="." unique_id=1306330039]
+position = Vector2(95, -48)
+scale = Vector2(0.15, 0.15)
+script = ExtResource("2_cxu76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Load" unique_id=1869927293]
+scale = Vector2(10, 5)
+shape = SubResource("RectangleShape2D_hfe1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Load" unique_id=1915406301]
+scale = Vector2(10, 5)
+texture = ExtResource("3_hc25o")
+
+[node name="Label" type="Label" parent="Load" unique_id=145657773]
+offset_left = -54.0
+offset_top = -10.0
+offset_right = 54.0
+offset_bottom = 13.0
+text = "Exit"
+horizontal_alignment = 1

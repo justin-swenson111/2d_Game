@@ -1,11 +1,52 @@
 [gd_scene format=3 uid="uid://4oovtax3voq0"]
 
 [ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://scripts/enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://bcdnbwaabpkmm" path="res://sprites/bweh.png" id="2_7jlpp"]
+[ext_resource type="Texture2D" uid="uid://bcdnbwaabpkmm" path="res://sprites/bweh/bweh still.png" id="2_7jlpp"]
+[ext_resource type="Texture2D" uid="uid://be3uab438souh" path="res://sprites/bweh/bweh1.png" id="3_41oev"]
+[ext_resource type="Texture2D" uid="uid://qqchycivmwyx" path="res://sprites/bweh/bweh2.png" id="4_3hb37"]
+[ext_resource type="Texture2D" uid="uid://dpsvit4d10pt2" path="res://sprites/bweh/bweh3.png" id="5_2ld5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fos0i"]
+
+[sub_resource type="Animation" id="Animation_we7g8"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("walk:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_41oev"), ExtResource("4_3hb37")]
+}
+
+[sub_resource type="Animation" id="Animation_3hb37"]
+resource_name = "bweh walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("walk:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_41oev"), ExtResource("4_3hb37"), ExtResource("5_2ld5k")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ld5k"]
+_data = {
+&"RESET": SubResource("Animation_we7g8"),
+&"bweh walk": SubResource("Animation_3hb37")
+}
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1783438828 groups=["dest"]]
 collision_layer = 2
@@ -16,7 +57,8 @@ script = ExtResource("1_4gyqm")
 scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_trn2v")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1004811504]
+[node name="stand" type="Sprite2D" parent="." unique_id=1004811504]
+visible = false
 texture = ExtResource("2_7jlpp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1934326883]
@@ -33,6 +75,12 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pathfind area" unique_id=1831845977]
 scale = Vector2(15, 15)
 shape = SubResource("CircleShape2D_fos0i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1267244420]
+libraries/ = SubResource("AnimationLibrary_2ld5k")
+
+[node name="walk" type="Sprite2D" parent="." unique_id=295739069]
+texture = ExtResource("3_41oev")
 
 [connection signal="body_entered" from="pathfind area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="pathfind area" to="." method="_on_area_2d_body_exited"]

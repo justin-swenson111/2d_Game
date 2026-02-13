@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcdnbwaabpkmm"
-path="res://.godot/imported/bweh.png-743ce2a726e14d2b10237ba96502077c.ctex"
+path="res://.godot/imported/bweh still.png-24eb75a5836057a1120a94011c279ed6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bweh.png"
-dest_files=["res://.godot/imported/bweh.png-743ce2a726e14d2b10237ba96502077c.ctex"]
+source_file="res://sprites/bweh/bweh still.png"
+dest_files=["res://.godot/imported/bweh still.png-24eb75a5836057a1120a94011c279ed6.ctex"]
 
 [params]
 
