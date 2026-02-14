@@ -8,17 +8,14 @@ extends CharacterBody2D
 }
 
 const arrow = preload("res://objects/arrow.tscn")
+const menu = preload("res://scenes/playerMenu.tscn")
 
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
-@onready var weaponList :={
-	"sword" : [0.5,1.5,0.5,1,1],
-	"spear" : [2,0.5,0.5,1,1],
-	"axe" : [0.75,0.5,0.25,1.25,3],
-	"mace" : [0.5,1,1,2,2]
-}
-var w1 = "axe"
-var w2 = "mace"
-var curWeapon = w2
+@onready var weaponList =Global.weaponList
+
+var w1 = Global.w1
+var w2 = Global.w2
+var curWeapon = w1
 
 var melee = true
 
@@ -31,7 +28,7 @@ var atkDamage = 1
 
 #auto sets the weapon based on selections
 func _ready():
-	switch()
+	setWeapon()
 
 #movement based on wasd presses
 func _physics_process(delta: float) -> void:
@@ -68,8 +65,10 @@ func _input(event: InputEvent) -> void:
 			atkDelayLng=1
 			melee=true
 	if event.is_action_pressed("openMenu"):
-		get_tree().change_scene_to_file("res://scenes/playerMenu.tscn")
-		
+		get_tree().paused=true
+		var menuInst = menu.instantiate()
+		menuInst.position=$mainCamera.global_position
+		get_tree().current_scene.add_child(menuInst)
 
 #getting the collision to be used and running the attack delay
 func atk(dmg: Area2D):

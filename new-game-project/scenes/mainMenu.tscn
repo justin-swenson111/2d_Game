@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqvnqn6fyko75" path="res://scripts/startMenu.gd" id="1_qkhwq"]
 [ext_resource type="Texture2D" uid="uid://4g1x1l3m02xu" path="res://tileset/Rock.png" id="2_3d1i7"]
-[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scenes/load.gd" id="3_48ign"]
+[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scripts/load.gd" id="3_48ign"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkhwq"]
 
@@ -72,3 +72,5 @@ offset_top = -175.0
 offset_right = 62.0
 offset_bottom = -152.0
 text = "Title of da game"
+
+[connection signal="input_event" from="Load" to="Load" method="_on_input_event"]
