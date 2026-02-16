@@ -48,7 +48,10 @@ _data = {
 &"bweh walk": SubResource("Animation_3hb37")
 }
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1783438828 groups=["dest"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5c7ut"]
+radius = 21.84033
+
+[node name="Bweh" type="CharacterBody2D" unique_id=1783438828 groups=["dest"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_4gyqm")
@@ -81,6 +84,12 @@ libraries/ = SubResource("AnimationLibrary_2ld5k")
 
 [node name="walk" type="Sprite2D" parent="." unique_id=295739069]
 texture = ExtResource("3_41oev")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2065411626]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=142080611]
+shape = SubResource("CircleShape2D_5c7ut")
 
 [connection signal="body_entered" from="pathfind area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="pathfind area" to="." method="_on_area_2d_body_exited"]

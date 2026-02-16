@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cweix8mo4313a" path="res://scenes/menuLoad.gd" id="1_cxu76"]
 [ext_resource type="Texture2D" uid="uid://cy04ojipe3j6s" path="res://sprites/player/mainFw.png" id="1_fdbot"]
 [ext_resource type="Script" uid="uid://bl6xbibdcp2k6" path="res://scenes/return.gd" id="2_27edg"]
-[ext_resource type="Script" uid="uid://c14k8q1gfcgr3" path="res://scenes/wep1.gd" id="2_hfe1u"]
-[ext_resource type="Script" uid="uid://cjno86p7jtac5" path="res://scenes/wep2.gd" id="3_vftbp"]
+[ext_resource type="Script" uid="uid://c14k8q1gfcgr3" path="res://scripts/wep1.gd" id="3_hfe1u"]
+[ext_resource type="Script" uid="uid://cjno86p7jtac5" path="res://scripts/wep2.gd" id="3_vftbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27edg"]
 
@@ -50,7 +50,7 @@ layout_mode = 0
 offset_right = 32.0
 offset_bottom = 20.0
 scale = Vector2(0.5, 0.5)
-script = ExtResource("2_hfe1u")
+script = ExtResource("3_vftbp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="weapon2" unique_id=427937062]
 scale = Vector2(3, 1)
@@ -74,7 +74,7 @@ layout_mode = 0
 offset_right = 32.0
 offset_bottom = 20.0
 scale = Vector2(0.5, 0.5)
-script = ExtResource("3_vftbp")
+script = ExtResource("3_hfe1u")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1620224281]
 zoom = Vector2(5, 5)
@@ -172,4 +172,5 @@ text = "Return"
 script = ExtResource("2_27edg")
 
 [connection signal="item_selected" from="weapon2/MenuButton/wOption1" to="weapon2/MenuButton/wOption1" method="_on_item_selected"]
+[connection signal="item_selected" from="weapon1/MenuButton/wOption1" to="weapon1/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
