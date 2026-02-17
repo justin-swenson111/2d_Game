@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hneqe41eg415"
-path="res://.godot/imported/LightFlowerFloor.png-37de8c17c5ce39876b1fdf41b861869e.ctex"
+uid="uid://c18arndr2gd1g"
+path="res://.godot/imported/BWEHatk1.png-2c2aa93b9dce132435bfe13570011dfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/LightFlowerFloor.png"
-dest_files=["res://.godot/imported/LightFlowerFloor.png-37de8c17c5ce39876b1fdf41b861869e.ctex"]
+source_file="res://sprites/bweh/BWEHatk1.png"
+dest_files=["res://.godot/imported/BWEHatk1.png-2c2aa93b9dce132435bfe13570011dfd.ctex"]
 
 [params]
 

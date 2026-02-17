@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1j413qgxio7o"
-path="res://.godot/imported/Grassfloor.png-2d88fa4c5f7fd226dd96009c8dc0fc8c.ctex"
+uid="uid://bkovr0d7cw5cl"
+path="res://.godot/imported/Grasslight.png-0327fe69f71af169eb013e64c80625af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/Grassfloor.png"
-dest_files=["res://.godot/imported/Grassfloor.png-2d88fa4c5f7fd226dd96009c8dc0fc8c.ctex"]
+source_file="res://tileset/Grasslight.png"
+dest_files=["res://.godot/imported/Grasslight.png-0327fe69f71af169eb013e64c80625af.ctex"]
 
 [params]
 

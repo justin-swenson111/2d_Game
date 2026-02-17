@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcdnbwaabpkmm"
-path="res://.godot/imported/bweh still.png-24eb75a5836057a1120a94011c279ed6.ctex"
+uid="uid://gvopeuqhi8vp"
+path="res://.godot/imported/uptGrass.png-e904cad5095ac00b91ff853249b38aea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bweh/bweh still.png"
-dest_files=["res://.godot/imported/bweh still.png-24eb75a5836057a1120a94011c279ed6.ctex"]
+source_file="res://uptGrass.png"
+dest_files=["res://.godot/imported/uptGrass.png-e904cad5095ac00b91ff853249b38aea.ctex"]
 
 [params]
 

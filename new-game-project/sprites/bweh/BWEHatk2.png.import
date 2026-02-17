@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buhtg66m8dl6y"
-path="res://.godot/imported/Background.png-0c7fe63eb56aed959f8d6c009dda4b1d.ctex"
+uid="uid://cwid63rkn4f8s"
+path="res://.godot/imported/BWEHatk2.png-4881b434ec4a4da714588aed3f533681.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/Background.png"
-dest_files=["res://.godot/imported/Background.png-0c7fe63eb56aed959f8d6c009dda4b1d.ctex"]
+source_file="res://sprites/bweh/BWEHatk2.png"
+dest_files=["res://.godot/imported/BWEHatk2.png-4881b434ec4a4da714588aed3f533681.ctex"]
 
 [params]
 

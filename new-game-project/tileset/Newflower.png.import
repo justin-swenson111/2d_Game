@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be3uab438souh"
-path="res://.godot/imported/bweh1.png-590945e01c0cc63d88446913d5d24383.ctex"
+uid="uid://cx0fkgqeui8cl"
+path="res://.godot/imported/Newflower.png-ee609671115573fcaef5c47358f272be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bweh/bweh1.png"
-dest_files=["res://.godot/imported/bweh1.png-590945e01c0cc63d88446913d5d24383.ctex"]
+source_file="res://tileset/Newflower.png"
+dest_files=["res://.godot/imported/Newflower.png-ee609671115573fcaef5c47358f272be.ctex"]
 
 [params]
 

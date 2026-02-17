@@ -10,6 +10,8 @@ extends CharacterBody2D
 const arrow = preload("res://objects/arrow.tscn")
 const menu = preload("res://scenes/playerMenu.tscn")
 
+var health = 10
+
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList
 
@@ -149,6 +151,10 @@ func rgdAtk(dir: String):
 		#create the arrow and start the atk delay
 		add_child(nArrow)
 		atkDly()
+
+func ouchie(source):
+	health-=1
+	print(health)
 
 #attack hit box calls
 func _on_left_atk_body_entered(body: Node2D) -> void:
