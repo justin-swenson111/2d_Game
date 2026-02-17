@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gvopeuqhi8vp"
-path="res://.godot/imported/uptGrass.png-e904cad5095ac00b91ff853249b38aea.ctex"
+uid="uid://cfxoxrnjnmc0e"
+path="res://.godot/imported/terrainObstacles.png-069a4fc665157c22874e0c13ab6253d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://uptGrass.png"
-dest_files=["res://.godot/imported/uptGrass.png-e904cad5095ac00b91ff853249b38aea.ctex"]
+source_file="res://tileset/obstacles/terrainObstacles.png"
+dest_files=["res://.godot/imported/terrainObstacles.png-069a4fc665157c22874e0c13ab6253d2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkovr0d7cw5cl"
-path="res://.godot/imported/Grasslight.png-0327fe69f71af169eb013e64c80625af.ctex"
+uid="uid://cwlvv2p8kts10"
+path="res://.godot/imported/Death2.png-d1fe3eb27c050cc841e00f15c20a8da6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/Grasslight.png"
-dest_files=["res://.godot/imported/Grasslight.png-0327fe69f71af169eb013e64c80625af.ctex"]
+source_file="res://sprites/bweh/Death2.png"
+dest_files=["res://.godot/imported/Death2.png-d1fe3eb27c050cc841e00f15c20a8da6.ctex"]
 
 [params]
 

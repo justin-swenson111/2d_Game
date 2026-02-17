@@ -6,5 +6,12 @@ var weaponList :={
 	"axe" : [0.75,0.5,0.25,1.25,3],
 	"mace" : [0.5,1,1,2,2]
 }
+
+var weaponSprites = {
+	"sword":"res://sprites/weapon/Sword.png",
+	"spear":"res://sprites/weapon/Spear.png",
+	"axe":"res://sprites/weapon/Axe.png",
+	"mace":"res://sprites/weapon/Mace.png"
+}
 var w1 = "sword"
 var w2 = "spear"

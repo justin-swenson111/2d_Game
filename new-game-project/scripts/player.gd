@@ -14,10 +14,12 @@ var health = 10
 
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList
+@onready var weaponSprites = Global.weaponSprites
 
 var w1 = Global.w1
 var w2 = Global.w2
 var curWeapon = w1
+@onready var curWeaponSprite = weaponSprites["sword"]
 
 var melee = true
 
@@ -107,6 +109,8 @@ func setWeapon():
 		var type = weaponList[t]
 		#if the new current weapon equals the key
 		if t == curWeapon:
+			#setting the sprite path
+			curWeaponSprite=weaponSprites[t]
 			#height and width of weapon hit box
 			height= type[0]
 			width = type[1]
@@ -116,6 +120,7 @@ func setWeapon():
 			#amount of damage
 			atkDamage = type[4]
 			
+	$currentWeapon.texture=load(curWeaponSprite)
 	#setting the different hitboxes size
 	for i in atkList:
 		var coll = atkList[i].get_node("CollisionShape2D")

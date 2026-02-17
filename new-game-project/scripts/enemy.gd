@@ -6,7 +6,8 @@ var inRange = false
 var chasing := false
 var atking = false
 var speed := 60.0
-var health=5
+var health=1
+var isDead=false
 
 @export var knockback_strength := 100.0
 @export var knockback_stun_time := 0.5
@@ -19,12 +20,22 @@ func _ready():
 	
 
 func hurt(source: Node2D,dmg: int):
+	if isDead:return
 	#takes damage then knockback
-	print(health, dmg)
 	health-=dmg
 	knockback_from(source)
+	print(health, dmg)
 	if health<=0:
-		self.queue_free()
+		await get_tree().create_timer(0.5).timeout
+		isDead=true
+		$stand.visible=false
+		$walk.visible=false
+		$attack.visible=false
+		$anim.stop()
+		$anim.play("bwehDeath")
+		print($anim.get_animation("bwehDeath").length)
+		await get_tree().create_timer(5).timeout
+		queue_free()
 	
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage source and moves in that direction
@@ -41,7 +52,7 @@ func knockback_from(source: Node2D):
 
 func _physics_process(delta):
 	agent.target_position = player.global_position
-	if not chasing:
+	if not chasing and not isDead:
 		$anim.stop()
 		$stand.visible=true
 		$walk.visible=false
@@ -59,33 +70,34 @@ func _physics_process(delta):
 	#if not taking knockback move towards the player at speed
 	if not stunned:
 		velocity = direction * speed
-	if not atking:
+	if not atking and not isDead:
 		$anim.play("bwehWalk")
 		move_and_slide()
 
 func atk(source):
-	$attack.visible=true
-	$walk.visible=false
-	$stand.visible=false
-	await get_tree().create_timer(0.5).timeout
-	atking=true
-	$anim.stop()
-	$anim.play("bwehAtk")
-	await get_tree().create_timer(1).timeout
-	if inRange:
-		source.ouchie(source)
-		knockback_from(source)
-	atking=false
-	$attack.visible=false
-	var small = load("res://sprites/bweh/BWEHatk1.png")
-	$attack.texture=small
-	$walk.visible=true
-	$stand.visible=true
+	if not isDead:
+		$attack.visible=true
+		$walk.visible=false
+		$stand.visible=false
+		await get_tree().create_timer(0.5).timeout
+		atking=true
+		$anim.stop()
+		$anim.play("bwehAtk")
+		await get_tree().create_timer(1).timeout
+		if inRange:
+			source.ouchie(source)
+			knockback_from(source)
+		atking=false
+		$attack.visible=false
+		var small = load("res://sprites/bweh/BWEHatk1.png")
+		$attack.texture=small
+		$walk.visible=true
+		$stand.visible=true
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	#if the player is in its pathfind area chase him
-	if (body.is_in_group("player")):
+	if (body.is_in_group("player") and not isDead):
 		chasing=true
 		$stand.visible=false
 		$walk.visible=true
