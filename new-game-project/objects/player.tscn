@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://3cdngw2pcdrt"]
+
+[ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://scripts/player.gd" id="1_uxov2"]
+[ext_resource type="Texture2D" uid="uid://cy04ojipe3j6s" path="res://sprites/player/mainFw.png" id="2_nmc1l"]
+[ext_resource type="Texture2D" uid="uid://b1hs4kjkp3tes" path="res://sprites/player/walking/back/Walkback1.png" id="3_3nfmf"]
+[ext_resource type="Texture2D" uid="uid://dv13fqnvg025x" path="res://sprites/weapon/Sword.png" id="3_f46kd"]
+[ext_resource type="Texture2D" uid="uid://chki8yjed5i85" path="res://sprites/player/walking/fwd/walkfwd1.png" id="3_i825w"]
+[ext_resource type="Texture2D" uid="uid://dv5n5mstxj8ay" path="res://sprites/player/walking/fwd/walkfwd2.png" id="5_3rfka"]
+[ext_resource type="Texture2D" uid="uid://1eb87n55saqv" path="res://sprites/player/walking/back/Walkback2.png" id="5_42cpl"]
+[ext_resource type="Texture2D" uid="uid://d38igov5mq3r0" path="res://sprites/player/walking/fwd/Walkfwd3.png" id="6_i8sra"]
+[ext_resource type="Texture2D" uid="uid://c068kdrg88pps" path="res://sprites/player/walking/back/Walkback3.png" id="6_vqq2l"]
+[ext_resource type="Texture2D" uid="uid://cuhjorber3n2d" path="res://sprites/player/walking/fwd/Walkfwd4.png" id="7_4vq5b"]
+[ext_resource type="Texture2D" uid="uid://dyvw2usotbi10" path="res://sprites/player/walking/back/Walkback4.png" id="7_r673r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dxm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
+
+[sub_resource type="Animation" id="Animation_3nfmf"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moving:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_3nfmf"), ExtResource("5_42cpl"), ExtResource("6_vqq2l"), ExtResource("7_r673r")]
+}
+
+[sub_resource type="Animation" id="Animation_42cpl"]
+resource_name = "bckwdWalk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moving:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_3nfmf"), ExtResource("5_42cpl"), ExtResource("6_vqq2l"), ExtResource("7_r673r")]
+}
+
+[sub_resource type="Animation" id="Animation_vqq2l"]
+resource_name = "fwdWalk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("moving:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_i825w"), ExtResource("5_3rfka"), ExtResource("6_i8sra"), ExtResource("7_4vq5b")]
+}
+
+[sub_resource type="Animation" id="Animation_r673r"]
+resource_name = "fwsSwdAtk"
+
+[sub_resource type="Animation" id="Animation_mqnmn"]
+resource_name = "leftWalk"
+
+[sub_resource type="Animation" id="Animation_5esnd"]
+resource_name = "rightWalk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1o2u"]
+_data = {
+&"RESET": SubResource("Animation_3nfmf"),
+&"bckwdWalk": SubResource("Animation_42cpl"),
+&"fwdWalk": SubResource("Animation_vqq2l"),
+&"fwsSwdAtk": SubResource("Animation_r673r"),
+&"leftWalk": SubResource("Animation_mqnmn"),
+&"rightWalk": SubResource("Animation_5esnd")
+}
+
+[node name="player" type="CharacterBody2D" unique_id=431234177 groups=["player"]]
+collision_mask = 6
+script = ExtResource("1_uxov2")
+
+[node name="PlayerBox" type="CollisionShape2D" parent="." unique_id=319227291]
+visible = false
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_trn2v")
+
+[node name="stand" type="Sprite2D" parent="." unique_id=1579311054]
+texture = ExtResource("2_nmc1l")
+
+[node name="moving" type="Sprite2D" parent="." unique_id=1646823923]
+texture = ExtResource("3_3nfmf")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1765195337]
+target_desired_distance = 4.0
+path_max_distance = 10.0
+
+[node name="leftAtk" type="Area2D" parent="." unique_id=339344686]
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftAtk" unique_id=96235281]
+position = Vector2(-15, 0)
+scale = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_fos0i")
+disabled = true
+
+[node name="rightAtk" type="Area2D" parent="." unique_id=1499584987]
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightAtk" unique_id=1543054859]
+position = Vector2(15, 0)
+scale = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_3dxm6")
+disabled = true
+
+[node name="upAtk" type="Area2D" parent="." unique_id=2030400027]
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upAtk" unique_id=881274357]
+position = Vector2(0, -15)
+scale = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_lgr22")
+disabled = true
+
+[node name="downAtk" type="Area2D" parent="." unique_id=159946394]
+visible = false
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="downAtk" unique_id=1861297563]
+position = Vector2(0, 15)
+scale = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_03owx")
+disabled = true
+
+[node name="mainCamera" type="Camera2D" parent="." unique_id=1676976802]
+zoom = Vector2(3, 3)
+
+[node name="currentWeapon" type="Sprite2D" parent="." unique_id=585684252]
+position = Vector2(176, -92)
+texture = ExtResource("3_f46kd")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=612462367]
+libraries/ = SubResource("AnimationLibrary_w1o2u")
+
+[connection signal="body_entered" from="leftAtk" to="." method="_on_left_atk_body_entered"]
+[connection signal="body_entered" from="rightAtk" to="." method="_on_right_atk_body_entered"]
+[connection signal="body_entered" from="upAtk" to="." method="_on_up_atk_body_entered"]
+[connection signal="body_entered" from="downAtk" to="." method="_on_down_atk_body_entered"]

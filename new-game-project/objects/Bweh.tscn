@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cwid63rkn4f8s" path="res://sprites/bweh/BWEHatk2.png" id="4_m01xa"]
 [ext_resource type="Texture2D" uid="uid://b3thcfcdac4ro" path="res://sprites/bweh/Death1.png" id="4_v413j"]
 [ext_resource type="Texture2D" uid="uid://cwlvv2p8kts10" path="res://sprites/bweh/Death2.png" id="6_07f0n"]
-[ext_resource type="Texture2D" uid="uid://cmckwpxdnvtc2" path="res://sprites/bweh/Death3.png" id="7_bpndt"]
+[ext_resource type="Texture2D" uid="uid://cg8od5ttgqpec" path="res://sprites/bweh/Death3.png" id="7_bpndt"]
+[ext_resource type="Texture2D" uid="uid://cmckwpxdnvtc2" path="res://sprites/bweh/Death4.png" id="8_07f0n"]
 
 [sub_resource type="Animation" id="Animation_0ae3b"]
 length = 0.001
@@ -67,7 +68,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xf471"]
 resource_name = "bwehDeath"
-length = 2.0
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -75,10 +76,10 @@ tracks/0/path = NodePath("death:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5666667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_v413j"), ExtResource("6_07f0n"), ExtResource("7_bpndt")]
+"values": [ExtResource("4_v413j"), ExtResource("6_07f0n"), ExtResource("7_bpndt"), ExtResource("8_07f0n")]
 }
 
 [sub_resource type="Animation" id="Animation_m01xa"]

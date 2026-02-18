@@ -24,30 +24,35 @@ func hurt(source: Node2D,dmg: int):
 	#takes damage then knockback
 	health-=dmg
 	knockback_from(source)
-	print(health, dmg)
+	#print(health, dmg)
 	if health<=0:
 		await get_tree().create_timer(0.5).timeout
 		isDead=true
 		$stand.visible=false
 		$walk.visible=false
-		$attack.visible=false
+		
 		$anim.stop()
 		$anim.play("bwehDeath")
 		print($anim.get_animation("bwehDeath").length)
-		await get_tree().create_timer(5).timeout
+		await $anim.animation_finished
 		queue_free()
+
 	
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage source and moves in that direction
 	var dir := (global_position - source.global_position).normalized()
 	velocity = dir * knockback_strength
-
+	if health==0:
+		$attack.visible=false
+		$stand.visible=true
 	#cannot update its velocity for stun_time
 	stunned = true
 
 	await get_tree().create_timer(knockback_stun_time).timeout
 	#enemy can move again
 	stunned = false
+	
+	
 
 
 func _physics_process(delta):
@@ -91,13 +96,14 @@ func atk(source):
 		$attack.visible=false
 		var small = load("res://sprites/bweh/BWEHatk1.png")
 		$attack.texture=small
-		$walk.visible=true
-		$stand.visible=true
+		if not isDead:
+			$walk.visible=true
+			$stand.visible=true
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	#if the player is in its pathfind area chase him
-	if (body.is_in_group("player") and not isDead):
+	if (body.is_in_group("player")):
 		chasing=true
 		$stand.visible=false
 		$walk.visible=true

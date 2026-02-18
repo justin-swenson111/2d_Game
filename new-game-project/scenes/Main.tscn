@@ -3,10 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://gvopeuqhi8vp" path="res://tileset/grassNavigation/uptGrass.png" id="1_rarhs"]
 [ext_resource type="Texture2D" uid="uid://cfxoxrnjnmc0e" path="res://tileset/obstacles/terrainObstacles.png" id="2_c01mt"]
 [ext_resource type="Texture2D" uid="uid://mogxafhrr17x" path="res://tileset/grassNavigation/grassAvoid.png" id="2_nxtc6"]
-[ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://scripts/player.gd" id="3_nxtc6"]
-[ext_resource type="Texture2D" uid="uid://cy04ojipe3j6s" path="res://sprites/player/mainFw.png" id="3_rarhs"]
+[ext_resource type="PackedScene" uid="uid://3cdngw2pcdrt" path="res://objects/player.tscn" id="4_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://4oovtax3voq0" path="res://objects/Bweh.tscn" id="5_q8u5g"]
-[ext_resource type="Texture2D" uid="uid://dv13fqnvg025x" path="res://sprites/weapon/Sword.png" id="8_qmy6f"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rarhs"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -109,16 +107,6 @@ sources/8 = SubResource("TileSetAtlasSource_nxtc6")
 sources/14 = SubResource("TileSetAtlasSource_q8u5g")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [4, Vector2i(0, 0)], [0, Vector2i(0, 1)], [4, Vector2i(0, 1)], [0, Vector2i(1, 0)], [4, Vector2i(1, 0)], [0, Vector2i(1, 1)], [4, Vector2i(1, 1)], [1, Vector2i(0, 0)], [4, Vector2i(1, 0)], [1, Vector2i(0, 1)], [7, Vector2i(0, 1)], [1, Vector2i(1, 0)], [7, Vector2i(1, 0)], [1, Vector2i(1, 1)], [7, Vector2i(1, 1)], [2, Vector2i(0, 0)], [4, Vector2i(2, 0)], [2, Vector2i(0, 1)], [4, Vector2i(2, 1)], [2, Vector2i(1, 0)], [4, Vector2i(3, 0)], [2, Vector2i(1, 1)], [4, Vector2i(3, 1)], [3, Vector2i(0, 0)], [4, Vector2i(3, 0)], [3, Vector2i(1, 0)], [2, Vector2i(3, 0)], [4, Vector2i(0, 0)], [8, Vector2i(0, 0)], [4, Vector2i(0, 1)], [8, Vector2i(0, 1)], [4, Vector2i(1, 0)], [8, Vector2i(1, 0)], [4, Vector2i(1, 1)], [8, Vector2i(1, 1)], [4, Vector2i(2, 0)], [6, Vector2i(2, 0)], [4, Vector2i(2, 1)], [7, Vector2i(5, 1)], [4, Vector2i(3, 0)], [6, Vector2i(3, 0)], [4, Vector2i(3, 1)], [7, Vector2i(6, 1)], [4, Vector2i(4, 0)], [7, Vector2i(7, 0)], [4, Vector2i(4, 1)], [7, Vector2i(7, 1)], [4, Vector2i(5, 0)], [7, Vector2i(8, 0)], [4, Vector2i(5, 1)], [7, Vector2i(8, 1)], [5, Vector2i(0, 0)], [6, Vector2i(4, 0)], [5, Vector2i(0, 1)], [8, Vector2i(2, 1)], [5, Vector2i(1, 0)], [6, Vector2i(2, 0)], [5, Vector2i(1, 1)], [8, Vector2i(3, 1)], [6, Vector2i(0, 0)], [8, Vector2i(4, 0)], [6, Vector2i(0, 1)], [8, Vector2i(4, 1)], [6, Vector2i(1, 0)], [8, Vector2i(5, 0)], [6, Vector2i(1, 1)], [8, Vector2i(5, 1)], [7, Vector2i(0, 0)], [8, Vector2i(6, 0)], [7, Vector2i(0, 1)], [8, Vector2i(6, 1)], [7, Vector2i(0, 2)], [8, Vector2i(6, 2)], [7, Vector2i(0, 3)], [8, Vector2i(6, 3)], [7, Vector2i(1, 0)], [8, Vector2i(7, 0)], [7, Vector2i(1, 1)], [8, Vector2i(7, 1)], [7, Vector2i(1, 2)], [8, Vector2i(7, 2)], [7, Vector2i(1, 3)], [8, Vector2i(7, 3)], [7, Vector2i(2, 0)], [8, Vector2i(8, 0)], [7, Vector2i(2, 1)], [8, Vector2i(8, 1)], [7, Vector2i(2, 2)], [8, Vector2i(8, 2)], [7, Vector2i(2, 3)], [8, Vector2i(8, 3)], [7, Vector2i(3, 1)], [8, Vector2i(9, 1)], [7, Vector2i(3, 3)], [8, Vector2i(9, 3)], [9, Vector2i(0, 0)], [14, Vector2i(0, 0)], [10, Vector2i(0, 0)], [14, Vector2i(1, 0)], [11, Vector2i(0, 0)], [14, Vector2i(2, 0)], [12, Vector2i(0, 0)], [14, Vector2i(3, 0)]]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dxm6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
-
 [node name="Node2D" type="Node2D" unique_id=2100994548]
 
 [node name="foreground" type="TileMapLayer" parent="." unique_id=2121356699]
@@ -129,68 +117,7 @@ tile_set = SubResource("TileSet_3dxm6")
 tile_map_data = PackedByteArray("AAD3/wUACAACAAEAAAD4/wUACAADAAEAAAACAPv/CAACAAEAAAADAPv/CAADAAEAAAALAP//CAAEAAAAAAALAAAACAAEAAEAAAAMAP//CAAFAAAAAAAMAAAACAAFAAEAAAD//woACAAEAAAAAAD//wsACAAEAAEAAAAAAAoACAAFAAAAAAAAAAsACAAFAAEAAADw/wEACAAEAAAAAADw/wIACAAEAAEAAADx/wEACAAFAAAAAADx/wIACAAFAAEAAAAIAAQACAAGAAAAAAAIAAUACAAGAAEAAAAIAAYACAAGAAIAAAAIAAcACAAGAAMAAAAJAAQACAAHAAAAAAAJAAUACAAHAAEAAAAJAAYACAAHAAIAAAAJAAcACAAHAAMAAAAKAAQACAAIAAAAAAAKAAUACAAIAAEAAAAKAAYACAAIAAIAAAAKAAcACAAIAAMAAAALAAUACAAJAAEAAAALAAcACAAJAAMAAAD4//T/CAAGAAAAAAD4//X/CAAGAAEAAAD4//b/CAAGAAIAAAD4//f/CAAGAAMAAAD5//T/CAAHAAAAAAD5//X/CAAHAAEAAAD5//b/CAAHAAIAAAD5//f/CAAHAAMAAAD6//T/CAAIAAAAAAD6//X/CAAIAAEAAAD6//b/CAAIAAIAAAD6//f/CAAIAAMAAAD7//X/CAAJAAEAAAD7//f/CAAJAAMAAAAOAPP/CAAGAAAAAAAOAPT/CAAGAAEAAAAOAPX/CAAGAAIAAAAOAPb/CAAGAAMAAAAPAPP/CAAHAAAAAAAPAPT/CAAHAAEAAAAPAPX/CAAHAAIAAAAPAPb/CAAHAAMAAAAQAPP/CAAIAAAAAAAQAPT/CAAIAAEAAAAQAPX/CAAIAAIAAAAQAPb/CAAIAAMAAAARAPT/CAAJAAEAAAARAPb/CAAJAAMAAAA=")
 tile_set = SubResource("TileSet_3dxm6")
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=1750349541 groups=["player"]]
-collision_mask = 6
-script = ExtResource("3_nxtc6")
-
-[node name="PlayerBox" type="CollisionShape2D" parent="player" unique_id=1463224738]
-scale = Vector2(0.9, 0.9)
-shape = SubResource("RectangleShape2D_trn2v")
-
-[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1784849466]
-texture = ExtResource("3_rarhs")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="player" unique_id=1521031726]
-target_desired_distance = 4.0
-path_max_distance = 10.0
-
-[node name="leftAtk" type="Area2D" parent="player" unique_id=1254519725]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/leftAtk" unique_id=1971057546]
-position = Vector2(-15, 0)
-scale = Vector2(0.5, 1.5)
-shape = SubResource("RectangleShape2D_fos0i")
-disabled = true
-
-[node name="rightAtk" type="Area2D" parent="player" unique_id=263241082]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/rightAtk" unique_id=986689203]
-position = Vector2(15, 0)
-scale = Vector2(0.5, 1.5)
-shape = SubResource("RectangleShape2D_3dxm6")
-disabled = true
-
-[node name="upAtk" type="Area2D" parent="player" unique_id=105409644]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/upAtk" unique_id=1999871528]
-position = Vector2(0, -15)
-scale = Vector2(1.5, 0.5)
-shape = SubResource("RectangleShape2D_lgr22")
-disabled = true
-
-[node name="downAtk" type="Area2D" parent="player" unique_id=361447322]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/downAtk" unique_id=83881766]
-position = Vector2(0, 15)
-scale = Vector2(1.5, 0.5)
-shape = SubResource("RectangleShape2D_03owx")
-disabled = true
-
-[node name="mainCamera" type="Camera2D" parent="player" unique_id=1970411111]
-zoom = Vector2(3, 3)
-
-[node name="currentWeapon" type="Sprite2D" parent="player" unique_id=135312219]
-position = Vector2(176, -92)
-texture = ExtResource("8_qmy6f")
+[node name="player" parent="." unique_id=431234177 instance=ExtResource("4_vcsgt")]
 
 [node name="Bweh" parent="." unique_id=1783438828 instance=ExtResource("5_q8u5g")]
 position = Vector2(75, 0)
-
-[connection signal="body_entered" from="player/leftAtk" to="player" method="_on_left_atk_body_entered"]
-[connection signal="body_entered" from="player/rightAtk" to="player" method="_on_right_atk_body_entered"]
-[connection signal="body_entered" from="player/upAtk" to="player" method="_on_up_atk_body_entered"]
-[connection signal="body_entered" from="player/downAtk" to="player" method="_on_down_atk_body_entered"]

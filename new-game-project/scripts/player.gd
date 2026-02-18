@@ -37,10 +37,17 @@ func _ready():
 #movement based on wasd presses
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
+
 	if input.length() > 0:
 		velocity = input * SPEED
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+	
+	if velocity==Vector2.ZERO and not atkDelay:
+		$stand.visible=true
+		$moving.visible=false	
+		$anim.stop()
+		
 	move_and_slide()
 
 #if a destructable object is in a attack area it takes the set damage
@@ -73,6 +80,16 @@ func _input(event: InputEvent) -> void:
 		var menuInst = menu.instantiate()
 		menuInst.position=$mainCamera.global_position
 		get_tree().current_scene.add_child(menuInst)
+	if event.is_action_pressed("down"):
+		$stand.visible=false
+		$moving.visible=true
+		$anim.stop()
+		$anim.play("fwdWalk")
+	if event.is_action_pressed("up"):
+		$stand.visible=false
+		$moving.visible=true
+		$anim.stop()
+		$anim.play("bckwdWalk")
 
 #getting the collision to be used and running the attack delay
 func atk(dmg: Area2D):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg8od5ttgqpec"
-path="res://.godot/imported/Death3.png-fd52695f2ed32c1e3a846478af277339.ctex"
+uid="uid://chki8yjed5i85"
+path="res://.godot/imported/walkfwd1.png-f2abda2fab32cde1f87000d3aaee387d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bweh/Death3.png"
-dest_files=["res://.godot/imported/Death3.png-fd52695f2ed32c1e3a846478af277339.ctex"]
+source_file="res://sprites/player/walking/fwd/walkfwd1.png"
+dest_files=["res://.godot/imported/walkfwd1.png-f2abda2fab32cde1f87000d3aaee387d.ctex"]
 
 [params]
 
