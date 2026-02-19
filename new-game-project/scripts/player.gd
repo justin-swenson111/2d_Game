@@ -10,7 +10,10 @@ extends CharacterBody2D
 const arrow = preload("res://objects/arrow.tscn")
 const menu = preload("res://scenes/playerMenu.tscn")
 
-var health = 10
+var knockback_strength = 100
+var knockback=false
+
+var health = 3
 
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList
@@ -33,13 +36,16 @@ var atkDamage = 1
 #auto sets the weapon based on selections
 func _ready():
 	setWeapon()
+	
 
 #movement based on wasd presses
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
 
-	if input.length() > 0:
+	if input.length() > 0 and not knockback:
 		velocity = input * SPEED
+	elif knockback:
+		pass
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	
@@ -176,7 +182,27 @@ func rgdAtk(dir: String):
 
 func ouchie(source):
 	health-=1
-	print(health)
+	knockback_from(source)
+	if health>=0:
+		var highest = $hearts.get_child(0)
+		for i in $hearts.get_children():
+			if int(i.name.substr(1))>int(highest.name.substr(1)):
+				highest=i
+		highest.queue_free()
+	if health==0:
+		get_tree().paused=true
+		
+		
+func knockback_from(source: Node2D):
+	#gets opposite direction from damage 
+	#source and moves in that direction
+	knockback=true
+	var dir := (global_position - source.global_position).normalized()
+	
+	velocity = dir * knockback_strength
+	await get_tree().create_timer(0.25).timeout
+	knockback=false
+	
 
 #attack hit box calls
 func _on_left_atk_body_entered(body: Node2D) -> void:

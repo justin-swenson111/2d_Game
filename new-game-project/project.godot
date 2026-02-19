@@ -21,8 +21,9 @@ Global="*uid://bn3muu0xcj0k6"
 
 [global_group]
 
-player=""
-dest=""
+player="Player Character"
+dest="Objects that take damage"
+scene="current scene"
 
 [input]
 

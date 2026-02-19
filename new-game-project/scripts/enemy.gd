@@ -6,7 +6,7 @@ var inRange = false
 var chasing := false
 var atking = false
 var speed := 60.0
-var health=1
+var health=5
 var isDead=false
 
 @export var knockback_strength := 100.0
@@ -90,7 +90,7 @@ func atk(source):
 		$anim.play("bwehAtk")
 		await get_tree().create_timer(1).timeout
 		if inRange:
-			source.ouchie(source)
+			source.ouchie(self)
 			knockback_from(source)
 		atking=false
 		$attack.visible=false

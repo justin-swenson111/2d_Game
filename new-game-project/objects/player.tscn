@@ -157,6 +157,8 @@ texture = ExtResource("3_f46kd")
 [node name="anim" type="AnimationPlayer" parent="." unique_id=612462367]
 libraries/ = SubResource("AnimationLibrary_w1o2u")
 
+[node name="hearts" type="Node2D" parent="." unique_id=340067647]
+
 [connection signal="body_entered" from="leftAtk" to="." method="_on_left_atk_body_entered"]
 [connection signal="body_entered" from="rightAtk" to="." method="_on_right_atk_body_entered"]
 [connection signal="body_entered" from="upAtk" to="." method="_on_up_atk_body_entered"]
