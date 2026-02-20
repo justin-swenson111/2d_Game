@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bkcud2t1vkguv"]
+
+[ext_resource type="Texture2D" uid="uid://3jt6daa6hk1" path="res://sprites/player/etc/Manaempty.png" id="1_fb2e0"]
+
+[node name="manaEmpty" type="Node2D" unique_id=137500795]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1690003249]
+texture = ExtResource("1_fb2e0")

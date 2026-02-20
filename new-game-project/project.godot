@@ -24,8 +24,8 @@ Global="*uid://bn3muu0xcj0k6"
 player="Player Character"
 dest="Objects that take damage"
 scene="current scene"
-heart="Player Health"
-emptyHeart="empty player health"
+full="Player Health/mana"
+empty="empty player health/mana"
 
 [input]
 

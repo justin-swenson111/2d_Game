@@ -151,11 +151,13 @@ disabled = true
 zoom = Vector2(3, 3)
 
 [node name="currentWeapon" type="Sprite2D" parent="." unique_id=585684252]
-position = Vector2(176, -92)
+position = Vector2(165, -85)
 texture = ExtResource("3_f46kd")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=612462367]
 libraries/ = SubResource("AnimationLibrary_w1o2u")
+
+[node name="mana" type="Node2D" parent="." unique_id=1467675544]
 
 [node name="hearts" type="Node2D" parent="." unique_id=340067647]
 

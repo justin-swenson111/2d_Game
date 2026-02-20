@@ -9,14 +9,21 @@ extends CharacterBody2D
 
 const arrow = preload("res://objects/arrow.tscn")
 const menu = preload("res://scenes/playerMenu.tscn")
-const h = preload("res://objects/heart.tscn")
+const fullH = preload("res://objects/heart.tscn")
 const emptyH = preload("res://objects/heartEmpty.tscn")
+const fullM = preload("res://objects/mana.tscn")
+const emptym = preload("res://objects/manaEmpty.tscn")
 
 
 var knockback_strength = 100
 var knockback=false
 
+const maxHealth = 5
+const maxMana = 10
+
+
 var health = 3
+var mana = 10
 
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList
@@ -38,15 +45,26 @@ var atkDamage = 1
 
 #auto sets the weapon based on selections
 func _ready():
+	health=maxHealth
 	setWeapon()
 	for i in health:
-		var heart = h.instantiate()
+		var heart = fullH.instantiate()
 		heart.name="h"+str(i)
-		heart.add_to_group("heart")
+		heart.add_to_group("full")
 		$hearts.add_child(heart)
 		var child = $hearts.get_children()
 		for j in child:
 			if j.name==heart.name:
+				j.position.y = -70
+				j.position.x=-175+15*i
+	for i in mana:
+		var man = fullM.instantiate()
+		man.name="m"+str(i)
+		man.add_to_group("full")
+		$mana.add_child(man)
+		var child = $mana.get_children()
+		for j in child:
+			if j.name==man.name:
 				j.position.y = -90
 				j.position.x=-175+15*i
 	
@@ -95,10 +113,11 @@ func _input(event: InputEvent) -> void:
 			atkDelayLng=1
 			melee=true
 	if event.is_action_pressed("openMenu"):
-		get_tree().paused=true
-		var menuInst = menu.instantiate()
-		menuInst.position=$mainCamera.global_position
-		get_tree().current_scene.add_child(menuInst)
+		incMana()
+		#get_tree().paused=true
+		#var menuInst = menu.instantiate()
+		#menuInst.position=$mainCamera.global_position
+		#get_tree().current_scene.add_child(menuInst)
 	if event.is_action_pressed("down"):
 		$stand.visible=false
 		$moving.visible=true
@@ -174,7 +193,7 @@ func setWeapon():
 #ranged attack
 func rgdAtk(dir: String):
 	#if the atk dely is not active
-	if not atkDelay:
+	if not atkDelay and mana>0:
 		#create an instance of the arrow object and set its 
 		#rotation and velocity depending on where it got spawned
 		var nArrow = arrow.instantiate()
@@ -192,42 +211,84 @@ func rgdAtk(dir: String):
 		#create the arrow and start the atk delay
 		add_child(nArrow)
 		atkDly()
+		decMana(2)
+		
+func decMana(m):
+	mana-=m
+	for j in range(m):
+		var highest = $mana.get_child(0)
+		var empt = emptym.instantiate()
+		for i in $mana.get_children():
+			if (i.is_in_group("full")):
+				if int(i.name.substr(1))>int(highest.name.substr(1)):
+					highest=i
+					empt.name="e"+str(i.name.substr(1))
+		empt.position.x = highest.position.x
+		empt.position.y = highest.position.y
+		empt.add_to_group("empty")
+		$mana.add_child(empt)
+		highest.free()
 
 func ouchie(source):
 	health-=1
 	knockback_from(source)
 	var highest = $hearts.get_child(0)
+	
+	#for i in $hearts.get_children():
+			#if i.is_in_group("full"):
+				#highest = i
+				#pass
 	var empt = emptyH.instantiate()
 	for i in $hearts.get_children():
-		if (i.is_in_group("heart")):
+		if (i.is_in_group("full")):
+			#print(i.name)
 			if int(i.name.substr(1))>int(highest.name.substr(1)):
 				highest=i
 				empt.name="e"+str(i.name.substr(1))
 	empt.position.x = highest.position.x
 	empt.position.y = highest.position.y
-	empt.add_to_group("emptyHeart")
-	
+	empt.add_to_group("empty")
+	#print(highest.name)
 	$hearts.add_child(empt)
 	highest.queue_free()
-	heal()
+	if health==0:
+		await get_tree().create_timer(0.01).timeout
+		get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 
 func heal():
-	health-=1
-	var lowest = $hearts.get_child(0)
-	var full = h.instantiate()
-	for i in $hearts.get_children():
-		if (i.is_in_group("emptyHeart")):
-			#print(i.name)
-			if int(i.name.substr(1))<int(lowest.name.substr(1)):
-				lowest=i
-				full.name="e"+str(i.name.substr(1))
-	full.position.x = lowest.position.x
-	full.position.y = lowest.position.y
-	full.add_to_group("heart")
-	#$hearts.add_child(full)
-	#lowest.queue_free()
-	pass
+	if health!=maxHealth:
+		health+=1
+		var lowest
+		for i in $hearts.get_children():
+			if i.is_in_group("empty"):
+				lowest = i
+				pass
+		var full = fullH.instantiate()
+		full.name="h"+str(lowest.name.substr(1))
+		#print(lowest.name)
+		full.position.x = lowest.position.x
+		full.position.y = lowest.position.y
+		full.add_to_group("full")
+		$hearts.add_child(full)
+		lowest.queue_free()
 		
+func incMana():
+	if mana!=maxMana:
+		mana+=1
+		var lowest
+		for i in $mana.get_children():
+			if i.is_in_group("empty"):
+				lowest = i
+				pass
+		var full = fullM.instantiate()
+		full.name="m"+str(lowest.name.substr(1))
+		#print(lowest.name)
+		full.position.x = lowest.position.x
+		full.position.y = lowest.position.y
+		full.add_to_group("full")
+		$mana.add_child(full)
+		lowest.queue_free()
+	pass
 		
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage 

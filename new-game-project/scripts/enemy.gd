@@ -34,7 +34,7 @@ func hurt(source: Node2D,dmg: int):
 		$anim.stop()
 		$death.visible=true
 		$anim.play("bwehDeath")
-		print($anim.get_animation("bwehDeath").length)
+		#print($anim.get_animation("bwehDeath").length)
 		await $anim.animation_finished
 		queue_free()
 

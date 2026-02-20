@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b56x0ttg183xp"]
+
+[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scripts/load.gd" id="1_qae0b"]
+[ext_resource type="Texture2D" uid="uid://4g1x1l3m02xu" path="res://tileset/Rock.png" id="2_vuicl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4noiy"]
+
+[node name="GameOver" type="Node2D" unique_id=1476955361]
+
+[node name="Load" type="Area2D" parent="." unique_id=1474025851]
+position = Vector2(0, 200)
+script = ExtResource("1_qae0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Load" unique_id=984950709]
+scale = Vector2(10, 5)
+shape = SubResource("RectangleShape2D_4noiy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Load" unique_id=1002133342]
+scale = Vector2(10, 5)
+texture = ExtResource("2_vuicl")
+
+[node name="Label" type="Label" parent="Load" unique_id=854102251]
+offset_left = -54.0
+offset_top = -10.0
+offset_right = 54.0
+offset_bottom = 13.0
+text = "Load da game"
+
+[node name="Label" type="Label" parent="." unique_id=473691523]
+offset_left = -58.0
+offset_right = 58.0
+offset_bottom = 23.0
+text = "You Died Loser"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1081681655]
+
+[connection signal="input_event" from="Load" to="Load" method="_on_input_event"]

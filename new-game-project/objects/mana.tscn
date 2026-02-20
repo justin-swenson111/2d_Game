@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dan4534xmwa4q"]
+
+[ext_resource type="Texture2D" uid="uid://dmpujl00dei2o" path="res://sprites/player/etc/Manafull.png" id="1_fqekj"]
+
+[node name="mana" type="Node2D" unique_id=126125542]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1305797021 groups=["heart"]]
+texture = ExtResource("1_fqekj")
