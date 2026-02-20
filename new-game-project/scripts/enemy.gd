@@ -32,6 +32,7 @@ func hurt(source: Node2D,dmg: int):
 		$walk.visible=false
 		
 		$anim.stop()
+		$death.visible=true
 		$anim.play("bwehDeath")
 		print($anim.get_animation("bwehDeath").length)
 		await $anim.animation_finished

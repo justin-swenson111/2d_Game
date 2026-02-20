@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dtnple04phlf1"]
 
-[ext_resource type="Texture2D" uid="uid://bq4rtl8d25r1k" path="res://sprites/player/etc/heart.png" id="1_krj6w"]
+[ext_resource type="Texture2D" uid="uid://drg62cqnyn5jj" path="res://sprites/player/etc/Healthfull.png" id="1_krj6w"]
 
 [node name="Heart" type="Node2D" unique_id=126125542]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1305797021]
-scale = Vector2(0.02, 0.02)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1305797021 groups=["heart"]]
 texture = ExtResource("1_krj6w")

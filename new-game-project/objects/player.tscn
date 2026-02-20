@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3cdngw2pcdrt"]
 
 [ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://scripts/player.gd" id="1_uxov2"]
-[ext_resource type="Texture2D" uid="uid://cy04ojipe3j6s" path="res://sprites/player/mainFw.png" id="2_nmc1l"]
+[ext_resource type="Texture2D" uid="uid://cxvinoa412j14" path="res://sprites/player/Shadowtest.png" id="2_3nfmf"]
 [ext_resource type="Texture2D" uid="uid://b1hs4kjkp3tes" path="res://sprites/player/walking/back/Walkback1.png" id="3_3nfmf"]
 [ext_resource type="Texture2D" uid="uid://dv13fqnvg025x" path="res://sprites/weapon/Sword.png" id="3_f46kd"]
 [ext_resource type="Texture2D" uid="uid://chki8yjed5i85" path="res://sprites/player/walking/fwd/walkfwd1.png" id="3_i825w"]
@@ -98,7 +98,7 @@ scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_trn2v")
 
 [node name="stand" type="Sprite2D" parent="." unique_id=1579311054]
-texture = ExtResource("2_nmc1l")
+texture = ExtResource("2_3nfmf")
 
 [node name="moving" type="Sprite2D" parent="." unique_id=1646823923]
 texture = ExtResource("3_3nfmf")

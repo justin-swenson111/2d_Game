@@ -9,6 +9,9 @@ extends CharacterBody2D
 
 const arrow = preload("res://objects/arrow.tscn")
 const menu = preload("res://scenes/playerMenu.tscn")
+const h = preload("res://objects/heart.tscn")
+const emptyH = preload("res://objects/heartEmpty.tscn")
+
 
 var knockback_strength = 100
 var knockback=false
@@ -36,6 +39,16 @@ var atkDamage = 1
 #auto sets the weapon based on selections
 func _ready():
 	setWeapon()
+	for i in health:
+		var heart = h.instantiate()
+		heart.name="h"+str(i)
+		heart.add_to_group("heart")
+		$hearts.add_child(heart)
+		var child = $hearts.get_children()
+		for j in child:
+			if j.name==heart.name:
+				j.position.y = -90
+				j.position.x=-175+15*i
 	
 
 #movement based on wasd presses
@@ -183,14 +196,37 @@ func rgdAtk(dir: String):
 func ouchie(source):
 	health-=1
 	knockback_from(source)
-	if health>=0:
-		var highest = $hearts.get_child(0)
-		for i in $hearts.get_children():
+	var highest = $hearts.get_child(0)
+	var empt = emptyH.instantiate()
+	for i in $hearts.get_children():
+		if (i.is_in_group("heart")):
 			if int(i.name.substr(1))>int(highest.name.substr(1)):
 				highest=i
-		highest.queue_free()
-	if health==0:
-		get_tree().paused=true
+				empt.name="e"+str(i.name.substr(1))
+	empt.position.x = highest.position.x
+	empt.position.y = highest.position.y
+	empt.add_to_group("emptyHeart")
+	
+	$hearts.add_child(empt)
+	highest.queue_free()
+	heal()
+
+func heal():
+	health-=1
+	var lowest = $hearts.get_child(0)
+	var full = h.instantiate()
+	for i in $hearts.get_children():
+		if (i.is_in_group("emptyHeart")):
+			#print(i.name)
+			if int(i.name.substr(1))<int(lowest.name.substr(1)):
+				lowest=i
+				full.name="e"+str(i.name.substr(1))
+	full.position.x = lowest.position.x
+	full.position.y = lowest.position.y
+	full.add_to_group("heart")
+	#$hearts.add_child(full)
+	#lowest.queue_free()
+	pass
 		
 		
 func knockback_from(source: Node2D):

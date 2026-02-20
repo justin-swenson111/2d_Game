@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://4oovtax3voq0"]
 
 [ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://scripts/enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://2j8skwmlc7bp" path="res://sprites/bweh/Bweh1.png" id="2_3xohe"]
+[ext_resource type="Texture2D" uid="uid://blfpowi4wcg2u" path="res://sprites/bweh/Bweh1.png" id="2_3xohe"]
 [ext_resource type="Script" uid="uid://ci7gdp3vtkl1p" path="res://scripts/BwehAtk.gd" id="3_3xohe"]
 [ext_resource type="Texture2D" uid="uid://c18arndr2gd1g" path="res://sprites/bweh/BWEHatk1.png" id="3_4po7i"]
-[ext_resource type="Texture2D" uid="uid://dnatyify0g0o5" path="res://sprites/bweh/Bweh2.png" id="3_ginnu"]
-[ext_resource type="Texture2D" uid="uid://dc81qoflwql36" path="res://sprites/bweh/Bweh3.png" id="4_bjjws"]
 [ext_resource type="Texture2D" uid="uid://cwid63rkn4f8s" path="res://sprites/bweh/BWEHatk2.png" id="4_m01xa"]
 [ext_resource type="Texture2D" uid="uid://b3thcfcdac4ro" path="res://sprites/bweh/Death1.png" id="4_v413j"]
 [ext_resource type="Texture2D" uid="uid://cwlvv2p8kts10" path="res://sprites/bweh/Death2.png" id="6_07f0n"]
 [ext_resource type="Texture2D" uid="uid://cg8od5ttgqpec" path="res://sprites/bweh/Death3.png" id="7_bpndt"]
-[ext_resource type="Texture2D" uid="uid://cmckwpxdnvtc2" path="res://sprites/bweh/Death4.png" id="8_07f0n"]
+[ext_resource type="Texture2D" uid="uid://blfpowi4wcg2u" path="res://sprites/bweh/BWEH1.png" id="8_07f0n"]
+[ext_resource type="Texture2D" uid="uid://wuqj1qac8xx7" path="res://sprites/bweh/BWEH2.png" id="9_bpndt"]
+[ext_resource type="Texture2D" uid="uid://bwyumdoq3ld6c" path="res://sprites/bweh/BWEH3.png" id="10_xf471"]
 
 [sub_resource type="Animation" id="Animation_0ae3b"]
 length = 0.001
@@ -68,7 +68,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xf471"]
 resource_name = "bwehDeath"
-length = 0.7
+length = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,10 +76,10 @@ tracks/0/path = NodePath("death:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_v413j"), ExtResource("6_07f0n"), ExtResource("7_bpndt"), ExtResource("8_07f0n")]
+"values": [ExtResource("4_v413j"), ExtResource("6_07f0n"), ExtResource("7_bpndt")]
 }
 
 [sub_resource type="Animation" id="Animation_m01xa"]
@@ -96,7 +96,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_3xohe"), ExtResource("3_ginnu"), ExtResource("4_bjjws"), ExtResource("2_3xohe")]
+"values": [ExtResource("8_07f0n"), ExtResource("9_bpndt"), ExtResource("10_xf471"), ExtResource("8_07f0n")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3xohe"]
@@ -123,11 +123,12 @@ script = ExtResource("1_4gyqm")
 libraries/ = SubResource("AnimationLibrary_3xohe")
 
 [node name="death" type="Sprite2D" parent="." unique_id=967328817]
+visible = false
 texture = ExtResource("4_v413j")
 
 [node name="stand" type="Sprite2D" parent="." unique_id=1004811504]
 visible = false
-texture = ExtResource("2_3xohe")
+texture = ExtResource("8_07f0n")
 
 [node name="walk" type="Sprite2D" parent="." unique_id=295739069]
 visible = false

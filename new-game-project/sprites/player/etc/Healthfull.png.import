@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwyumdoq3ld6c"
-path="res://.godot/imported/BWEH3.png-3aba5720d04ee668d2e2e71d0072bcab.ctex"
+uid="uid://drg62cqnyn5jj"
+path="res://.godot/imported/Healthfull.png-bfe7c4cc3f7fcd4d4d3e32e3ce387f85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bweh/BWEH3.png"
-dest_files=["res://.godot/imported/BWEH3.png-3aba5720d04ee668d2e2e71d0072bcab.ctex"]
+source_file="res://sprites/player/etc/Healthfull.png"
+dest_files=["res://.godot/imported/Healthfull.png-bfe7c4cc3f7fcd4d4d3e32e3ce387f85.ctex"]
 
 [params]
 
