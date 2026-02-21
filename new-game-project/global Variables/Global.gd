@@ -15,3 +15,16 @@ var weaponSprites = {
 }
 var w1 = "sword"
 var w2 = "spear"
+
+var items :={
+	#amt healed
+	"healPot":[2,"sprite"],
+	#charge gained
+	"manaPot":[1,"sprite"],
+	#dmg multiplier
+	"dmgPot":[2,"sprite"],
+	#fraction of dmg taken
+	"resisPot":[0.5,"sprite"],
+}
+
+var inventory :=["healPot","manapot"]
