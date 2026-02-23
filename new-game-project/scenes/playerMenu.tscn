@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://d8o2cwwb07hq"]
 
-[ext_resource type="Script" uid="uid://cweix8mo4313a" path="res://scenes/menuLoad.gd" id="1_cxu76"]
+[ext_resource type="Script" uid="uid://cweix8mo4313a" path="res://scripts/menuLoad.gd" id="1_cxu76"]
 [ext_resource type="Texture2D" uid="uid://cy04ojipe3j6s" path="res://sprites/player/mainFw.png" id="1_fdbot"]
-[ext_resource type="Script" uid="uid://bl6xbibdcp2k6" path="res://scenes/return.gd" id="2_27edg"]
+[ext_resource type="Script" uid="uid://bl6xbibdcp2k6" path="res://scripts/return.gd" id="2_27edg"]
 [ext_resource type="Script" uid="uid://c14k8q1gfcgr3" path="res://scripts/wep1.gd" id="3_hfe1u"]
 [ext_resource type="Script" uid="uid://cjno86p7jtac5" path="res://scripts/wep2.gd" id="3_vftbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27edg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfe1u"]
 
 [node name="PlayerMenu" type="Node2D" unique_id=475428009]
 process_mode = 3
@@ -170,6 +172,13 @@ offset_bottom = -29.0
 scale = Vector2(0.5, 0.5)
 text = "Return"
 script = ExtResource("2_27edg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=835762926]
+position = Vector2(-10, 37.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1009100717]
+scale = Vector2(10, 2.5)
+shape = SubResource("RectangleShape2D_hfe1u")
 
 [connection signal="item_selected" from="weapon2/MenuButton/wOption1" to="weapon2/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="item_selected" from="weapon1/MenuButton/wOption1" to="weapon1/MenuButton/wOption1" method="_on_item_selected"]

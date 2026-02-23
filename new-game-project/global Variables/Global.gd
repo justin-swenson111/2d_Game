@@ -18,13 +18,13 @@ var w2 = "spear"
 
 var items :={
 	#amt healed
-	"healPot":[2,"sprite"],
+	"healPot":[3,"sprite"],
 	#charge gained
-	"manaPot":[1,"sprite"],
+	"manaPot":[10,"sprite"],
 	#dmg multiplier
 	"dmgPot":[2,"sprite"],
 	#fraction of dmg taken
-	"resisPot":[0.5,"sprite"],
+	"resisPot":[2,"sprite"],
 }
 
-var inventory :=["healPot","manapot"]
+var inventory :=["healPot","manaPot","dmgPot","resisPot"]

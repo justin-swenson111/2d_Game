@@ -38,6 +38,12 @@ var w2 = Global.w2
 var curWeapon = w1
 @onready var curWeaponSprite = weaponSprites["sword"]
 
+@onready var itemList = Global.items
+@onready var inventory = Global.inventory
+
+@onready var curItem =Global.inventory[0]
+@onready var curItemSprite
+
 var melee = true
 
 const SPEED = 100
@@ -47,6 +53,9 @@ var atkDelayLng =1
 var atkTime =0.5
 var atkDamage = 1
 
+
+var dmgMultiplier = 1
+var resistanceMultiplier=1
 #auto sets the weapon based on selections
 func _ready():
 	health=maxHealth
@@ -110,7 +119,7 @@ func _physics_process(delta: float) -> void:
 #if a destructable object is in a attack area it takes the set damage
 func damage(body: Node2D):
 	if (body.is_in_group("dest")):
-		body.hurt(self,atkDamage)
+		body.hurt(self,atkDamage*dmgMultiplier)
 
 #on input events
 func _input(event: InputEvent) -> void:
@@ -147,6 +156,9 @@ func _input(event: InputEvent) -> void:
 		$moving.visible=true
 		$anim.stop()
 		$anim.play("bckwdWalk")
+	
+	if event.is_action_pressed("useItem"):
+		useItem()
 
 #getting the collision to be used and running the attack delay
 func atk(dmg: Area2D):
@@ -232,7 +244,36 @@ func rgdAtk(dir: String):
 		add_child(nArrow)
 		atkDly()
 		decMana(2)
-		
+
+func useItem():
+	print(curItem)
+	if curItem=="healPot":
+		heal(itemList[curItem][0])
+	if curItem=="manaPot":
+		incMana(itemList[curItem][0])
+	if curItem=="dmgPot":
+		changeDmg(itemList[curItem][0])
+	if curItem=="resisPot":
+		changeResis(itemList[curItem][0])
+	if Global.inventory.size()>0:
+		Global.inventory.remove_at(0)
+	if Global.inventory.size()>=1:
+		curItem=Global.inventory[0]
+	else:
+		curItem=""
+	
+func changeDmg(amt):
+	dmgMultiplier=amt
+	await get_tree().create_timer(5).timeout
+	dmgMultiplier=1
+
+func changeResis(amt):
+	resistanceMultiplier=amt
+	print("hi")
+	await get_tree().create_timer(5).timeout
+	print("bye")
+	resistanceMultiplier=1
+
 func decMana(m):
 	mana-=m
 	for j in range(m):
@@ -249,27 +290,30 @@ func decMana(m):
 		$mana.add_child(empt)
 		highest.free()
 
-func ouchie(source, amt):
-	for j in amt:
-		health-=1
-		knockback_from(source)
-		var highest = $hearts.get_child(0)
-		var empt = emptyH.instantiate()
-		for i in $hearts.get_children():
-			if (i.is_in_group("full")):
-				#print(i.name)
-				if int(i.name.substr(1))>int(highest.name.substr(1)):
-					highest=i
-					empt.name="e"+str(i.name.substr(1))
-		empt.position.x = highest.position.x
-		empt.position.y = highest.position.y
-		empt.add_to_group("empty")
-		#print(highest.name)
-		$hearts.add_child(empt)
-		highest.free()
-		if health==0:
-			await get_tree().create_timer(0.01).timeout
-			get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
+func ouchie(source, dmgTaken):
+	var amt=floor(dmgTaken/resistanceMultiplier)
+	print(resistanceMultiplier)
+	if amt>0:
+		for j in amt:
+			health-=1
+			knockback_from(source)
+			var highest = $hearts.get_child(0)
+			var empt = emptyH.instantiate()
+			for i in $hearts.get_children():
+				if (i.is_in_group("full")):
+					#print(i.name)
+					if int(i.name.substr(1))>int(highest.name.substr(1)):
+						highest=i
+						empt.name="e"+str(i.name.substr(1))
+			empt.position.x = highest.position.x
+			empt.position.y = highest.position.y
+			empt.add_to_group("empty")
+			#print(highest.name)
+			$hearts.add_child(empt)
+			highest.free()
+			if health==0:
+				await get_tree().create_timer(0.01).timeout
+				get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 
 func heal(amt):
 	for j in amt:

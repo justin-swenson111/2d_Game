@@ -11,6 +11,7 @@ var weaponSelect =[]
 func _ready() -> void:
 	refresh()
 
+
 func refresh():
 	w1 = Global.w1
 	w2 = Global.w2

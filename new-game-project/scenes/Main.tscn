@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cqow47bch5ocs"]
 
-[ext_resource type="Script" uid="uid://cfcf6l5cfyuwk" path="res://scenes/sceneLoad.gd" id="1_c01mt"]
+[ext_resource type="Script" uid="uid://cfcf6l5cfyuwk" path="res://scripts/sceneLoad.gd" id="1_c01mt"]
 [ext_resource type="Texture2D" uid="uid://gvopeuqhi8vp" path="res://tileset/grassNavigation/uptGrass.png" id="1_rarhs"]
 [ext_resource type="Texture2D" uid="uid://cfxoxrnjnmc0e" path="res://tileset/obstacles/terrainObstacles.png" id="2_c01mt"]
 [ext_resource type="Texture2D" uid="uid://mogxafhrr17x" path="res://tileset/grassNavigation/grassAvoid.png" id="2_nxtc6"]
