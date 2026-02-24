@@ -39,10 +39,9 @@ var curWeapon = w1
 @onready var curWeaponSprite = weaponSprites["sword"]
 
 @onready var itemList = Global.items
-@onready var inventory = Global.inventory
 
-@onready var curItem =Global.inventory[0]
-@onready var curItemSprite
+var curItem
+var curItemSprite
 
 var melee = true
 
@@ -58,6 +57,12 @@ var dmgMultiplier = 1
 var resistanceMultiplier=1
 #auto sets the weapon based on selections
 func _ready():
+	if Global.inventory.size()>0:
+		curItem= Global.inventory[0]
+		Global.curItem=curItem
+		curItemSprite=itemList[curItem][1]
+		var itmSprite = load(curItemSprite)
+		$currentItem.texture=itmSprite
 	health=maxHealth
 	setWeapon()
 	for i in health:
@@ -222,6 +227,15 @@ func setWeapon():
 			coll.scale.y=height
 			coll.scale.x=width
 
+func setItem():
+	if curItem!="":
+		curItemSprite=itemList[curItem][1]
+		var itmSprite = load(curItemSprite)
+		$currentItem.texture=itmSprite
+	else:
+		$currentItem.texture=null
+		
+
 #ranged attack
 func rgdAtk(dir: String):
 	#if the atk dely is not active
@@ -246,7 +260,7 @@ func rgdAtk(dir: String):
 		decMana(2)
 
 func useItem():
-	print(curItem)
+	#print(curItem)
 	if curItem=="healPot":
 		heal(itemList[curItem][0])
 	if curItem=="manaPot":
@@ -256,11 +270,17 @@ func useItem():
 	if curItem=="resisPot":
 		changeResis(itemList[curItem][0])
 	if Global.inventory.size()>0:
-		Global.inventory.remove_at(0)
+		for i in range(Global.inventory.size()):
+			if Global.inventory[i]==curItem:
+				print(i, Global.inventory[i])
+				Global.inventory.remove_at(i)
+				break
 	if Global.inventory.size()>=1:
 		curItem=Global.inventory[0]
 	else:
 		curItem=""
+	Global.curItem=curItem
+	setItem()
 	
 func changeDmg(amt):
 	dmgMultiplier=amt
@@ -269,9 +289,7 @@ func changeDmg(amt):
 
 func changeResis(amt):
 	resistanceMultiplier=amt
-	print("hi")
 	await get_tree().create_timer(5).timeout
-	print("bye")
 	resistanceMultiplier=1
 
 func decMana(m):

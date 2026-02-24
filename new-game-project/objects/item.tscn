@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bof7ax6pg3g8m"]
+
+[ext_resource type="Script" uid="uid://dpkjhdvrm8ep5" path="res://scripts/itemButton.gd" id="1_oqx7i"]
+
+[node name="item" type="Sprite2D" unique_id=862431807]
+
+[node name="Button" type="Button" parent="." unique_id=1798714581]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_oqx7i")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

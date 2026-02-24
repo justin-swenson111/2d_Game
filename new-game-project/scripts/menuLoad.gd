@@ -5,14 +5,17 @@ var weaponList =Global.weaponList
 var w1 = Global.w1
 var w2 = Global.w2
 
+var inventory = Global.inventory
+var itemList = Global.items
 
 var weaponSelect =[]
 
 func _ready() -> void:
-	refresh()
+	wepRefresh()
+	itemRefresh()
 
 
-func refresh():
+func wepRefresh():
 	w1 = Global.w1
 	w2 = Global.w2
 	weaponSelect=[]
@@ -28,3 +31,16 @@ func refresh():
 	for i in weaponSelect:
 		wep1.add_item(i)
 		wep2.add_item(i)
+
+func itemRefresh():
+	for i in inventory:
+		var itm= preload("res://objects/item.tscn")
+		var item=itm.instantiate()
+		item.get_child(0).name=i
+		item.texture=load(itemList[i][1])
+		$inventory.add_child(item)
+	var child = $inventory.get_children()
+	for i in range(child.size()):
+		if child[i] is Sprite2D:
+			child[i].position.x=-125+35*i
+	

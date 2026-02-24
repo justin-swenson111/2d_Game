@@ -41,38 +41,33 @@ func hurt(source: Node2D,dmg: int):
 	
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage source and moves in that direction
+	stunned = true
 	var dir := (global_position - source.global_position).normalized()
 	velocity = dir * knockback_strength
 	if health==0:
 		$attack.visible=false
 		$stand.visible=true
 	#cannot update its velocity for stun_time
-	stunned = true
 
 	await get_tree().create_timer(knockback_stun_time).timeout
 	#enemy can move again
 	stunned = false
-	
-	
-
 
 func _physics_process(delta):
-	agent.target_position = player.global_position
+	#if its not going after the player stop the animation and stand still
 	if not chasing and not isDead:
 		$anim.stop()
 		$stand.visible=true
 		$walk.visible=false
 		return
-		
 	
-	#$anim.play("bwehWalk")
 	# Update target every tick
 	agent.target_position = player.global_position
 
 	# Get next point on the path
 	var next_pos = agent.get_next_path_position()
-
 	var direction = (next_pos - global_position).normalized()
+	
 	#if not taking knockback move towards the player at speed
 	if not stunned:
 		velocity = direction * speed

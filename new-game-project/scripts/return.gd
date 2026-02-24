@@ -11,3 +11,6 @@ func _on_pressed() -> void:
 	p.w2 = Global.w2
 	p.curWeapon=p.w1
 	p.setWeapon()
+	p.curItem=Global.curItem
+	p.setItem()
+	print(Global.inventory)

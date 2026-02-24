@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wuqj1qac8xx7"
-path="res://.godot/imported/Bweh2.png-ed1ab8f2037d502bc92c4cb9e103296e.ctex"
+uid="uid://d0frfg2aqhdkb"
+path="res://.godot/imported/healPot.png-8a54eb6f57aa8896c4e82621025b423a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bweh/Bweh2.png"
-dest_files=["res://.godot/imported/Bweh2.png-ed1ab8f2037d502bc92c4cb9e103296e.ctex"]
+source_file="res://sprites/items/healPot.png"
+dest_files=["res://.godot/imported/healPot.png-8a54eb6f57aa8896c4e82621025b423a.ctex"]
 
 [params]
 
