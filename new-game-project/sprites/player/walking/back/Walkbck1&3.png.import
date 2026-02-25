@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d38igov5mq3r0"
-path="res://.godot/imported/Walkfwd3.png-c2e3ee680b8bcf1c5fb3dc9886b027a9.ctex"
+uid="uid://dn757lvyvfymk"
+path="res://.godot/imported/Walkbck1&3.png-208d0323d97a8342cd06d836ef3a9a52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/player/walking/fwd/Walkfwd3.png"
-dest_files=["res://.godot/imported/Walkfwd3.png-c2e3ee680b8bcf1c5fb3dc9886b027a9.ctex"]
+source_file="res://sprites/player/walking/back/Walkbck1&3.png"
+dest_files=["res://.godot/imported/Walkbck1&3.png-208d0323d97a8342cd06d836ef3a9a52.ctex"]
 
 [params]
 

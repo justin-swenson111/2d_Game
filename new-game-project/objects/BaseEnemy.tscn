@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://brdiu8ysps8xa"]
+
+[ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://scripts/enemy.gd" id="1_4nmoq"]
+[ext_resource type="Texture2D" uid="uid://blfpowi4wcg2u" path="res://sprites/bweh/BWEH1.png" id="2_ruqxw"]
+[ext_resource type="Texture2D" uid="uid://c18arndr2gd1g" path="res://sprites/bweh/BWEHatk1.png" id="3_50jqk"]
+[ext_resource type="Texture2D" uid="uid://b3thcfcdac4ro" path="res://sprites/bweh/Death1.png" id="4_p7331"]
+[ext_resource type="Script" uid="uid://ci7gdp3vtkl1p" path="res://scripts/enemyAtk.gd" id="10_67cc4"]
+
+[sub_resource type="Animation" id="Animation_0ae3b"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3xohe"]
+_data = {
+&"RESET": SubResource("Animation_0ae3b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fos0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5c7ut"]
+radius = 21.84033
+
+[node name="Bweh" type="CharacterBody2D" unique_id=1783438828 groups=["dest"]]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_4nmoq")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1482097141]
+libraries/ = SubResource("AnimationLibrary_3xohe")
+
+[node name="death" type="Sprite2D" parent="." unique_id=967328817]
+visible = false
+texture = ExtResource("4_p7331")
+
+[node name="stand" type="Sprite2D" parent="." unique_id=1004811504]
+visible = false
+
+[node name="walk" type="Sprite2D" parent="." unique_id=295739069]
+visible = false
+texture = ExtResource("2_ruqxw")
+
+[node name="attack" type="Sprite2D" parent="." unique_id=1808003500]
+texture = ExtResource("3_50jqk")
+
+[node name="EnemyBox" type="CollisionShape2D" parent="." unique_id=1269362425]
+visible = false
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_trn2v")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1934326883]
+target_desired_distance = 4.0
+path_max_distance = 10.0
+avoidance_enabled = true
+avoidance_layers = 128
+avoidance_mask = 128
+
+[node name="pathfind area" type="Area2D" parent="." unique_id=1490160517]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pathfind area" unique_id=1831845977]
+scale = Vector2(15, 15)
+shape = SubResource("CircleShape2D_fos0i")
+
+[node name="atkArea" type="Area2D" parent="." unique_id=2065411626]
+visible = false
+script = ExtResource("10_67cc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="atkArea" unique_id=142080611]
+shape = SubResource("CircleShape2D_5c7ut")
+
+[connection signal="body_entered" from="pathfind area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="pathfind area" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="atkArea" to="atkArea" method="_on_body_entered"]
+[connection signal="body_exited" from="atkArea" to="atkArea" method="_on_body_exited"]

@@ -28,6 +28,8 @@ var mana = 10
 var manaInc=0
 var healthInc=0
 
+var manaIncTime=5
+var healthIncTime=5
 
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList
@@ -93,7 +95,7 @@ func _physics_process(delta: float) -> void:
 	#one mana charge increase every 5 seconds
 	if mana!=maxMana:
 		manaInc+=delta
-	if manaInc>=5:
+	if manaInc>=manaIncTime:
 		incMana(1)
 		manaInc=0
 		
@@ -101,7 +103,7 @@ func _physics_process(delta: float) -> void:
 	#one hp increase every 10 seconds
 	if health!=maxHealth:
 		healthInc+=delta
-	if healthInc>=5:
+	if healthInc>=healthIncTime:
 		heal(1)
 		healthInc=0
 	
@@ -161,7 +163,16 @@ func _input(event: InputEvent) -> void:
 		$moving.visible=true
 		$anim.stop()
 		$anim.play("bckwdWalk")
-	
+	if event.is_action_pressed("right"):
+		$stand.visible=false
+		$moving.visible=true
+		$anim.stop()
+		$anim.play("rightWalk")
+	if event.is_action_pressed("left"):
+		$stand.visible=false
+		$moving.visible=true
+		$anim.stop()
+		$anim.play("leftWalk")
 	if event.is_action_pressed("useItem"):
 		useItem()
 

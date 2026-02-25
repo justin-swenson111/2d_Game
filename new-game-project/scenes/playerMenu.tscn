@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d8o2cwwb07hq"]
 
 [ext_resource type="Script" uid="uid://cweix8mo4313a" path="res://scripts/menuLoad.gd" id="1_cxu76"]
-[ext_resource type="Texture2D" uid="uid://cy04ojipe3j6s" path="res://sprites/player/mainFw.png" id="1_fdbot"]
 [ext_resource type="Script" uid="uid://bl6xbibdcp2k6" path="res://scripts/return.gd" id="2_27edg"]
 [ext_resource type="Script" uid="uid://c14k8q1gfcgr3" path="res://scripts/wep1.gd" id="3_hfe1u"]
 [ext_resource type="Script" uid="uid://cjno86p7jtac5" path="res://scripts/wep2.gd" id="3_vftbp"]
+[ext_resource type="Texture2D" uid="uid://cxvinoa412j14" path="res://sprites/player/Shadowtest.png" id="4_hfe1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27edg"]
 
@@ -90,7 +90,7 @@ shape = SubResource("RectangleShape2D_27edg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1270973370]
 scale = Vector2(2, 2)
-texture = ExtResource("1_fdbot")
+texture = ExtResource("4_hfe1u")
 
 [node name="bow" type="Area2D" parent="." unique_id=1490394399]
 position = Vector2(45, -45)
