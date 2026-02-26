@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxvm0vjnd8svw"
-path="res://.godot/imported/grassAvoid.png-5e541ebfc94b3fcc2408355240cd11eb.ctex"
+uid="uid://36nw4twjf61f"
+path="res://.godot/imported/MidFlowers.png-b74dff5c676596a9d6910e0c6fbd76c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/grassAvoid.png"
-dest_files=["res://.godot/imported/grassAvoid.png-5e541ebfc94b3fcc2408355240cd11eb.ctex"]
+source_file="res://tileset/grassNavigation/MidFlowers.png"
+dest_files=["res://.godot/imported/MidFlowers.png-b74dff5c676596a9d6910e0c6fbd76c9.ctex"]
 
 [params]
 

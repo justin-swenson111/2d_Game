@@ -28,8 +28,8 @@ var mana = 10
 var manaInc=0
 var healthInc=0
 
-var manaIncTime=5
-var healthIncTime=5
+var manaIncTime=10
+var healthIncTime=30
 
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList

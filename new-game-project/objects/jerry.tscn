@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://brdiu8ysps8xa"]
+[gd_scene format=3 uid="uid://cs5yw2jj32dib"]
 
-[ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://scripts/enemy.gd" id="1_4nmoq"]
-[ext_resource type="Script" uid="uid://ci7gdp3vtkl1p" path="res://scripts/enemyAtk.gd" id="10_67cc4"]
+[ext_resource type="Script" uid="uid://cd2dj742ybtwn" path="res://scripts/enemy.gd" id="1_dihks"]
+[ext_resource type="Script" uid="uid://ci7gdp3vtkl1p" path="res://scripts/enemyAtk.gd" id="5_tqs33"]
 
 [sub_resource type="Animation" id="Animation_0ae3b"]
 length = 0.001
@@ -18,10 +18,10 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_5c7ut"]
 radius = 21.84033
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1783438828 groups=["dest"]]
+[node name="jerry" type="CharacterBody2D" unique_id=1783438828 groups=["dest"]]
 collision_layer = 2
 collision_mask = 13
-script = ExtResource("1_4nmoq")
+script = ExtResource("1_dihks")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1482097141]
 libraries/ = SubResource("AnimationLibrary_3xohe")
@@ -58,7 +58,7 @@ shape = SubResource("CircleShape2D_fos0i")
 
 [node name="atkArea" type="Area2D" parent="." unique_id=2065411626]
 visible = false
-script = ExtResource("10_67cc4")
+script = ExtResource("5_tqs33")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="atkArea" unique_id=142080611]
 shape = SubResource("CircleShape2D_5c7ut")

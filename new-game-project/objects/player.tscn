@@ -8,16 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://fkf0bgnbj5r0" path="res://sprites/player/walking/back/Walkbck4.png" id="6_3nfmf"]
 [ext_resource type="Texture2D" uid="uid://dny7x1cl0reqb" path="res://sprites/player/walking/fwd/Walkfwd4.png" id="7_4vq5b"]
 [ext_resource type="Texture2D" uid="uid://rpm1pme40h7j" path="res://sprites/player/walking/fwd/Walkfwd1&3.png" id="7_42cpl"]
-[ext_resource type="Texture2D" uid="uid://by8w3f5n0tmam" path="res://sprites/player/walking/fwd/Walkfwd2.png" id="8_vqq2l"]
+[ext_resource type="Texture2D" uid="uid://by8w3f5n0tmam" path="res://sprites/player/walking/fwd/walkfwd2.png" id="8_vqq2l"]
 [ext_resource type="Texture2D" uid="uid://sge3blr5ib34" path="res://sprites/player/walking/left/WalkLFT1&3.png" id="10_vqq2l"]
 [ext_resource type="Texture2D" uid="uid://dhdgrcleunewc" path="res://sprites/player/walking/right/Walkrt1&3.png" id="11_r673r"]
 [ext_resource type="Texture2D" uid="uid://cqh0l87v4f4ox" path="res://sprites/player/walking/right/Walkrt2.png" id="12_mqnmn"]
 [ext_resource type="Texture2D" uid="uid://bgn0cvlprdbsa" path="res://sprites/player/walking/right/Walkrt4.png" id="13_5esnd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r673r"]
-load_path = "res://.godot/imported/Walkback1.png-7d98b3260b5e75aae32d7111d567c59d.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fos0i"]
 
@@ -28,13 +25,10 @@ load_path = "res://.godot/imported/Walkback1.png-7d98b3260b5e75aae32d7111d567c59
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mqnmn"]
-load_path = "res://.godot/imported/Walkback2.png-278c0c6ae62c9969d04553e9457a2605.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5esnd"]
-load_path = "res://.godot/imported/Walkback3.png-c956fa4ad436a9d61626226c86e940b3.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w1o2u"]
-load_path = "res://.godot/imported/Walkback4.png-3d6c3854be6cbca28b4e1c581792bbc1.ctex"
 
 [sub_resource type="Animation" id="Animation_3nfmf"]
 loop_mode = 1
@@ -132,10 +126,8 @@ _data = {
 collision_mask = 6
 script = ExtResource("1_uxov2")
 
-[node name="PlayerBox" type="CollisionShape2D" parent="." unique_id=319227291]
-visible = false
-scale = Vector2(0.9, 0.9)
-shape = SubResource("RectangleShape2D_trn2v")
+[node name="playerBox" type="CollisionPolygon2D" parent="." unique_id=352496878]
+polygon = PackedVector2Array(1, -13, 4, -13, 8, -10, 8, -6, 6, -3, 9, -1, 9, 6, 6, 8, 8, 12, 7, 14, 3, 14, 2, 13, 0, 14, -2, 14, -4, 13, -4, 11, -2, 9, -5, 7, -5, -1, -3, -3, -5, -6, -5, -10, -2, -13)
 
 [node name="stand" type="Sprite2D" parent="." unique_id=1579311054]
 position = Vector2(1, 0)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx0fkgqeui8cl"
-path="res://.godot/imported/Newflower.png-318b7a94eae487ac00befe0bed1a30bd.ctex"
+uid="uid://2x6p3vm275fn"
+path="res://.godot/imported/grassNavigation.png-afe834f95bcc459202a7ff4214fe285c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/Newflower.png"
-dest_files=["res://.godot/imported/Newflower.png-318b7a94eae487ac00befe0bed1a30bd.ctex"]
+source_file="res://tileset/grassNavigation/grassNavigation.png"
+dest_files=["res://.godot/imported/grassNavigation.png-afe834f95bcc459202a7ff4214fe285c.ctex"]
 
 [params]
 

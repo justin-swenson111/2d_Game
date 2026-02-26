@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkovr0d7cw5cl"
-path="res://.godot/imported/Grasslight.png-d3910fd5f4667480500f3c91e5bc632f.ctex"
+uid="uid://bdowhkqhqgmnj"
+path="res://.godot/imported/Flowers.png-0542135f01e8ed2c4608be7ab19597a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/Grasslight.png"
-dest_files=["res://.godot/imported/Grasslight.png-d3910fd5f4667480500f3c91e5bc632f.ctex"]
+source_file="res://tileset/grassNavigation/Flowers.png"
+dest_files=["res://.godot/imported/Flowers.png-0542135f01e8ed2c4608be7ab19597a4.ctex"]
 
 [params]
 

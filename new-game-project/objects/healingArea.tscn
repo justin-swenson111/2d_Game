@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b4xmi14dtfarv"]
+
+[ext_resource type="Script" uid="uid://co78hsqwwgsyn" path="res://scripts/healArea.gd" id="1_ccavi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlwq5"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ccavi"]
+size = Vector2(100, 100)
+
+[node name="healingArea" type="Node2D" unique_id=1060403371]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=550178748]
+script = ExtResource("1_ccavi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=334994773]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_nlwq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357502835]
+position = Vector2(-0.50000143, -1.0000002)
+scale = Vector2(1.5300001, 1.26)
+texture = SubResource("PlaceholderTexture2D_ccavi")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

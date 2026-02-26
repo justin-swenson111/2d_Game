@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gvopeuqhi8vp"
-path="res://.godot/imported/uptGrass.png-e1934ae37d2580bdbe4ac0d06b05ca5a.ctex"
+uid="uid://bey6wc11pt2so"
+path="res://.godot/imported/LightFlowers.png-840c58758726188c69cf07723c8815d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/uptGrass.png"
-dest_files=["res://.godot/imported/uptGrass.png-e1934ae37d2580bdbe4ac0d06b05ca5a.ctex"]
+source_file="res://tileset/grassNavigation/LightFlowers.png"
+dest_files=["res://.godot/imported/LightFlowers.png-840c58758726188c69cf07723c8815d6.ctex"]
 
 [params]
 

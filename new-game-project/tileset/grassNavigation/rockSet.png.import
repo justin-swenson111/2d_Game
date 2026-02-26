@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c45gvaxb171sx"
-path="res://.godot/imported/Newmid.png-4e28c54142c4c4a657c47fb906ef7775.ctex"
+uid="uid://pgdgqnxahhiu"
+path="res://.godot/imported/rockSet.png-7a836ae68c623bd59101c740c0f52bb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/Newmid.png"
-dest_files=["res://.godot/imported/Newmid.png-4e28c54142c4c4a657c47fb906ef7775.ctex"]
+source_file="res://tileset/grassNavigation/rockSet.png"
+dest_files=["res://.godot/imported/rockSet.png-7a836ae68c623bd59101c740c0f52bb5.ctex"]
 
 [params]
 
