@@ -11,9 +11,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
 	if enter:
 		if player.health>=player.maxHealth:
-			print(player.health," ",player.maxHealth," ",player.curExtraHealth)
+			#print(player.health," ",player.maxHealth," ",player.curExtraHealth)
 			if player.curExtraHealth!=player.maxExtraHealth:
 				extTime+=delta
 		if extTime>=1:
