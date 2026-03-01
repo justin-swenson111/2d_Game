@@ -21,6 +21,8 @@ var knockback=false
 const maxHealth = 5
 const maxMana = 10
 
+var maxExtraHealth = 2
+var curExtraHealth = 0
 
 var health = 3
 var mana = 10
@@ -321,7 +323,7 @@ func decMana(m):
 
 func ouchie(source, dmgTaken):
 	var amt=floor(dmgTaken/resistanceMultiplier)
-	print(resistanceMultiplier)
+	#print(resistanceMultiplier)
 	if amt>0:
 		for j in amt:
 			health-=1
@@ -334,11 +336,14 @@ func ouchie(source, dmgTaken):
 					if int(i.name.substr(1))>int(highest.name.substr(1)):
 						highest=i
 						empt.name="e"+str(i.name.substr(1))
-			empt.position.x = highest.position.x
-			empt.position.y = highest.position.y
-			empt.add_to_group("empty")
+			if health<maxHealth:
+				empt.position.x = highest.position.x
+				empt.position.y = highest.position.y
+				empt.add_to_group("empty")
+				$hearts.add_child(empt)
+			else:
+				curExtraHealth-=1
 			#print(highest.name)
-			$hearts.add_child(empt)
 			highest.free()
 			if health==0:
 				await get_tree().create_timer(0.01).timeout
@@ -346,20 +351,33 @@ func ouchie(source, dmgTaken):
 
 func heal(amt):
 	for j in amt:
-		if health!=maxHealth:
+		if health<maxHealth:
 			health+=1
 			var lowest
 			for i in $hearts.get_children():
 				if i.is_in_group("empty"):
 					lowest = i
 					pass
-			var full = fullH.instantiate()
-			full.name="h"+str(lowest.name.substr(1))
-			full.position.x = lowest.position.x
-			full.position.y = lowest.position.y
-			lowest.free()
-			full.add_to_group("full")
-			$hearts.add_child(full)
+			if lowest!=null:
+				var full = fullH.instantiate()
+				full.name="h"+str(lowest.name.substr(1))
+				full.position.x = lowest.position.x
+				full.position.y = lowest.position.y
+				lowest.free()
+				full.add_to_group("full")
+				$hearts.add_child(full)
+
+func extraHeal():
+	curExtraHealth+=1
+	health+=1
+	var full = fullH.instantiate()
+	var highest = $hearts.get_child($hearts.get_children().size()-1)
+	full.name="h"+str(int(highest.name.substr(1))+1)
+	full.position.x = highest.position.x + 15
+	full.position.y = highest.position.y
+	full.add_to_group("full")
+	$hearts.add_child(full)
+	
 	
 func incMana(amt):
 	for j in amt:
