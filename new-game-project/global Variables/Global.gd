@@ -1,17 +1,20 @@
 extends Node
 
 var weaponList :={
+#"weapon":[dist away, dist sides, time atking, atkdelay, dmg]
 	"sword" : [0.5,1.5,0.5,1,1],
 	"spear" : [2,0.5,0.5,1,1],
-	"axe" : [0.75,0.5,0.25,1.25,3],
-	"mace" : [0.5,1,1,2,2]
+	"axe" : [0.75,0.5,0.25,1.5,1],
+	"mace" : [0.5,1,1,2,2],
+	"axeStrong" : [0.75,0.5,0.25,1.5,3],
 }
 
 var weaponSprites = {
 	"sword":"res://sprites/weapon/Sword.png",
 	"spear":"res://sprites/weapon/Spear.png",
 	"axe":"res://sprites/weapon/Axe.png",
-	"mace":"res://sprites/weapon/Mace.png"
+	"mace":"res://sprites/weapon/Mace.png",
+	"axeStrong":"res://sprites/weapon/Axe.png",
 }
 var w1 = "sword"
 var w2 = "spear"
@@ -26,6 +29,15 @@ var items :={
 	#fraction of dmg taken
 	"resisPot":[2,"res://sprites/items/resisPot.png"],
 }
+
+var artifacts :={
+	#revive once on death
+	"revive":"res://sprites/items/healPot.png",
+	#extra atk dmg on taking dmg
+	"dmg":["res://sprites/items/manaPot.png"]
+}
+
+var checkpoints={}
 
 var inventory :=["healPot","manaPot","resisPot"]
 

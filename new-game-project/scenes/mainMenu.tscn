@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d3osofxcsi7ls"]
 
-[ext_resource type="Script" uid="uid://cqvnqn6fyko75" path="res://scripts/startMenu.gd" id="1_qkhwq"]
+[ext_resource type="Script" uid="uid://cqvnqn6fyko75" path="res://scripts/menus/startMenu.gd" id="1_qkhwq"]
 [ext_resource type="Texture2D" uid="uid://4g1x1l3m02xu" path="res://tileset/Rock.png" id="2_3d1i7"]
-[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scripts/load.gd" id="3_48ign"]
+[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scripts/menus/load.gd" id="3_48ign"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkhwq"]
 

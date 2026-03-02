@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b4xmi14dtfarv"]
+
+[ext_resource type="Script" uid="uid://co78hsqwwgsyn" path="res://scripts/environment/healArea.gd" id="1_ccavi"]
+[ext_resource type="Script" uid="uid://b3wxgvx2k25h1" path="res://scripts/environment/fastTravel.gd" id="2_nlwq5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nlwq5"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ccavi"]
+size = Vector2(100, 100)
+
+[node name="checkpoint" type="Node2D" unique_id=1060403371 groups=["checkpoints"]]
+
+[node name="healArea" type="Area2D" parent="." unique_id=550178748]
+script = ExtResource("1_ccavi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="healArea" unique_id=334994773]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_nlwq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357502835]
+position = Vector2(-0.50000143, -1.0000002)
+scale = Vector2(1.5300001, 1.26)
+texture = SubResource("PlaceholderTexture2D_ccavi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=258119472]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1821017142]
+scale = Vector2(15, 15)
+shape = SubResource("CircleShape2D_nlwq5")
+
+[node name="TravelArea" type="Area2D" parent="." unique_id=1471320159]
+script = ExtResource("2_nlwq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TravelArea" unique_id=398192645]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_nlwq5")
+
+[connection signal="body_entered" from="healArea" to="healArea" method="_on_body_entered"]
+[connection signal="body_exited" from="healArea" to="healArea" method="_on_body_exited"]
+[connection signal="body_entered" from="TravelArea" to="TravelArea" method="_on_body_entered"]

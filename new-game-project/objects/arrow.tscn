@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dur3vn0anxkt7"]
 
-[ext_resource type="Script" uid="uid://dxw2y2kwhwmbj" path="res://scripts/arrow.gd" id="1_ledw7"]
+[ext_resource type="Script" uid="uid://dxw2y2kwhwmbj" path="res://scripts/player/arrow.gd" id="1_ledw7"]
 [ext_resource type="Texture2D" uid="uid://cake607upqnse" path="res://sprites/arrow.png" id="2_3at4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kks1g"]

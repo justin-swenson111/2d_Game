@@ -26,6 +26,7 @@ dest="Objects that take damage"
 scene="current scene"
 full="Player Health/mana"
 empty="empty player health/mana"
+checkpoints="Areas the player can save/fast travel between"
 
 [input]
 

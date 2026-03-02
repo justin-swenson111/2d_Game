@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b56x0ttg183xp"]
 
-[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scripts/load.gd" id="1_qae0b"]
+[ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scripts/menus/load.gd" id="1_qae0b"]
 [ext_resource type="Texture2D" uid="uid://4g1x1l3m02xu" path="res://tileset/Rock.png" id="2_vuicl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4noiy"]
