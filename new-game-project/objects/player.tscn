@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://rpm1pme40h7j" path="res://sprites/player/walking/fwd/Walkfwd1&3.png" id="7_42cpl"]
 [ext_resource type="Texture2D" uid="uid://by8w3f5n0tmam" path="res://sprites/player/walking/fwd/walkfwd2.png" id="8_vqq2l"]
 [ext_resource type="Texture2D" uid="uid://sge3blr5ib34" path="res://sprites/player/walking/left/WalkLFT1&3.png" id="10_vqq2l"]
+[ext_resource type="Texture2D" uid="uid://byi41k5u7sh4y" path="res://sprites/player/walking/left/WalkLFT2.png" id="11_mqnmn"]
 [ext_resource type="Texture2D" uid="uid://dhdgrcleunewc" path="res://sprites/player/walking/right/Walkrt1&3.png" id="11_r673r"]
 [ext_resource type="Texture2D" uid="uid://cqh0l87v4f4ox" path="res://sprites/player/walking/right/Walkrt2.png" id="12_mqnmn"]
 [ext_resource type="Texture2D" uid="uid://bgn0cvlprdbsa" path="res://sprites/player/walking/right/Walkrt4.png" id="13_5esnd"]
@@ -73,7 +74,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("10_vqq2l"), ExtResource("5_4vq5b"), ExtResource("10_vqq2l"), ExtResource("6_3nfmf")]
+"values": [ExtResource("10_vqq2l"), ExtResource("11_mqnmn"), ExtResource("10_vqq2l"), ExtResource("6_3nfmf")]
 }
 
 [sub_resource type="Animation" id="Animation_5esnd"]
@@ -115,7 +116,7 @@ position = Vector2(1, 0)
 texture = ExtResource("2_3nfmf")
 
 [node name="moving" type="Sprite2D" parent="." unique_id=1646823923]
-texture = ExtResource("4_i8sra")
+texture = ExtResource("10_vqq2l")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1765195337]
 target_desired_distance = 4.0

@@ -25,3 +25,4 @@ func _on_body_entered(body: Node2D) -> void:
 		var cam = get_tree().get_first_node_in_group("player").get_child(8)
 		ftMenu.position=cam.global_position
 		get_tree().current_scene.add_child(ftMenu)
+		Global.save(body)

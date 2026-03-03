@@ -1,12 +1,18 @@
 extends Node
 
-var weaponList :={
+var allWeapons:={
 #"weapon":[dist away, dist sides, time atking, atkdelay, dmg]
 	"sword" : [0.5,1.5,0.5,1,1],
 	"spear" : [2,0.5,0.5,1,1],
 	"axe" : [0.75,0.5,0.25,1.5,1],
 	"mace" : [0.5,1,1,2,2],
 	"axeStrong" : [0.75,0.5,0.25,1.5,3],
+}
+
+var weaponList :={
+#"weapon":[dist away, dist sides, time atking, atkdelay, dmg]
+	"sword" : [0.5,1.5,0.5,1,1],
+	"spear" : [2,0.5,0.5,1,1]
 }
 
 var weaponSprites = {
@@ -42,3 +48,15 @@ var checkpoints={}
 var inventory :=["healPot","manaPot","resisPot"]
 
 var curItem =""
+
+func save(player: Node2D):
+	var data = [
+		player.position.x,
+		player.position.y,
+		player.health,
+		weaponList,
+		inventory,
+		checkpoints
+	]
+	var saveFile = FileAccess.open("user://saveFile.save", FileAccess.WRITE)
+	saveFile.store_line(JSON.stringify(data))
