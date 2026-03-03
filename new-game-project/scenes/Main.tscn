@@ -95,6 +95,9 @@ tile_map_data = PackedByteArray("AAAGAAQADQAAAAAAAAAGAAUADQAAAAEAAAAHAAQADQABAAA
 tile_set = SubResource("TileSet_3dxm6")
 
 [node name="checkpoint1" parent="." unique_id=1060403371 instance=ExtResource("7_nxtc6")]
-position = Vector2(400, 0)
+position = Vector2(432, -21)
+
+[node name="checkpoint2" parent="." unique_id=123998271 instance=ExtResource("7_nxtc6")]
+position = Vector2(135, -331)
 
 [node name="player" parent="." unique_id=431234177 instance=ExtResource("4_vcsgt")]

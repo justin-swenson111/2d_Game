@@ -113,6 +113,7 @@ func _physics_process(delta: float) -> void:
 
 	if input.length() > 0 and not knockback:
 		velocity = input * SPEED
+		walkAnim()
 	elif knockback:
 		pass
 	else:
@@ -120,8 +121,8 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity==Vector2.ZERO and not atkDelay:
 		$stand.visible=true
-		$moving.visible=false	
 		$anim.stop()
+		$moving.visible=false	
 		
 	move_and_slide()
 
@@ -155,28 +156,34 @@ func _input(event: InputEvent) -> void:
 		var menuInst = menu.instantiate()
 		menuInst.position=$mainCamera.global_position
 		get_tree().current_scene.add_child(menuInst)
-	if event.is_action_pressed("down"):
-		$stand.visible=false
-		$moving.visible=true
-		$anim.stop()
-		$anim.play("fwdWalk")
-	if event.is_action_pressed("up"):
-		$stand.visible=false
-		$moving.visible=true
-		$anim.stop()
-		$anim.play("bckwdWalk")
-	if event.is_action_pressed("right"):
-		$stand.visible=false
-		$moving.visible=true
-		$anim.stop()
-		$anim.play("rightWalk")
-	if event.is_action_pressed("left"):
-		$stand.visible=false
-		$moving.visible=true
-		$anim.stop()
-		$anim.play("leftWalk")
 	if event.is_action_pressed("useItem"):
 		useItem()
+
+func walkAnim():
+
+	await get_tree().create_timer(0.1).timeout
+	if velocity!=Vector2.ZERO:
+		var ang = velocity.angle()
+		if -PI/4<ang and ang<PI/4:
+			$anim.play("rightWalk")
+			await get_tree().create_timer(0.01).timeout
+			$moving.visible=true
+			$stand.visible=false
+		elif PI/4<ang and ang<3*PI/4:
+			$anim.play("fwdWalk")
+			await get_tree().create_timer(0.01).timeout
+			$moving.visible=true
+			$stand.visible=false
+		elif -3*PI/4<ang and ang<-PI/4:
+			$anim.play("bckwdWalk")
+			await get_tree().create_timer(0.01).timeout
+			$moving.visible=true
+			$stand.visible=false
+		else:
+			$anim.play("leftWalk")
+			await get_tree().create_timer(0.01).timeout
+			$moving.visible=true
+			$stand.visible=false
 
 #getting the collision to be used and running the attack delay
 func atk(dmg: Area2D):

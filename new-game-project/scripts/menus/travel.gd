@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -18,4 +18,12 @@ func _on_item_selected(index: int) -> void:
 		if i == self.get_item_text(index):
 			x = Global.checkpoints[i][0]
 			y = Global.checkpoints[i][1]
-	print(get_tree().get_node_count())
+	var scene=owner.get_parent()
+	var player
+	for i in scene.get_children():
+		if i.is_in_group("player"):
+			player=i
+	player.position.x=x
+	player.position.y=y
+	get_tree().paused=false	
+	owner.free()

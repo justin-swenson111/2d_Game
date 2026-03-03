@@ -13,4 +13,4 @@ func _on_pressed() -> void:
 	p.setWeapon()
 	p.curItem=Global.curItem
 	p.setItem()
-	print(Global.inventory)
+	#print(Global.inventory)

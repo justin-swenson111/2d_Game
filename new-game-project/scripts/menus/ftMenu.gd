@@ -7,11 +7,10 @@ func _ready() -> void:
 	travOpt.clear()
 	for i in Global.checkpoints:
 		travOpt.add_item(i)
-		travOpt.add_item(i)
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process_(_delta: float) -> void:
 	pass
 	
