@@ -8,7 +8,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	var player= get_tree().get_first_node_in_group("player")
+	if player.global_position.y>self.global_position.y:
+		self.get_parent().z_index=1
+	else:
+		self.get_parent().z_index=3
 
 
 func _on_body_entered(body: Node2D) -> void:

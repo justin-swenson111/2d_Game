@@ -96,6 +96,8 @@ tile_set = SubResource("TileSet_3dxm6")
 tile_map_data = PackedByteArray("AAAGAAQADQAAAAAAAAAGAAUADQAAAAEAAAAHAAQADQABAAAAAAAHAAUADQABAAEAAAD5//f/DQAAAAAAAAD5//j/DQAAAAEAAAD6//f/DQABAAAAAAD6//j/DQABAAEAAAALAPX/DQAAAAAAAAALAPb/DQAAAAEAAAAMAPX/DQABAAAAAAAMAPb/DQABAAEAAADz/wYADQAAAAAAAADz/wcADQAAAAEAAAD0/wYADQABAAAAAAD0/wcADQABAAEAAAAjAPr/DQACAAEAAAAkAPn/DQADAAAAAAAkAPr/DQADAAEAAAAaAO3/DQACAAEAAAAbAOz/DQADAAAAAAAbAO3/DQADAAEAAAAfAAkADQAEAAAAAAAfAAoADQAEAAEAAAAgAAkADQAFAAAAAAAgAAoADQAFAAEAAAD8/+n/DQAEAAAAAAD8/+r/DQAEAAEAAAD9/+n/DQAFAAAAAAD9/+r/DQAFAAEAAAARAOH/DQAEAAAAAAARAOL/DQAEAAEAAAASAOH/DQAFAAAAAAASAOL/DQAFAAEAAAA=")
 tile_set = SubResource("TileSet_3dxm6")
 
+[node name="player" parent="." unique_id=431234177 instance=ExtResource("4_vcsgt")]
+
 [node name="checkpoint1" parent="." unique_id=1060403371 instance=ExtResource("7_nxtc6")]
 position = Vector2(432, -21)
 
@@ -108,4 +110,5 @@ position = Vector2(-50, 0)
 [node name="healPot" parent="." unique_id=146923246 instance=ExtResource("7_jlsqs")]
 position = Vector2(0, -50)
 
-[node name="player" parent="." unique_id=431234177 instance=ExtResource("4_vcsgt")]
+[node name="healPot2" parent="." unique_id=950105744 instance=ExtResource("7_jlsqs")]
+position = Vector2(0, 50)

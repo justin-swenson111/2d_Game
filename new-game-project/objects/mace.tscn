@@ -8,13 +8,13 @@ radius = 15.811388
 
 [node name="mace" type="Node2D" unique_id=1175599261]
 
-[node name="pickUpRange" type="Area2D" parent="." unique_id=1211598321]
+[node name="mace" type="Area2D" parent="." unique_id=1211598321]
 script = ExtResource("1_wmyes")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickUpRange" unique_id=963567492]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mace" unique_id=963567492]
 shape = SubResource("CircleShape2D_l5q2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350 groups=["weapon"]]
 texture = ExtResource("2_ct6uv")
 
-[connection signal="body_entered" from="pickUpRange" to="pickUpRange" method="_on_body_entered"]
+[connection signal="body_entered" from="mace" to="mace" method="_on_body_entered"]

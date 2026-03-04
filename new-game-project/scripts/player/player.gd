@@ -62,6 +62,7 @@ var dmgMultiplier = 1
 var resistanceMultiplier=1
 #auto sets the weapon based on selections
 func _ready():
+	self.z_index=2
 	self.position.x=Global.startX
 	self.position.y=Global.startY
 	health=Global.startHealth

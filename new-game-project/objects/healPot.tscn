@@ -8,13 +8,13 @@ radius = 16.27882
 
 [node name="healPot" type="Node2D" unique_id=1175599261]
 
-[node name="pickUpRange" type="Area2D" parent="." unique_id=1211598321 groups=["item"]]
+[node name="healPot" type="Area2D" parent="." unique_id=1211598321 groups=["item"]]
 script = ExtResource("1_ccbln")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickUpRange" unique_id=963567492]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="healPot" unique_id=963567492]
 shape = SubResource("CircleShape2D_l5q2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350]
 texture = ExtResource("2_pqhm6")
 
-[connection signal="body_entered" from="pickUpRange" to="pickUpRange" method="_on_body_entered"]
+[connection signal="body_entered" from="healPot" to="healPot" method="_on_body_entered"]

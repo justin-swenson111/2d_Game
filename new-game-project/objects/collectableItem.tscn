@@ -6,12 +6,12 @@
 
 [node name="collectableItem" type="Node2D" unique_id=1175599261]
 
-[node name="pickUpRange" type="Area2D" parent="." unique_id=1211598321]
+[node name="itemName" type="Area2D" parent="." unique_id=1211598321]
 script = ExtResource("1_eqe6o")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickUpRange" unique_id=963567492]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="itemName" unique_id=963567492]
 shape = SubResource("CircleShape2D_l5q2b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350]
 
-[connection signal="body_entered" from="pickUpRange" to="pickUpRange" method="_on_body_entered"]
+[connection signal="body_entered" from="itemName" to="itemName" method="_on_body_entered"]

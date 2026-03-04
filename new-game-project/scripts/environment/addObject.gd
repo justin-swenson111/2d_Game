@@ -21,12 +21,12 @@ func _on_body_entered(body: Node2D) -> void:
 		
 func addWeapon(player:Node2D):
 	for i in Global.allWeapons:
-		if self.get_parent().name==i:
+		if self.name==i:
 			player.weaponList[i]=Global.allWeapons[i]
 			Global.weaponList[i]=Global.allWeapons[i]
 			
 	
 func addItem(player:Node2D):
 	for i in Global.items:
-		if self.get_parent().name==i:
+		if self.name==i:
 			Global.inventory.append(i)

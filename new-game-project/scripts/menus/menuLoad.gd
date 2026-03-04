@@ -11,6 +11,7 @@ var itemList = Global.items
 var weaponSelect =[]
 
 func _ready() -> void:
+	self.z_index=10
 	wepRefresh()
 	itemRefresh()
 
