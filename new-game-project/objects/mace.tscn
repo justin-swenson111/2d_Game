@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dkbsrua6aj2u0"]
+
+[ext_resource type="Script" uid="uid://dgyjsp13h1eou" path="res://scripts/environment/addObject.gd" id="1_wmyes"]
+[ext_resource type="Texture2D" uid="uid://csfpsp6b2r7ry" path="res://sprites/weapon/Mace.png" id="2_ct6uv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5q2b"]
+radius = 15.811388
+
+[node name="mace" type="Node2D" unique_id=1175599261]
+
+[node name="pickUpRange" type="Area2D" parent="." unique_id=1211598321]
+script = ExtResource("1_wmyes")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickUpRange" unique_id=963567492]
+shape = SubResource("CircleShape2D_l5q2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350 groups=["weapon"]]
+texture = ExtResource("2_ct6uv")
+
+[connection signal="body_entered" from="pickUpRange" to="pickUpRange" method="_on_body_entered"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqvnqn6fyko75" path="res://scripts/menus/startMenu.gd" id="1_qkhwq"]
 [ext_resource type="Texture2D" uid="uid://4g1x1l3m02xu" path="res://tileset/Rock.png" id="2_3d1i7"]
 [ext_resource type="Script" uid="uid://dtx448soydcl" path="res://scripts/menus/load.gd" id="3_48ign"]
+[ext_resource type="Script" uid="uid://c35d8g4lwrm5o" path="res://scripts/menus/newGame.gd" id="3_l7wge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkhwq"]
 
@@ -29,6 +30,7 @@ text = "Settings for da game"
 
 [node name="Start" type="Area2D" parent="." unique_id=606575156]
 position = Vector2(0, 75)
+script = ExtResource("3_l7wge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start" unique_id=1453064848]
 scale = Vector2(10, 5)
@@ -73,4 +75,5 @@ offset_right = 62.0
 offset_bottom = -152.0
 text = "Title of da game"
 
+[connection signal="input_event" from="Start" to="Start" method="_on_input_event"]
 [connection signal="input_event" from="Load" to="Load" method="_on_input_event"]

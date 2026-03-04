@@ -36,6 +36,7 @@ var healthIncTime=30
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList
 @onready var weaponSprites = Global.weaponSprites
+@onready var inventory=Global.inventory
 
 var w1 = Global.w1
 var w2 = Global.w2
@@ -64,8 +65,8 @@ func _ready():
 	self.position.x=Global.startX
 	self.position.y=Global.startY
 	health=Global.startHealth
-	if Global.inventory.size()>0:
-		curItem= Global.inventory[0]
+	if inventory.size()>0:
+		curItem= inventory[0]
 		Global.curItem=curItem
 		curItemSprite=itemList[curItem][1]
 		var itmSprite = load(curItemSprite)
@@ -293,17 +294,17 @@ func useItem():
 		changeDmg(itemList[curItem][0])
 	if curItem=="resisPot":
 		changeResis(itemList[curItem][0])
-	if Global.inventory.size()>0:
-		for i in range(Global.inventory.size()):
-			if Global.inventory[i]==curItem:
-				print(i, Global.inventory[i])
-				Global.inventory.remove_at(i)
+	if inventory.size()>0:
+		for i in range(inventory.size()):
+			if inventory[i]==curItem:
+				print(i, inventory[i])
+				inventory.remove_at(i)
 				break
-	if Global.inventory.size()>=1:
-		curItem=Global.inventory[0]
+	if inventory.size()>=1:
+		curItem=inventory[0]
 	else:
 		curItem=""
-	Global.curItem=curItem
+	curItem=curItem
 	setItem()
 	
 func changeDmg(amt):

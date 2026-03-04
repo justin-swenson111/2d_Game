@@ -58,8 +58,8 @@ func save(player: Node2D):
 		player.position.x,
 		player.position.y,
 		player.health,
-		weaponList,
-		inventory,
+		player.weaponList,
+		player.inventory,
 		checkpoints
 	]
 	var saveFile = FileAccess.open("user://saveFile.save", FileAccess.WRITE)
