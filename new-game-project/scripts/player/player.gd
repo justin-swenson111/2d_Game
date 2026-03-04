@@ -61,14 +61,18 @@ var dmgMultiplier = 1
 var resistanceMultiplier=1
 #auto sets the weapon based on selections
 func _ready():
+	self.position.x=Global.startX
+	self.position.y=Global.startY
+	health=Global.startHealth
 	if Global.inventory.size()>0:
 		curItem= Global.inventory[0]
 		Global.curItem=curItem
 		curItemSprite=itemList[curItem][1]
 		var itmSprite = load(curItemSprite)
 		$currentItem.texture=itmSprite
-	health=maxHealth
 	setWeapon()
+	if health>maxHealth:
+		health=maxHealth
 	for i in health:
 		var heart = fullH.instantiate()
 		heart.name="h"+str(i)

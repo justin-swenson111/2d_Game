@@ -1,5 +1,9 @@
 extends Node
 
+var startX=0
+var startY=0
+var startHealth=5
+
 var allWeapons:={
 #"weapon":[dist away, dist sides, time atking, atkdelay, dmg]
 	"sword" : [0.5,1.5,0.5,1,1],

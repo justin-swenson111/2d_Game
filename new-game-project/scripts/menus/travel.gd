@@ -26,4 +26,4 @@ func _on_item_selected(index: int) -> void:
 	player.position.x=x
 	player.position.y=y
 	get_tree().paused=false	
-	owner.free()
+	owner.queue_free()
