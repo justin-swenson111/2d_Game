@@ -5,7 +5,7 @@ extends Area2D
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event.is_action_pressed("click"):
 		var saveFile = FileAccess.open("user://saveFile.save",FileAccess.READ)
-		#x,y,health,weaponlist,inventory,checkpoints
+		#x,y,health,weaponlist,inventory,checkpoints,gold
 		var saveData=JSON.parse_string(saveFile.get_as_text())
 		print(saveData)
 		Global.startX=saveData[0]
@@ -14,4 +14,5 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		Global.weaponList=saveData[3]
 		Global.inventory=saveData[4]
 		Global.checkpoints=saveData[5]
+		Global.startGold=saveData[6]
 		get_tree().change_scene_to_file("res://scenes/Main.tscn")

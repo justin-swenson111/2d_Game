@@ -33,6 +33,8 @@ var healthInc=0
 var manaIncTime=10
 var healthIncTime=30
 
+var gold = 0
+
 #weapon name [vertical range, horizontal range, time attacking, attack delay, xpos, ypos]
 @onready var weaponList =Global.weaponList
 @onready var weaponSprites = Global.weaponSprites
@@ -52,6 +54,7 @@ var melee = true
 
 const SPEED = 100
 var atkDelay =false
+var atking = false
 
 var atkDelayLng =1
 var atkTime =0.5
@@ -62,10 +65,17 @@ var dmgMultiplier = 1
 var resistanceMultiplier=1
 #auto sets the weapon based on selections
 func _ready():
+	#set gold
+	gold=Global.startGold
+	$gold.text=str(gold)
+	
+	#set positiona dn z index
 	self.z_index=2
 	self.position.x=Global.startX
 	self.position.y=Global.startY
+	#set health
 	health=Global.startHealth
+	#
 	if inventory.size()>0:
 		curItem= inventory[0]
 		Global.curItem=curItem
@@ -129,8 +139,8 @@ func _physics_process(delta: float) -> void:
 		$stand.visible=true
 		$anim.stop()
 		$moving.visible=false	
-		
-	move_and_slide()
+	if not atking:
+		move_and_slide()
 
 #if a destructable object is in a attack area it takes the set damage
 func damage(body: Node2D):
@@ -201,7 +211,9 @@ func atk(dmg: Area2D):
 #turning on the collisionshape and keeping it on for the atk time
 func attack(coll: Node2D):
 	coll.disabled=false
+	atking=true
 	await get_tree().create_timer(atkTime).timeout
+	atking=false
 	coll.disabled=true
 
 func atkDly():

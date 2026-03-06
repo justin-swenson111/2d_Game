@@ -3,6 +3,7 @@ extends Node
 var startX=0
 var startY=0
 var startHealth=5
+var startGold=0
 
 var allWeapons:={
 #"weapon":[dist away, dist sides, time atking, atkdelay, dmg]
@@ -60,7 +61,8 @@ func save(player: Node2D):
 		player.health,
 		player.weaponList,
 		player.inventory,
-		checkpoints
+		checkpoints,
+		player.gold
 	]
 	var saveFile = FileAccess.open("user://saveFile.save", FileAccess.WRITE)
 	saveFile.store_line(JSON.stringify(data))

@@ -3,7 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,3 +30,7 @@ func addItem(player:Node2D):
 	for i in Global.items:
 		if self.name==i:
 			Global.inventory.append(i)
+	if Global.inventory.size()==1:
+		var sprite = load(Global.items[self.name][1])
+		player.curItem=self.name
+		player.find_child("currentItem").texture=sprite

@@ -14,6 +14,8 @@ script = ExtResource("1_ccbln")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="healPot" unique_id=963567492]
 shape = SubResource("CircleShape2D_l5q2b")
 
+[node name="heal1" type="Node2D" parent="healPot" unique_id=1619560404]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350]
 texture = ExtResource("2_pqhm6")
 

@@ -14,6 +14,8 @@ script = ExtResource("1_wmyes")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mace" unique_id=963567492]
 shape = SubResource("CircleShape2D_l5q2b")
 
+[node name="mace1" type="Node2D" parent="mace" unique_id=424352385]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350 groups=["weapon"]]
 texture = ExtResource("2_ct6uv")
 
