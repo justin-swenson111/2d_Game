@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dxvm0vjnd8svw" path="res://tileset/grassNavigation/grassAvoid.png" id="2_nxtc6"]
 [ext_resource type="Texture2D" uid="uid://2x6p3vm275fn" path="res://tileset/grassNavigation/grassNavigation.png" id="3_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://3cdngw2pcdrt" path="res://objects/player.tscn" id="4_vcsgt"]
-[ext_resource type="PackedScene" uid="uid://cip21h4h3w0m0" path="res://objects/healPot.tscn" id="7_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://cip21h4h3w0m0" path="res://objects/worldItems/healPot.tscn" id="7_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://b4xmi14dtfarv" path="res://objects/checkpoint.tscn" id="7_nxtc6"]
+[ext_resource type="PackedScene" uid="uid://da2lbu1fsk6h8" path="res://objects/breakables/breakable.tscn" id="8_jlsqs"]
+[ext_resource type="PackedScene" uid="uid://4oovtax3voq0" path="res://objects/enemies/Bweh.tscn" id="9_q8u5g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -105,3 +107,15 @@ position = Vector2(135, -331)
 
 [node name="healPot" parent="." unique_id=1175599261 instance=ExtResource("7_jlsqs")]
 position = Vector2(0, -50)
+
+[node name="breakable" parent="." unique_id=170446505 instance=ExtResource("8_jlsqs")]
+position = Vector2(100, 0)
+
+[node name="Bweh" parent="." unique_id=1783438828 instance=ExtResource("9_q8u5g")]
+position = Vector2(-200, 0)
+
+[node name="breakable2" parent="." unique_id=2127295893 instance=ExtResource("8_jlsqs")]
+position = Vector2(100, 25)
+
+[node name="breakable3" parent="." unique_id=1026146257 instance=ExtResource("8_jlsqs")]
+position = Vector2(100, -25)

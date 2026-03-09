@@ -124,8 +124,7 @@ target_desired_distance = 4.0
 path_max_distance = 10.0
 
 [node name="leftAtk" type="Area2D" parent="." unique_id=339344686]
-visible = false
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftAtk" unique_id=96235281]
 position = Vector2(-15, 0)
@@ -134,8 +133,7 @@ shape = SubResource("RectangleShape2D_fos0i")
 disabled = true
 
 [node name="rightAtk" type="Area2D" parent="." unique_id=1499584987]
-visible = false
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rightAtk" unique_id=1543054859]
 position = Vector2(15, 0)
@@ -144,8 +142,7 @@ shape = SubResource("RectangleShape2D_3dxm6")
 disabled = true
 
 [node name="upAtk" type="Area2D" parent="." unique_id=2030400027]
-visible = false
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="upAtk" unique_id=881274357]
 position = Vector2(0, -15)
@@ -154,8 +151,7 @@ shape = SubResource("RectangleShape2D_lgr22")
 disabled = true
 
 [node name="downAtk" type="Area2D" parent="." unique_id=159946394]
-visible = false
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="downAtk" unique_id=1861297563]
 position = Vector2(0, 15)
@@ -182,10 +178,10 @@ libraries/ = SubResource("AnimationLibrary_w1o2u")
 [node name="hearts" type="Node2D" parent="." unique_id=340067647]
 
 [node name="gold" type="Label" parent="." unique_id=1542586037]
-offset_left = -186.0
-offset_top = -101.0
-offset_right = -146.0
-offset_bottom = -78.0
+offset_left = -180.0
+offset_top = -65.0
+offset_right = -140.0
+offset_bottom = -42.0
 
 [connection signal="body_entered" from="leftAtk" to="." method="_on_left_atk_body_entered"]
 [connection signal="body_entered" from="rightAtk" to="." method="_on_right_atk_body_entered"]

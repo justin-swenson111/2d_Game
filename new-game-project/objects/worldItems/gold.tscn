@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cf7edfyw7wgd1"]
+
+[ext_resource type="Script" uid="uid://d1jyq3kh4d2s8" path="res://scripts/environment/collectCoin.gd" id="1_004yl"]
+
+[sub_resource type="Gradient" id="Gradient_g6kr7"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_004yl"]
+gradient = SubResource("Gradient_g6kr7")
+width = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c21xc"]
+
+[node name="gold" type="Area2D" unique_id=2064763884]
+script = ExtResource("1_004yl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1981284466]
+position = Vector2(-1.1920929e-07, 4.7683716e-07)
+scale = Vector2(12, 18.000002)
+texture = SubResource("GradientTexture1D_004yl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1053921291]
+shape = SubResource("CircleShape2D_c21xc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

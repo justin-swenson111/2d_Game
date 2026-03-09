@@ -7,12 +7,12 @@ extends CharacterBody2D
 	"atkU" : $upAtk
 }
 
-const arrow = preload("res://objects/arrow.tscn")
+const arrow = preload("res://objects/playerItemSprites/arrow.tscn")
 const menu = preload("res://scenes/playerMenu.tscn")
-const fullH = preload("res://objects/heart.tscn")
-const emptyH = preload("res://objects/heartEmpty.tscn")
-const fullM = preload("res://objects/mana.tscn")
-const emptym = preload("res://objects/manaEmpty.tscn")
+const fullH = preload("res://objects/playerUI/heart.tscn")
+const emptyH = preload("res://objects/playerUI/heartEmpty.tscn")
+const fullM = preload("res://objects/playerUI/mana.tscn")
+const emptym = preload("res://objects/playerUI/manaEmpty.tscn")
 
 
 var knockback_strength = 100
@@ -176,7 +176,6 @@ func _input(event: InputEvent) -> void:
 		useItem()
 
 func walkAnim():
-
 	await get_tree().create_timer(0.1).timeout
 	if velocity!=Vector2.ZERO:
 		var ang = velocity.angle()
@@ -403,7 +402,6 @@ func extraHeal():
 	full.add_to_group("full")
 	$hearts.add_child(full)
 	
-	
 func incMana(amt):
 	for j in amt:
 		if mana!=maxMana:
@@ -432,7 +430,11 @@ func knockback_from(source: Node2D):
 	await get_tree().create_timer(0.25).timeout
 	knockback=false
 	
-
+func addGold(amt):
+	gold+=amt
+	$gold.text=str(gold)
+	
+	
 #attack hit box calls
 func _on_left_atk_body_entered(body: Node2D) -> void:
 	damage(body) 

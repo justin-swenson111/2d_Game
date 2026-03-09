@@ -36,6 +36,12 @@ func hurt(source: Node2D,dmg: int):
 		$anim.play("bwehDeath")
 		#print($anim.get_animation("bwehDeath").length)
 		await $anim.animation_finished
+		var possCoin = randi_range(1, 100)
+		if possCoin>=75:
+			var c = preload("res://objects/worldItems/gold.tscn")
+			var coin = c.instantiate()
+			coin.position=self.global_position
+			get_tree().current_scene.add_child(coin)
 		queue_free()
 
 	

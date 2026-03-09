@@ -35,7 +35,7 @@ func wepRefresh():
 
 func itemRefresh():
 	for i in inventory:
-		var itm= preload("res://objects/item.tscn")
+		var itm= preload("res://objects/worldItems/item.tscn")
 		var item=itm.instantiate()
 		item.get_child(0).name=i
 		item.texture=load(itemList[i][1])

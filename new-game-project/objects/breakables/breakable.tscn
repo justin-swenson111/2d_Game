@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://da2lbu1fsk6h8"]
+
+[ext_resource type="Script" uid="uid://dai3inlc6xsrk" path="res://scripts/environment/breakable.gd" id="1_nbdol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyipj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nbdol"]
+size = Vector2(10, 1)
+
+[node name="breakable" type="CharacterBody2D" unique_id=2127295893 groups=["dest"]]
+collision_layer = 4
+script = ExtResource("1_nbdol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212372430]
+shape = SubResource("RectangleShape2D_lyipj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1509408235]
+position = Vector2(1.1920929e-07, 4.7683716e-07)
+scale = Vector2(2.0000002, 20)
+texture = SubResource("PlaceholderTexture2D_nbdol")
