@@ -29,6 +29,7 @@ empty="empty player health/mana"
 checkpoints="Areas the player can save/fast travel between"
 weapon="Weapon you can pick up on the ground"
 item="Item you can pick up on the ground"
+artifact="artifacts"
 
 [input]
 

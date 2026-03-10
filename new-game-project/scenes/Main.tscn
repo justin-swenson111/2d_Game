@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://b4xmi14dtfarv" path="res://objects/checkpoint.tscn" id="7_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://da2lbu1fsk6h8" path="res://objects/breakables/breakable.tscn" id="8_jlsqs"]
 [ext_resource type="PackedScene" uid="uid://4oovtax3voq0" path="res://objects/enemies/Bweh.tscn" id="9_q8u5g"]
+[ext_resource type="PackedScene" uid="uid://dfmytmnymgvck" path="res://objects/worldItems/axe.tscn" id="10_wp0k4"]
+[ext_resource type="PackedScene" uid="uid://drjsdedygt4en" path="res://objects/breakables/log.tscn" id="11_bjd11"]
+[ext_resource type="PackedScene" uid="uid://d0loy7n7xii06" path="res://objects/worldItems/revive.tscn" id="12_bjd11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -119,3 +122,12 @@ position = Vector2(100, 25)
 
 [node name="breakable3" parent="." unique_id=1026146257 instance=ExtResource("8_jlsqs")]
 position = Vector2(100, -25)
+
+[node name="axe" parent="." unique_id=999217364 instance=ExtResource("10_wp0k4")]
+position = Vector2(-1, 49)
+
+[node name="log" parent="." unique_id=380776538 instance=ExtResource("11_bjd11")]
+position = Vector2(66, -74)
+
+[node name="revice" parent="." unique_id=2029191150 instance=ExtResource("12_bjd11")]
+position = Vector2(216, -5)

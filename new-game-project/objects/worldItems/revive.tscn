@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d0loy7n7xii06"]
+
+[ext_resource type="Script" uid="uid://dgyjsp13h1eou" path="res://scripts/environment/addObject.gd" id="1_kw4qy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5q2b"]
+radius = 15.811388
+
+[sub_resource type="Gradient" id="Gradient_cuqh7"]
+colors = PackedColorArray(0.4966439, 0.48434073, 1.92523e-07, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kw4qy"]
+gradient = SubResource("Gradient_cuqh7")
+width = 17
+height = 17
+
+[node name="revive" type="Node2D" unique_id=1175599261]
+
+[node name="revive" type="Area2D" parent="." unique_id=1211598321 groups=["artifact"]]
+script = ExtResource("1_kw4qy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="revive" unique_id=963567492]
+shape = SubResource("CircleShape2D_l5q2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350]
+texture = SubResource("GradientTexture2D_kw4qy")
+
+[connection signal="body_entered" from="revive" to="revive" method="_on_body_entered"]

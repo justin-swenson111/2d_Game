@@ -4,8 +4,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyipj"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nbdol"]
-size = Vector2(10, 1)
+[sub_resource type="Gradient" id="Gradient_nbdol"]
+colors = PackedColorArray(0.39541486, 0.22296722, 0, 1, 0.39607844, 0.22352941, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hwei6"]
+gradient = SubResource("Gradient_nbdol")
+width = 18
+height = 18
 
 [node name="breakable" type="CharacterBody2D" unique_id=2127295893 groups=["dest"]]
 collision_layer = 4
@@ -15,6 +20,4 @@ script = ExtResource("1_nbdol")
 shape = SubResource("RectangleShape2D_lyipj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1509408235]
-position = Vector2(1.1920929e-07, 4.7683716e-07)
-scale = Vector2(2.0000002, 20)
-texture = SubResource("PlaceholderTexture2D_nbdol")
+texture = SubResource("GradientTexture2D_hwei6")

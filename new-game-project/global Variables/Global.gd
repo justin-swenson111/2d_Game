@@ -48,6 +48,8 @@ var artifacts :={
 	"dmg":["res://sprites/items/manaPot.png"]
 }
 
+var collArtifacts =[]
+var curArtifact =""
 var checkpoints={}
 
 var inventory :=["healPot","manaPot","resisPot"]
@@ -62,7 +64,9 @@ func save(player: Node2D):
 		player.weaponList,
 		player.inventory,
 		checkpoints,
-		player.gold
+		player.gold,
+		collArtifacts,
+		curArtifact
 	]
 	var saveFile = FileAccess.open("user://saveFile.save", FileAccess.WRITE)
 	saveFile.store_line(JSON.stringify(data))

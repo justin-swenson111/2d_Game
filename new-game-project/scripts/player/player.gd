@@ -60,6 +60,7 @@ var atkDelayLng =1
 var atkTime =0.5
 var atkDamage = 1
 
+var curArtifact =""
 
 var dmgMultiplier = 1
 var resistanceMultiplier=1
@@ -75,6 +76,7 @@ func _ready():
 	self.position.y=Global.startY
 	#set health
 	health=Global.startHealth
+	curArtifact=Global.curArtifact
 	#
 	if inventory.size()>0:
 		curItem= inventory[0]
@@ -271,7 +273,6 @@ func setItem():
 		$currentItem.texture=itmSprite
 	else:
 		$currentItem.texture=null
-		
 
 #ranged attack
 func rgdAtk(dir: String):
@@ -370,8 +371,13 @@ func ouchie(source, dmgTaken):
 			#print(highest.name)
 			highest.free()
 			if health==0:
-				await get_tree().create_timer(0.01).timeout
-				get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
+				if curArtifact!="revive":
+					await get_tree().create_timer(0.01).timeout
+					get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
+				else:
+					heal(maxHealth)
+					Global.collArtifacts.remove("revive")
+					curArtifact="aa"
 
 func heal(amt):
 	for j in amt:

@@ -15,8 +15,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if self.is_in_group("item"):
 			addItem(body)
-		else:
+		elif self.is_in_group("weapon"):
 			addWeapon(body)
+		elif self.is_in_group("artifact"):
+			addArtifact(body)
 		self.get_parent().queue_free()
 		
 func addWeapon(player:Node2D):
@@ -25,7 +27,13 @@ func addWeapon(player:Node2D):
 			player.weaponList[i]=Global.allWeapons[i]
 			Global.weaponList[i]=Global.allWeapons[i]
 			
-	
+func addArtifact(player:Node2D):
+	for i in Global.artifacts:
+		if self.name==i:
+			Global.collArtifacts.append(i)
+	if Global.collArtifacts.size()==1:
+		Global.curArtifact=self.name
+
 func addItem(player:Node2D):
 	for i in Global.items:
 		if self.name==i:

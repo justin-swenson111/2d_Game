@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://drjsdedygt4en"]
+
+[ext_resource type="Script" uid="uid://btjjwudfak6o6" path="res://scripts/environment/log.gd" id="1_d7w7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyipj"]
+size = Vector2(49, 20)
+
+[sub_resource type="Gradient" id="Gradient_d7w7i"]
+offsets = PackedFloat32Array(0, 0.4387255, 1)
+colors = PackedColorArray(0.26671416, 0.128191, 0, 1, 0.39607844, 0.22352941, 0, 1, 0.3019608, 0.20392157, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_02uyl"]
+gradient = SubResource("Gradient_d7w7i")
+width = 17
+height = 17
+
+[node name="log" type="CharacterBody2D" unique_id=2127295893 groups=["dest"]]
+collision_layer = 4
+script = ExtResource("1_d7w7i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1212372430]
+position = Vector2(14.5, 0)
+shape = SubResource("RectangleShape2D_lyipj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1509408235]
+position = Vector2(14.25, 4.7683716e-07)
+scale = Vector2(2.6764705, 1)
+texture = SubResource("GradientTexture2D_02uyl")

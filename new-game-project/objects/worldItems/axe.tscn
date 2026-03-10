@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dfmytmnymgvck"]
+
+[ext_resource type="Script" uid="uid://dgyjsp13h1eou" path="res://scripts/environment/addObject.gd" id="1_so4fm"]
+[ext_resource type="Texture2D" uid="uid://c7isfe70q7r2l" path="res://sprites/weapon/Axe.png" id="2_so4fm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5q2b"]
+radius = 15.811388
+
+[node name="axe" type="Node2D" unique_id=1175599261]
+
+[node name="axe" type="Area2D" parent="." unique_id=1211598321]
+script = ExtResource("1_so4fm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="axe" unique_id=963567492]
+shape = SubResource("CircleShape2D_l5q2b")
+
+[node name="mace1" type="Node2D" parent="axe" unique_id=424352385]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350 groups=["weapon"]]
+texture = ExtResource("2_so4fm")
+
+[connection signal="body_entered" from="axe" to="axe" method="_on_body_entered"]

@@ -14,6 +14,7 @@ func _ready() -> void:
 	self.z_index=10
 	wepRefresh()
 	itemRefresh()
+	artiRefresh()
 
 
 func wepRefresh():
@@ -32,6 +33,12 @@ func wepRefresh():
 	for i in weaponSelect:
 		wep1.add_item(i)
 		wep2.add_item(i)
+
+func artiRefresh():
+	var artifact=$artifact/MenuButton/wOption1
+	artifact.clear()
+	for i in Global.collArtifacts:
+		artifact.add_item(i)
 
 func itemRefresh():
 	for i in inventory:
