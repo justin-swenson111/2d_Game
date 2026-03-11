@@ -15,6 +15,8 @@ func _ready() -> void:
 	wepRefresh()
 	itemRefresh()
 	artiRefresh()
+	artiRefresh()
+	
 
 
 func wepRefresh():
@@ -37,8 +39,14 @@ func wepRefresh():
 func artiRefresh():
 	var artifact=$artifact/MenuButton/wOption1
 	artifact.clear()
-	for i in Global.collArtifacts:
-		artifact.add_item(i)
+	artifact.add_item(Global.curArtifact)
+	var items=Global.collArtifacts.duplicate()
+	items.erase(Global.curArtifact)
+	for i in items:
+		#if i!=Global.curArtifact or !first:
+			artifact.add_item(i)
+	
+		
 
 func itemRefresh():
 	for i in inventory:

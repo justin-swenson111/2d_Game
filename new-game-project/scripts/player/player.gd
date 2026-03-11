@@ -147,7 +147,11 @@ func _physics_process(delta: float) -> void:
 #if a destructable object is in a attack area it takes the set damage
 func damage(body: Node2D):
 	if (body.is_in_group("dest")):
-		body.hurt(self,atkDamage*dmgMultiplier)
+		var dmgArti=1
+		if curArtifact=="dmg":
+			dmgArti=1.5
+		
+		body.hurt(self,round(dmgArti*atkDamage)*dmgMultiplier)
 
 #on input events
 func _input(event: InputEvent) -> void:
@@ -376,7 +380,7 @@ func ouchie(source, dmgTaken):
 					get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 				else:
 					heal(maxHealth)
-					Global.collArtifacts.remove("revive")
+					Global.collArtifacts.erase("revive")
 					curArtifact="aa"
 
 func heal(amt):

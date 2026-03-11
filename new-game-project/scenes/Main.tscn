@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dfmytmnymgvck" path="res://objects/worldItems/axe.tscn" id="10_wp0k4"]
 [ext_resource type="PackedScene" uid="uid://drjsdedygt4en" path="res://objects/breakables/log.tscn" id="11_bjd11"]
 [ext_resource type="PackedScene" uid="uid://d0loy7n7xii06" path="res://objects/worldItems/revive.tscn" id="12_bjd11"]
+[ext_resource type="PackedScene" uid="uid://brix8ic222oo5" path="res://objects/worldItems/dmgArti.tscn" id="13_qmy6f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -131,3 +132,12 @@ position = Vector2(66, -74)
 
 [node name="revice" parent="." unique_id=2029191150 instance=ExtResource("12_bjd11")]
 position = Vector2(216, -5)
+
+[node name="dmgArti" parent="." unique_id=1576018591 instance=ExtResource("13_qmy6f")]
+position = Vector2(221, -75)
+
+[node name="revive" parent="." unique_id=7006700 instance=ExtResource("12_bjd11")]
+position = Vector2(218, 43)
+
+[node name="revive2" parent="." unique_id=1023091061 instance=ExtResource("12_bjd11")]
+position = Vector2(258, 22)

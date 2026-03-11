@@ -33,6 +33,7 @@ func addArtifact(player:Node2D):
 			Global.collArtifacts.append(i)
 	if Global.collArtifacts.size()==1:
 		Global.curArtifact=self.name
+		player.curArtifact=self.name
 
 func addItem(player:Node2D):
 	for i in Global.items:
