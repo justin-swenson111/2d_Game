@@ -52,6 +52,8 @@ var collArtifacts =[]
 var curArtifact =""
 var checkpoints={}
 
+var paused=false
+
 var inventory :=["healPot","manaPot","resisPot"]
 
 var curItem =""

@@ -175,9 +175,11 @@ func _input(event: InputEvent) -> void:
 			melee=true
 	if event.is_action_pressed("openMenu"):
 		get_tree().paused=true
+		Global.paused=true
 		var menuInst = menu.instantiate()
 		menuInst.position=$mainCamera.global_position
 		get_tree().current_scene.add_child(menuInst)
+		
 	if event.is_action_pressed("useItem"):
 		useItem()
 

@@ -14,4 +14,5 @@ func _on_pressed() -> void:
 	p.curItem=Global.curItem
 	p.setItem()
 	p.curArtifact=Global.curArtifact
+	Global.paused=false
 	#print(Global.inventory)

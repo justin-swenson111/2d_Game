@@ -92,8 +92,9 @@ func atk(source):
 		$anim.play("bwehAtk")
 		await get_tree().create_timer(1).timeout
 		if inRange:
-			source.ouchie(self,1)
-			knockback_from(source)
+			if not Global.paused:
+				source.ouchie(self,1)
+				knockback_from(source)
 		atking=false
 		$attack.visible=false
 		var small = load("res://sprites/bweh/BWEHatk1.png")
