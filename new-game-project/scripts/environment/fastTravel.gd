@@ -24,7 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if !inList:
 			Global.checkpoints[self.get_parent().name]=[self.global_position.x,self.global_position.y]
 		var menu = preload("res://scenes/checkpointTravelMenu.tscn")
-		get_tree().paused=true
+		get_tree().set_deferred("paused",true)
 		var ftMenu=menu.instantiate()
 		var cam = get_tree().get_first_node_in_group("player").get_child(8)
 		ftMenu.position=cam.global_position

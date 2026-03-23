@@ -50,7 +50,7 @@ func knockback_from(source: Node2D):
 	stunned = true
 	var dir := (global_position - source.global_position).normalized()
 	velocity = dir * knockback_strength
-	if health==0:
+	if health<=0:
 		$attack.visible=false
 		$stand.visible=true
 	#cannot update its velocity for stun_time
@@ -59,7 +59,7 @@ func knockback_from(source: Node2D):
 	#enemy can move again
 	stunned = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#if its not going after the player stop the animation and stand still
 	if not chasing and not isDead and not stunned:
 		$anim.stop()

@@ -41,7 +41,8 @@ func artiRefresh():
 	artifact.clear()
 	artifact.add_item(Global.curArtifact)
 	var items=Global.collArtifacts.duplicate()
-	items.erase(Global.curArtifact)
+	var pos = items.find(Global.curArtifact)
+	items.remove_at(pos)
 	for i in items:
 		#if i!=Global.curArtifact or !first:
 			artifact.add_item(i)

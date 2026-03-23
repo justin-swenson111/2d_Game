@@ -1,6 +1,6 @@
 extends Node
 
-func hurt(player: Node2D,dmg):
+func hurt(_player: Node2D,_dmg):
 	var c = preload("res://objects/worldItems/gold.tscn")
 	var coin = c.instantiate()
 	coin.position=self.global_position
@@ -15,5 +15,5 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
