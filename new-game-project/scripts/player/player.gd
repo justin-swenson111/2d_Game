@@ -337,6 +337,8 @@ func changeResis(amt):
 	resistanceMultiplier=1
 
 func decMana(m):
+	if curArtifact=="mana":
+		m*=0.5
 	mana-=m
 	for j in range(m):
 		var highest = $mana.get_child(0)
@@ -353,7 +355,10 @@ func decMana(m):
 		highest.free()
 
 func ouchie(source, dmgTaken):
-	var amt=floor(dmgTaken/resistanceMultiplier)
+	var arti=1
+	if curArtifact=="res":
+		arti=1.5
+	var amt=floor(dmgTaken/(resistanceMultiplier*arti))
 	#print(resistanceMultiplier)
 	if amt>0:
 		for j in amt:

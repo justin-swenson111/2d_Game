@@ -45,7 +45,11 @@ var artifacts :={
 	#revive once on death
 	"revive":"res://sprites/items/healPot.png",
 	#extra atk dmg on taking dmg
-	"dmg":["res://sprites/items/manaPot.png"]
+	"dmg":["res://sprites/items/manaPot.png"],
+	#resistance
+	"res":[""],
+	#less mana use
+	"mana":[""]
 }
 
 var collArtifacts =[]

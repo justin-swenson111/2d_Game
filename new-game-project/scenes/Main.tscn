@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://4oovtax3voq0" path="res://objects/enemies/Bweh.tscn" id="9_q8u5g"]
 [ext_resource type="PackedScene" uid="uid://dfmytmnymgvck" path="res://objects/worldItems/axe.tscn" id="10_wp0k4"]
 [ext_resource type="PackedScene" uid="uid://drjsdedygt4en" path="res://objects/breakables/log.tscn" id="11_bjd11"]
-[ext_resource type="PackedScene" uid="uid://d0loy7n7xii06" path="res://objects/worldItems/revive.tscn" id="12_bjd11"]
+[ext_resource type="PackedScene" uid="uid://d0loy7n7xii06" path="res://objects/worldItems/reviveArti.tscn" id="12_bjd11"]
 [ext_resource type="PackedScene" uid="uid://brix8ic222oo5" path="res://objects/worldItems/dmgArti.tscn" id="13_qmy6f"]
+[ext_resource type="PackedScene" uid="uid://oihpyyxoxw0b" path="res://objects/worldItems/resArti.tscn" id="14_3p2gp"]
+[ext_resource type="PackedScene" uid="uid://6dkksljqw80b" path="res://objects/worldItems/manaArti.tscn" id="15_cvmbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -136,8 +138,8 @@ position = Vector2(216, -5)
 [node name="dmgArti" parent="." unique_id=1576018591 instance=ExtResource("13_qmy6f")]
 position = Vector2(221, -75)
 
-[node name="revive" parent="." unique_id=7006700 instance=ExtResource("12_bjd11")]
-position = Vector2(218, 43)
+[node name="resArti" parent="." unique_id=2142167389 instance=ExtResource("14_3p2gp")]
+position = Vector2(223, 62)
 
-[node name="revive2" parent="." unique_id=1023091061 instance=ExtResource("12_bjd11")]
-position = Vector2(258, 22)
+[node name="manaArti" parent="." unique_id=539443490 instance=ExtResource("15_cvmbd")]
+position = Vector2(261, 25)
