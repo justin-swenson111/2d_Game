@@ -14,11 +14,20 @@ var allWeapons:={
 	"axeStrong" : [0.75,0.5,0.25,1.5,3],
 }
 
+var allMagWeapons :={
+	#mana cost, destruction value
+	"fireRod":[5,10],
+	"iceRod":[2,8],
+	"shockRod":[3,5]
+}
+
 var weaponList :={
 #"weapon":[dist away, dist sides, time atking, atkdelay, dmg]
 	"sword" : [0.5,1.5,0.5,1,1],
 	"spear" : [2,0.5,0.5,1,1]
 }
+
+var magWeaponList:={}
 
 var weaponSprites = {
 	"sword":"res://sprites/weapon/Sword.png",

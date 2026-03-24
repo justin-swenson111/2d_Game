@@ -38,6 +38,7 @@ func wepRefresh():
 
 func artiRefresh():
 	var artifact=$artifact/MenuButton/wOption1
+	Global.collArtifacts.sort()
 	artifact.clear()
 	artifact.add_item(Global.curArtifact)
 	var items=Global.collArtifacts.duplicate()

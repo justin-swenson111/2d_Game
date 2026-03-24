@@ -19,6 +19,8 @@ func _on_body_entered(body: Node2D) -> void:
 			addWeapon(body)
 		elif self.is_in_group("artifact"):
 			addArtifact(body)
+		elif self.is_in_group("magWeap"):
+			addMag(body)
 		self.get_parent().queue_free()
 		
 func addWeapon(player:Node2D):
@@ -43,3 +45,11 @@ func addItem(player:Node2D):
 		var sprite = load(Global.items[self.name][1])
 		player.curItem=self.name
 		player.find_child("currentItem").texture=sprite
+
+func addMag(player:Node2D):
+	for i in Global.allMagWeapons:
+		if self.name==i:
+			Global.magWeaponList[i]=Global.allMagWeapons[i]
+			player.magWeaponList[i]=Global.allMagWeapons[i]
+	if Global.magWeaponList.size()==1:
+		player.curMagWeapon=self.name

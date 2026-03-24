@@ -39,6 +39,7 @@ var gold = 0
 @onready var weaponList =Global.weaponList
 @onready var weaponSprites = Global.weaponSprites
 @onready var inventory=Global.inventory
+@onready var magWeaponList=Global.allMagWeapons
 
 var w1 = Global.w1
 var w2 = Global.w2
@@ -47,10 +48,13 @@ var curWeapon = w1
 
 @onready var itemList = Global.items
 
+var curMagWeapon
+
 var curItem
 var curItemSprite
 
 var melee = true
+var mag = false
 
 const SPEED = 100
 var atkDelay =false
@@ -64,7 +68,12 @@ var curArtifact =""
 
 var dmgMultiplier = 1
 var resistanceMultiplier=1
-#auto sets the weapon based on selections
+
+
+
+
+
+#auto sets the base selections based on the save file
 func _ready():
 	#set gold
 	gold=Global.startGold
@@ -107,7 +116,10 @@ func _ready():
 			if j.name==man.name:
 				j.position.y = -90
 				j.position.x=-175+15*i
-	
+
+
+
+
 
 #movement based on wasd presses
 func _physics_process(delta: float) -> void:
@@ -144,6 +156,10 @@ func _physics_process(delta: float) -> void:
 	if not atking:
 		move_and_slide()
 
+
+
+
+
 #if a destructable object is in a attack area it takes the set damage
 func damage(body: Node2D):
 	if (body.is_in_group("dest")):
@@ -153,14 +169,20 @@ func damage(body: Node2D):
 		
 		body.hurt(self,round(dmgArti*atkDamage)*dmgMultiplier)
 
+
+
+
+
 #on input events
 func _input(event: InputEvent) -> void:
 	for k in atkList.keys():
 		if event.is_action_pressed(k):
 			if melee:
 				atk(atkList[k])
-			else:
+			elif not mag:
 				rgdAtk(k)
+			else:
+				magAtk(k)
 	if event.is_action_pressed("switch"):
 		switch()
 	if event.is_action_pressed("switchRgd"):
@@ -178,8 +200,7 @@ func _input(event: InputEvent) -> void:
 		Global.paused=true
 		var menuInst = menu.instantiate()
 		menuInst.position=$mainCamera.global_position
-		get_tree().current_scene.add_child(menuInst)
-		
+		get_tree().current_scene.add_child(menuInst)	
 	if event.is_action_pressed("useItem"):
 		useItem()
 
@@ -208,6 +229,10 @@ func walkAnim():
 			$moving.visible=true
 			$stand.visible=false
 
+
+
+
+
 #getting the collision to be used and running the attack delay
 func atk(dmg: Area2D):
 	if not atkDelay:
@@ -223,10 +248,12 @@ func attack(coll: Node2D):
 	atking=false
 	coll.disabled=true
 
+#running the atk delay
 func atkDly():
 	atkDelay = true
 	await get_tree().create_timer(atkDelayLng).timeout
 	atkDelay=false
+
 #switching weapon
 func switch():
 	#switching the current weapon
@@ -237,6 +264,7 @@ func switch():
 			curWeapon=w1
 		setWeapon()
 
+#setting the current weapon atk settings
 func setWeapon():
 	var height = 0
 	var width = 0
@@ -272,14 +300,6 @@ func setWeapon():
 			coll.scale.y=height
 			coll.scale.x=width
 
-func setItem():
-	if curItem!="":
-		curItemSprite=itemList[curItem][1]
-		var itmSprite = load(curItemSprite)
-		$currentItem.texture=itmSprite
-	else:
-		$currentItem.texture=null
-
 #ranged attack
 func rgdAtk(dir: String):
 	#if the atk dely is not active
@@ -302,6 +322,30 @@ func rgdAtk(dir: String):
 		add_child(nArrow)
 		atkDly()
 		decMana(2)
+
+#magic attacks
+func magAtk(dir: String):
+	#if the atk dely is not active
+	if not atkDelay and mana>0:
+		#create an instance of the arrow object and set its 
+		#rotation and velocity depending on where it got spawned
+		
+		#create the arrow and start the atk delay
+		atkDly()
+		decMana(2)
+
+
+
+
+
+#setting the current Item
+func setItem():
+	if curItem!="":
+		curItemSprite=itemList[curItem][1]
+		var itmSprite = load(curItemSprite)
+		$currentItem.texture=itmSprite
+	else:
+		$currentItem.texture=null
 
 func useItem():
 	#print(curItem)
@@ -326,16 +370,28 @@ func useItem():
 	curItem=curItem
 	setItem()
 	
+
+
+
+
+#change how much damage you do
 func changeDmg(amt):
 	dmgMultiplier=amt
 	await get_tree().create_timer(5).timeout
 	dmgMultiplier=1
 
+#change the amt of damage you resist
 func changeResis(amt):
 	resistanceMultiplier=amt
 	await get_tree().create_timer(5).timeout
 	resistanceMultiplier=1
 
+
+
+
+
+
+#decrease player mana
 func decMana(m):
 	if curArtifact=="mana":
 		m*=0.5
@@ -354,6 +410,7 @@ func decMana(m):
 		$mana.add_child(empt)
 		highest.free()
 
+#take player damage
 func ouchie(source, dmgTaken):
 	var arti=1
 	if curArtifact=="res":
@@ -390,6 +447,7 @@ func ouchie(source, dmgTaken):
 					Global.collArtifacts.erase("revive")
 					curArtifact="aa"
 
+#increase player health
 func heal(amt):
 	for j in amt:
 		if health<maxHealth:
@@ -408,6 +466,7 @@ func heal(amt):
 				full.add_to_group("full")
 				$hearts.add_child(full)
 
+#increase player health above normal max
 func extraHeal():
 	curExtraHealth+=1
 	health+=1
@@ -418,7 +477,8 @@ func extraHeal():
 	full.position.y = highest.position.y
 	full.add_to_group("full")
 	$hearts.add_child(full)
-	
+
+#increase player mana
 func incMana(amt):
 	for j in amt:
 		if mana!=maxMana:
@@ -436,7 +496,8 @@ func incMana(amt):
 			full.add_to_group("full")
 			$mana.add_child(full)
 			lowest.free()
-		
+
+#player knockback
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage 
 	#source and moves in that direction
@@ -446,12 +507,16 @@ func knockback_from(source: Node2D):
 	velocity = dir * knockback_strength
 	await get_tree().create_timer(0.25).timeout
 	knockback=false
-	
+
+#increase player gold count
 func addGold(amt):
 	gold+=amt
 	$gold.text=str(gold)
-	
-	
+
+
+
+
+
 #attack hit box calls
 func _on_left_atk_body_entered(body: Node2D) -> void:
 	damage(body) 
