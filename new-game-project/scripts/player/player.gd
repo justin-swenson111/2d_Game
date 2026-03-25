@@ -177,7 +177,7 @@ func damage(body: Node2D):
 func _input(event: InputEvent) -> void:
 	for k in atkList.keys():
 		if event.is_action_pressed(k):
-			if melee:
+			if melee and not mag:
 				atk(atkList[k])
 			elif not mag:
 				rgdAtk(k)
@@ -195,6 +195,11 @@ func _input(event: InputEvent) -> void:
 			#dmg is set in arrow.gd
 			atkDelayLng=1
 			melee=true
+	if event.is_action_pressed("switchMag"):
+		if mag:
+			mag=false
+		else:
+			mag=true
 	if event.is_action_pressed("openMenu"):
 		get_tree().paused=true
 		Global.paused=true
@@ -325,14 +330,88 @@ func rgdAtk(dir: String):
 
 #magic attacks
 func magAtk(dir: String):
-	#if the atk dely is not active
-	if not atkDelay and mana>0:
-		#create an instance of the arrow object and set its 
-		#rotation and velocity depending on where it got spawned
-		
-		#create the arrow and start the atk delay
-		atkDly()
-		decMana(2)
+	
+	var coll = $magL/CollisionShape2D
+	var xPos
+	var yPos
+	var xScale
+	var yScale
+	var shape
+	
+	#if the atk dely is not active and you have mana
+	if not atkDelay and mana>0 and curMagWeapon!=null:
+		var desc = Global.allMagWeapons[curMagWeapon]
+		#activate the corresponding magic weapon hitbox
+		#as well as changing the size and shape depenfing
+		#on the current weapon used
+		match dir:
+			"atkL":
+				coll = $magL/CollisionShape2D
+				xPos=-desc[2]
+				yPos=desc[3]
+				xScale=desc[4]
+				yScale=desc[5]
+				shape=desc[6]
+				coll.shape=shape.new()
+				coll.scale=Vector2(xScale,yScale)
+				coll.position=Vector2(xPos,yPos)
+				coll.disabled=false
+				atkDly()
+				atking=true
+				await get_tree().create_timer(atkTime).timeout
+				atking=false
+				coll.disabled=true
+			"atkR":
+				coll = $magR/CollisionShape2D
+				xPos=desc[2]
+				yPos=desc[3]
+				xScale=desc[4]
+				yScale=desc[5]
+				shape=desc[6]
+				coll.shape=shape.new()
+				coll.scale=Vector2(xScale,yScale)
+				coll.position=Vector2(xPos,yPos)
+				coll.disabled=false
+				atkDly()
+				atking=true
+				await get_tree().create_timer(atkTime).timeout
+				atking=false
+				coll.disabled=true
+			"atkU":
+				coll = $magU/CollisionShape2D
+				xPos=desc[3]
+				yPos=-desc[2]
+				xScale=desc[4]
+				yScale=desc[5]
+				shape=desc[6]
+				coll.shape=shape.new()
+				coll.scale=Vector2(xScale,yScale)
+				coll.position=Vector2(xPos,yPos)
+				coll.disabled=false
+				atkDly()
+				atking=true
+				await get_tree().create_timer(atkTime).timeout
+				atking=false
+				coll.disabled=true
+			"atkD":
+				coll = $magD/CollisionShape2D
+				xPos=desc[3]
+				yPos=desc[2]
+				xScale=desc[4]
+				yScale=desc[4]
+				shape=desc[6]
+				coll.shape=shape.new()
+				coll.scale=Vector2(xScale,yScale)
+				coll.position=Vector2(xPos,yPos)
+				coll.disabled=false
+				atkDly()
+				atking=true
+				await get_tree().create_timer(atkTime).timeout
+				atking=false
+				coll.disabled=true
+
+func magDmg(body):
+	pass
 
 
 
@@ -529,3 +608,20 @@ func _on_up_atk_body_entered(body: Node2D) -> void:
 
 func _on_down_atk_body_entered(body: Node2D) -> void:
 	damage(body) # Replace with function body.
+
+
+
+
+
+func _on_mag_l_body_entered(body: Node2D) -> void:
+	magDmg(body)
+
+func _on_mag_r_body_entered(body: Node2D) -> void:
+	magDmg(body)
+
+func _on_mag_d_body_entered(body: Node2D) -> void:
+	magDmg(body)
+
+
+func _on_mag_u_body_entered(body: Node2D) -> void:
+	magDmg(body)

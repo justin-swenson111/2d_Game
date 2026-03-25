@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c0g6p51myvax4"]
+
+[ext_resource type="Script" uid="uid://dgyjsp13h1eou" path="res://scripts/environment/addObject.gd" id="1_gp1d7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28fvy"]
+
+[sub_resource type="Gradient" id="Gradient_28fvy"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6ryey"]
+gradient = SubResource("Gradient_28fvy")
+width = 15
+
+[node name="magicWeapon" type="Node2D" unique_id=1736766818]
+
+[node name="fireRod" type="Area2D" parent="." unique_id=749637575 groups=["magWeap"]]
+script = ExtResource("1_gp1d7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fireRod" unique_id=1397383562]
+shape = SubResource("CircleShape2D_28fvy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1096551740]
+position = Vector2(-2.7815497e-07, 2.3841858e-07)
+scale = Vector2(1.3333334, 20)
+texture = SubResource("GradientTexture1D_6ryey")
+
+[connection signal="body_entered" from="fireRod" to="fireRod" method="_on_body_entered"]

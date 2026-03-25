@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://brix8ic222oo5" path="res://objects/worldItems/dmgArti.tscn" id="13_qmy6f"]
 [ext_resource type="PackedScene" uid="uid://oihpyyxoxw0b" path="res://objects/worldItems/resArti.tscn" id="14_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://6dkksljqw80b" path="res://objects/worldItems/manaArti.tscn" id="15_cvmbd"]
+[ext_resource type="PackedScene" uid="uid://c0g6p51myvax4" path="res://objects/worldItems/fireRod.tscn" id="16_cvmbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -143,3 +144,6 @@ position = Vector2(223, 62)
 
 [node name="manaArti" parent="." unique_id=539443490 instance=ExtResource("15_cvmbd")]
 position = Vector2(261, 25)
+
+[node name="magicWeapon" parent="." unique_id=1736766818 instance=ExtResource("16_cvmbd")]
+position = Vector2(-40, 40)

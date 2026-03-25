@@ -183,7 +183,38 @@ offset_top = -65.0
 offset_right = -140.0
 offset_bottom = -42.0
 
+[node name="magL" type="Area2D" parent="." unique_id=1006852886]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magL" unique_id=1187388154]
+disabled = true
+
+[node name="magR" type="Area2D" parent="." unique_id=1236257070]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magR" unique_id=34612097]
+scale = Vector2(1.5, 1.5)
+disabled = true
+
+[node name="magD" type="Area2D" parent="." unique_id=1009079492]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magD" unique_id=1005872256]
+scale = Vector2(1.5, 1.5)
+disabled = true
+
+[node name="magU" type="Area2D" parent="." unique_id=717572236]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magU" unique_id=1698984191]
+scale = Vector2(1.5, 1.5)
+disabled = true
+
 [connection signal="body_entered" from="leftAtk" to="." method="_on_left_atk_body_entered"]
 [connection signal="body_entered" from="rightAtk" to="." method="_on_right_atk_body_entered"]
 [connection signal="body_entered" from="upAtk" to="." method="_on_up_atk_body_entered"]
 [connection signal="body_entered" from="downAtk" to="." method="_on_down_atk_body_entered"]
+[connection signal="body_entered" from="magL" to="." method="_on_mag_l_body_entered"]
+[connection signal="body_entered" from="magR" to="." method="_on_mag_r_body_entered"]
+[connection signal="body_entered" from="magD" to="." method="_on_mag_d_body_entered"]
+[connection signal="body_entered" from="magU" to="." method="_on_mag_u_body_entered"]
