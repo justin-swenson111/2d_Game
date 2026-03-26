@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://oihpyyxoxw0b" path="res://objects/worldItems/resArti.tscn" id="14_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://6dkksljqw80b" path="res://objects/worldItems/manaArti.tscn" id="15_cvmbd"]
 [ext_resource type="PackedScene" uid="uid://c0g6p51myvax4" path="res://objects/worldItems/fireRod.tscn" id="16_cvmbd"]
+[ext_resource type="PackedScene" uid="uid://c87xasyegp73" path="res://objects/worldItems/shockRod.tscn" id="17_bb450"]
+[ext_resource type="PackedScene" uid="uid://dvrd4fpeevk4o" path="res://objects/worldItems/iceRod.tscn" id="18_nfivy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -118,9 +120,6 @@ position = Vector2(0, -50)
 [node name="breakable" parent="." unique_id=170446505 instance=ExtResource("8_jlsqs")]
 position = Vector2(100, 0)
 
-[node name="Bweh" parent="." unique_id=1783438828 instance=ExtResource("9_q8u5g")]
-position = Vector2(-200, 0)
-
 [node name="breakable2" parent="." unique_id=2127295893 instance=ExtResource("8_jlsqs")]
 position = Vector2(100, 25)
 
@@ -146,4 +145,13 @@ position = Vector2(223, 62)
 position = Vector2(261, 25)
 
 [node name="magicWeapon" parent="." unique_id=1736766818 instance=ExtResource("16_cvmbd")]
-position = Vector2(-40, 40)
+position = Vector2(-50, 65)
+
+[node name="magicWeapon2" parent="." unique_id=16187688 instance=ExtResource("17_bb450")]
+position = Vector2(-54, -45)
+
+[node name="magicWeapon3" parent="." unique_id=1095505393 instance=ExtResource("18_nfivy")]
+position = Vector2(-103, 2)
+
+[node name="Bweh" parent="." unique_id=1783438828 instance=ExtResource("9_q8u5g")]
+position = Vector2(-194, 0)

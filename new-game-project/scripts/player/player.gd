@@ -198,8 +198,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("switchMag"):
 		if mag:
 			mag=false
+			setWeapon()
 		else:
 			mag=true
+			atkDelayLng=2
 	if event.is_action_pressed("openMenu"):
 		get_tree().paused=true
 		Global.paused=true
@@ -331,7 +333,7 @@ func rgdAtk(dir: String):
 #magic attacks
 func magAtk(dir: String):
 	
-	var coll = $magL/CollisionShape2D
+	var coll
 	var xPos
 	var yPos
 	var xScale
@@ -381,8 +383,8 @@ func magAtk(dir: String):
 				coll = $magU/CollisionShape2D
 				xPos=desc[3]
 				yPos=-desc[2]
-				xScale=desc[4]
-				yScale=desc[5]
+				xScale=desc[5]
+				yScale=desc[4]
 				shape=desc[6]
 				coll.shape=shape.new()
 				coll.scale=Vector2(xScale,yScale)
@@ -397,7 +399,7 @@ func magAtk(dir: String):
 				coll = $magD/CollisionShape2D
 				xPos=desc[3]
 				yPos=desc[2]
-				xScale=desc[4]
+				xScale=desc[5]
 				yScale=desc[4]
 				shape=desc[6]
 				coll.shape=shape.new()
@@ -410,8 +412,25 @@ func magAtk(dir: String):
 				atking=false
 				coll.disabled=true
 
-func magDmg(body):
-	pass
+func magDmg(body: Node2D, col):
+	if body.is_in_group("enem"):
+		var dmgArti=1
+		if curArtifact=="dmg":
+			dmgArti=1.5
+		match curMagWeapon:
+			"fireRod":
+				#fire rod does 3 damage and stuns for 0 seconds
+				decMana(Global.allMagWeapons[curMagWeapon][0])
+				body.magHurt(round(dmgArti*3)*dmgMultiplier,0)
+			"iceRod":
+				#ice rod does 1 damage and freezes for 5 seconds
+				decMana(Global.allMagWeapons[curMagWeapon][0])
+				body.magHurt(round(dmgArti*1)*dmgMultiplier,5)
+				
+			"shockRod":
+				#shock rod does 2 damage and stuns for 2 seconds
+				decMana(Global.allMagWeapons[curMagWeapon][0])
+				body.magHurt(round(dmgArti*2)*dmgMultiplier,2)
 
 
 
@@ -614,14 +633,13 @@ func _on_down_atk_body_entered(body: Node2D) -> void:
 
 
 func _on_mag_l_body_entered(body: Node2D) -> void:
-	magDmg(body)
+	magDmg(body,$magL)
 
 func _on_mag_r_body_entered(body: Node2D) -> void:
-	magDmg(body)
+	magDmg(body,$magR)
 
 func _on_mag_d_body_entered(body: Node2D) -> void:
-	magDmg(body)
-
+	magDmg(body,$magD)
 
 func _on_mag_u_body_entered(body: Node2D) -> void:
-	magDmg(body)
+	magDmg(body,$magU)

@@ -18,7 +18,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_5c7ut"]
 radius = 21.84033
 
-[node name="jerry" type="CharacterBody2D" unique_id=1783438828 groups=["dest"]]
+[node name="jerry" type="CharacterBody2D" unique_id=1783438828 groups=["dest", "enem"]]
 collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_dihks")

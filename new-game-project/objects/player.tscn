@@ -187,6 +187,7 @@ offset_bottom = -42.0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="magL" unique_id=1187388154]
+scale = Vector2(4, 1.5)
 disabled = true
 
 [node name="magR" type="Area2D" parent="." unique_id=1236257070]

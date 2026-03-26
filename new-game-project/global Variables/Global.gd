@@ -19,8 +19,8 @@ var allMagWeapons :={
 	#right hitbox postion x,y and scale x,y, 
 	#and the shape of the hitbox
 	"fireRod":[5,10, 40, 0, 1.5, 1.5,CircleShape2D],
-	"iceRod":[2,8],
-	"shockRod":[3,5]
+	"iceRod":[2,8,40,0,1.5,1.5,RectangleShape2D],
+	"shockRod":[3,5,60,0,3,1.5,RectangleShape2D]
 }
 
 var weaponList :={

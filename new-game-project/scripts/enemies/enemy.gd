@@ -38,6 +38,24 @@ func hurt(source: Node2D,dmg: int):
 		await $anim.animation_finished
 		queue_free()
 
+func magHurt(dmg: int, stunLng):
+	if isDead:return
+	health-=dmg
+	if health<=0:
+		await get_tree().create_timer(0.5).timeout
+		isDead=true
+		$stand.visible=false
+		$walk.visible=false
+		
+		$anim.stop()
+		$death.visible=true
+		$anim.play("bwehDeath")
+		#print($anim.get_animation("bwehDeath").length)
+		await $anim.animation_finished
+		queue_free()
+	stunned=true
+	await get_tree().create_timer(stunLng).timeout
+	stunned=false
 	
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage source and moves in that direction

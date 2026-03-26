@@ -44,6 +44,26 @@ func hurt(source: Node2D,dmg: int):
 			get_tree().current_scene.add_child(coin)
 		queue_free()
 
+func magHurt(dmg: int, stunLng):
+	if isDead:return
+	health-=dmg
+	stunned=true
+	velocity=Vector2.ZERO
+	if health<=0:
+		await get_tree().create_timer(0.5).timeout
+		isDead=true
+		$stand.visible=false
+		$walk.visible=false
+		$attack.visible=false
+		$anim.stop()
+		$death.visible=true
+		$anim.play("bwehDeath")
+		print($anim.get_animation("bwehDeath").length)
+		await $anim.animation_finished
+		queue_free()
+
+	await get_tree().create_timer(stunLng).timeout
+	stunned=false
 	
 func knockback_from(source: Node2D):
 	#gets opposite direction from damage source and moves in that direction
