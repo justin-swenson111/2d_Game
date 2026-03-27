@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c14k8q1gfcgr3" path="res://scripts/menus/wep1.gd" id="3_hfe1u"]
 [ext_resource type="Script" uid="uid://cjno86p7jtac5" path="res://scripts/menus/wep2.gd" id="3_vftbp"]
 [ext_resource type="Texture2D" uid="uid://cxvinoa412j14" path="res://sprites/player/Shadowtest.png" id="4_hfe1u"]
+[ext_resource type="Script" uid="uid://bvndohkkhsjt8" path="res://scripts/menus/magSelect.gd" id="6_yv3ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27edg"]
 
@@ -118,44 +119,20 @@ popup/item_0/id = 0
 popup/item_1/text = "Hi again"
 popup/item_1/id = 1
 
-[node name="magWeapon2" type="Area2D" parent="." unique_id=1543615438]
-position = Vector2(45, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="magWeapon2" unique_id=1618107861]
-scale = Vector2(3, 1)
-shape = SubResource("RectangleShape2D_27edg")
-
-[node name="MenuButton" type="MenuButton" parent="magWeapon2" unique_id=2120614246]
-offset_left = -30.0
-offset_top = -10.0
-offset_right = -22.0
-offset_bottom = -2.0
-
-[node name="wOption1" type="OptionButton" parent="magWeapon2/MenuButton" unique_id=78361093]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
-scale = Vector2(0.5, 0.5)
-item_count = 2
-popup/item_0/text = "Hi"
-popup/item_0/id = 0
-popup/item_1/text = "Hi again"
-popup/item_1/id = 1
-
-[node name="magWeapon1" type="Area2D" parent="." unique_id=1955633243]
+[node name="magWeapon" type="Area2D" parent="." unique_id=1955633243]
 position = Vector2(45, -22.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="magWeapon1" unique_id=1449241348]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magWeapon" unique_id=1449241348]
 scale = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_27edg")
 
-[node name="MenuButton" type="MenuButton" parent="magWeapon1" unique_id=1449287334]
+[node name="MenuButton" type="MenuButton" parent="magWeapon" unique_id=1449287334]
 offset_left = -30.0
 offset_top = -10.0
 offset_right = -22.0
 offset_bottom = -2.0
 
-[node name="wOption1" type="OptionButton" parent="magWeapon1/MenuButton" unique_id=1246459764]
+[node name="wOption1" type="OptionButton" parent="magWeapon/MenuButton" unique_id=1246459764]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 20.0
@@ -165,6 +142,7 @@ popup/item_0/text = "Hi"
 popup/item_0/id = 0
 popup/item_1/text = "Hi again"
 popup/item_1/id = 1
+script = ExtResource("6_yv3ey")
 
 [node name="Button" type="Button" parent="." unique_id=1458495064]
 offset_left = 80.0
@@ -185,4 +163,5 @@ shape = SubResource("RectangleShape2D_hfe1u")
 [connection signal="item_selected" from="artifact/MenuButton/wOption1" to="artifact/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="item_selected" from="weapon2/MenuButton/wOption1" to="weapon2/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="item_selected" from="weapon1/MenuButton/wOption1" to="weapon1/MenuButton/wOption1" method="_on_item_selected"]
+[connection signal="item_selected" from="magWeapon/MenuButton/wOption1" to="magWeapon/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

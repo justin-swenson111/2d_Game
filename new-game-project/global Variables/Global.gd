@@ -52,6 +52,8 @@ var items :={
 	"resisPot":[2,"res://sprites/items/resisPot.png"],
 }
 
+var curMagWeapon
+
 var artifacts :={
 	#revive once on death
 	"revive":"res://sprites/items/healPot.png",
@@ -83,7 +85,9 @@ func save(player: Node2D):
 		checkpoints,
 		player.gold,
 		collArtifacts,
-		curArtifact
+		curArtifact,
+		magWeaponList,
+		curMagWeapon
 	]
 	var saveFile = FileAccess.open("user://saveFile.save", FileAccess.WRITE)
 	saveFile.store_line(JSON.stringify(data))

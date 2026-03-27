@@ -53,3 +53,4 @@ func addMag(player:Node2D):
 			player.magWeaponList[i]=Global.allMagWeapons[i]
 	if Global.magWeaponList.size()==1:
 		player.curMagWeapon=self.name
+		Global.curMagWeapon=self.name

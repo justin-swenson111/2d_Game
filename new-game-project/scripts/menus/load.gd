@@ -19,5 +19,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		Global.collArtifacts=saveData[7]
 		Global.collArtifacts.sort()
 		Global.curArtifact=saveData[8]
+		Global.magWeaponList=saveData[9]
+		Global.curMagWeapon=saveData[10]
 		get_tree().change_scene_to_file("res://scenes/Main.tscn")
 		

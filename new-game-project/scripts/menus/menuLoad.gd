@@ -15,7 +15,7 @@ func _ready() -> void:
 	wepRefresh()
 	itemRefresh()
 	artiRefresh()
-	artiRefresh()
+	magRefresh()
 	
 
 
@@ -48,7 +48,17 @@ func artiRefresh():
 		#if i!=Global.curArtifact or !first:
 			artifact.add_item(i)
 	
-		
+func magRefresh():
+	var mag = $magWeapon/MenuButton/wOption1
+	mag.clear()
+	var l = Global.magWeaponList.duplicate()
+	var pos = l.find_key(Global.curMagWeapon)
+	if Global.curMagWeapon in l:
+		l.erase(Global.curMagWeapon)
+	mag.add_item(Global.curMagWeapon)
+	for i in l:
+		mag.add_item(i)
+	
 
 func itemRefresh():
 	for i in inventory:

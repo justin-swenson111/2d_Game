@@ -86,6 +86,7 @@ func _ready():
 	#set health
 	health=Global.startHealth
 	curArtifact=Global.curArtifact
+	curMagWeapon=Global.curMagWeapon
 	#
 	if inventory.size()>0:
 		curItem= inventory[0]
