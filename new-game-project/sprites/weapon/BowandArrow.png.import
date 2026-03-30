@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxvm0vjnd8svw"
-path="res://.godot/imported/grassAvoid.png-5e541ebfc94b3fcc2408355240cd11eb.ctex"
+uid="uid://d1sprmvv0vk4l"
+path="res://.godot/imported/BowandArrow.png-0527d92d3d2bb50d3e2212409b63333c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/grassAvoid.png"
-dest_files=["res://.godot/imported/grassAvoid.png-5e541ebfc94b3fcc2408355240cd11eb.ctex"]
+source_file="res://sprites/weapon/BowandArrow.png"
+dest_files=["res://.godot/imported/BowandArrow.png-0527d92d3d2bb50d3e2212409b63333c.ctex"]
 
 [params]
 

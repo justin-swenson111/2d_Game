@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pgdgqnxahhiu"
-path="res://.godot/imported/rockSet.png-7a836ae68c623bd59101c740c0f52bb5.ctex"
+uid="uid://bey6wc11pt2so"
+path="res://.godot/imported/LightFlowers.png-3073a4df4bde2e965dc995b32aab2216.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/rockSet.png"
-dest_files=["res://.godot/imported/rockSet.png-7a836ae68c623bd59101c740c0f52bb5.ctex"]
+source_file="res://tileset/outFloorNavigation/LightFlowers.png"
+dest_files=["res://.godot/imported/LightFlowers.png-3073a4df4bde2e965dc995b32aab2216.ctex"]
 
 [params]
 

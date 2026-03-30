@@ -9,6 +9,10 @@ func _physics_process(_delta: float) -> void:
 	for body in atk:
 		if not body.is_in_group("player"):
 			if body.is_in_group("dest"):
+				if Global.curBow=="bow":
+					dmg=1
+				else:
+					dmg=2
 				body.hurt(self,dmg)
 			queue_free()
 				

@@ -188,21 +188,29 @@ func _input(event: InputEvent) -> void:
 		switch()
 	if event.is_action_pressed("switchRgd"):
 		if melee:
-			#set the dmg and atk delay correctly
-			setWeapon()
-			melee=false	
-		else:
 			#set delay to ranged time
 			#dmg is set in arrow.gd
-			atkDelayLng=1
+			if Global.curBow=="bow":
+				atkDelayLng=1
+			else:
+				atkDelayLng=2
+			melee=false
+			curWeaponSprite=Global.weaponSprites[Global.curBow]
+			$currentWeapon.texture=load(curWeaponSprite)
+		else:
+			#set the dmg and atk delay correctly\
+			setWeapon()
 			melee=true
 	if event.is_action_pressed("switchMag"):
-		if mag:
-			mag=false
-			setWeapon()
-		else:
-			mag=true
-			atkDelayLng=2
+		if curMagWeapon!=null:
+			if mag:
+				mag=false
+				setWeapon()
+			else:
+				mag=true
+				atkDelayLng=2
+				curWeaponSprite=weaponSprites[curMagWeapon]
+				$currentWeapon.texture=load(curWeaponSprite)
 	if event.is_action_pressed("openMenu"):
 		get_tree().paused=true
 		Global.paused=true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfxoxrnjnmc0e"
-path="res://.godot/imported/terrainObstacles.png-069a4fc665157c22874e0c13ab6253d2.ctex"
+uid="uid://c5v0a2iw054b2"
+path="res://.godot/imported/IceStaff.png-f96112cba62b367b5079b5bbd37d77be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/obstacles/terrainObstacles.png"
-dest_files=["res://.godot/imported/terrainObstacles.png-069a4fc665157c22874e0c13ab6253d2.ctex"]
+source_file="res://sprites/weapon/IceStaff.png"
+dest_files=["res://.godot/imported/IceStaff.png-f96112cba62b367b5079b5bbd37d77be.ctex"]
 
 [params]
 

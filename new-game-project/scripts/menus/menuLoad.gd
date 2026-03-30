@@ -43,7 +43,8 @@ func artiRefresh():
 	artifact.add_item(Global.curArtifact)
 	var items=Global.collArtifacts.duplicate()
 	var pos = items.find(Global.curArtifact)
-	items.remove_at(pos)
+	if pos>=0:
+		items.remove_at(pos)
 	for i in items:
 		#if i!=Global.curArtifact or !first:
 			artifact.add_item(i)
@@ -55,7 +56,10 @@ func magRefresh():
 	var pos = l.find_key(Global.curMagWeapon)
 	if Global.curMagWeapon in l:
 		l.erase(Global.curMagWeapon)
-	mag.add_item(Global.curMagWeapon)
+	if Global.curMagWeapon!=null:
+		mag.add_item(Global.curMagWeapon)
+	else:
+		mag.add_item("")
 	for i in l:
 		mag.add_item(i)
 	

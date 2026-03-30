@@ -37,6 +37,11 @@ var weaponSprites = {
 	"axe":"res://sprites/weapon/Axe.png",
 	"mace":"res://sprites/weapon/Mace.png",
 	"axeStrong":"res://sprites/weapon/Axe.png",
+	"fireRod":"res://sprites/weapon/IceStaff.png",
+	"iceRod":"res://sprites/weapon/IceStaff.png",
+	"shockRod":"res://sprites/weapon/ShockStaff.png",
+	"bow":"res://sprites/weapon/BowandArrow.png",
+	"strongBow":"res://sprites/weapon/BowandArrow.png",
 }
 var w1 = "sword"
 var w2 = "spear"
@@ -53,6 +58,8 @@ var items :={
 }
 
 var curMagWeapon
+
+var curBow="bow"
 
 var artifacts :={
 	#revive once on death

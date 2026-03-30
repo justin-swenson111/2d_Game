@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2x6p3vm275fn"
-path="res://.godot/imported/grassNavigation.png-afe834f95bcc459202a7ff4214fe285c.ctex"
+uid="uid://2h8w28u5tjfx"
+path="res://.godot/imported/outsideFloorNavigation.png-2a3fb9cb401559bcdd8aa3a20b5c8ac6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grassNavigation/grassNavigation.png"
-dest_files=["res://.godot/imported/grassNavigation.png-afe834f95bcc459202a7ff4214fe285c.ctex"]
+source_file="res://tileset/FloorTiling/outsideFloorNavigation.png"
+dest_files=["res://.godot/imported/outsideFloorNavigation.png-2a3fb9cb401559bcdd8aa3a20b5c8ac6.ctex"]
 
 [params]
 

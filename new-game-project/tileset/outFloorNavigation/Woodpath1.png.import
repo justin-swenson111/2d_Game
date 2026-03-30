@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lx7kg6byaj5n"
-path="res://.godot/imported/Mace.png-121f5e34b0f0c4bf7f293a36e380988e.ctex"
+uid="uid://dem4rrpojx183"
+path="res://.godot/imported/Woodpath1.png-41ae37a29f45c7c126dfb06d3f185fb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/weapon/Mace.png"
-dest_files=["res://.godot/imported/Mace.png-121f5e34b0f0c4bf7f293a36e380988e.ctex"]
+source_file="res://tileset/outFloorNavigation/Woodpath1.png"
+dest_files=["res://.godot/imported/Woodpath1.png-41ae37a29f45c7c126dfb06d3f185fb8.ctex"]
 
 [params]
 

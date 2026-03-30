@@ -24,6 +24,7 @@ func _on_body_entered(body: Node2D) -> void:
 		self.get_parent().queue_free()
 		
 func addWeapon(player:Node2D):
+	print(self.name)
 	for i in Global.allWeapons:
 		if self.name==i:
 			player.weaponList[i]=Global.allWeapons[i]
