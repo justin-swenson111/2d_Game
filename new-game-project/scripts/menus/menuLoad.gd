@@ -16,7 +16,7 @@ func _ready() -> void:
 	itemRefresh()
 	artiRefresh()
 	magRefresh()
-	
+	bowRefresh()
 
 
 func wepRefresh():
@@ -63,6 +63,13 @@ func magRefresh():
 	for i in l:
 		mag.add_item(i)
 	
+func bowRefresh():
+	var option = $bow/MenuButton/wOption1
+	option.clear()
+	option.add_item(Global.curBow)
+	for i in Global.collBows:
+		if i!=Global.curBow:
+			option.add_item(i)
 
 func itemRefresh():
 	for i in inventory:

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://det6eov5dc4ie"]
+
+[ext_resource type="Script" uid="uid://dgyjsp13h1eou" path="res://scripts/environment/addObject.gd" id="1_aa66t"]
+[ext_resource type="Texture2D" uid="uid://d1sprmvv0vk4l" path="res://sprites/weapon/BowandArrow.png" id="2_yr0wm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5q2b"]
+
+[node name="collectableItem" type="Node2D" unique_id=1175599261]
+
+[node name="bow" type="Area2D" parent="." unique_id=1211598321 groups=["bow"]]
+script = ExtResource("1_aa66t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bow" unique_id=963567492]
+shape = SubResource("CircleShape2D_l5q2b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994979350]
+texture = ExtResource("2_yr0wm")
+
+[connection signal="body_entered" from="bow" to="bow" method="_on_body_entered"]

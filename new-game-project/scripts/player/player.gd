@@ -337,7 +337,10 @@ func rgdAtk(dir: String):
 		#create the arrow and start the atk delay
 		add_child(nArrow)
 		atkDly()
-		decMana(2)
+		if Global.curBow=="bow":
+			decMana(2)
+		else:
+			decMana(3)
 
 #magic attacks
 func magAtk(dir: String):
@@ -502,20 +505,22 @@ func changeResis(amt):
 func decMana(m):
 	if curArtifact=="mana":
 		m*=0.5
-	mana-=m
+	m=floor(m)
 	for j in range(m):
-		var highest = $mana.get_child(0)
-		var empt = emptym.instantiate()
-		for i in $mana.get_children():
-			if (i.is_in_group("full")):
-				if int(i.name.substr(1))>int(highest.name.substr(1)):
-					highest=i
-					empt.name="e"+str(i.name.substr(1))
-		empt.position.x = highest.position.x
-		empt.position.y = highest.position.y
-		empt.add_to_group("empty")
-		$mana.add_child(empt)
-		highest.free()
+		if mana>0:
+			mana-=1
+			var highest = $mana.get_child(0)
+			var empt = emptym.instantiate()
+			for i in $mana.get_children():
+				if (i.is_in_group("full")):
+					if int(i.name.substr(1))>int(highest.name.substr(1)):
+						highest=i
+						empt.name="e"+str(i.name.substr(1))
+			empt.position.x = highest.position.x
+			empt.position.y = highest.position.y
+			empt.add_to_group("empty")
+			$mana.add_child(empt)
+			highest.free()
 
 #take player damage
 func ouchie(source, dmgTaken):

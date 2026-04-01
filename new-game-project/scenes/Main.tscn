@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://c87xasyegp73" path="res://objects/worldItems/shockRod.tscn" id="17_bb450"]
 [ext_resource type="PackedScene" uid="uid://dkbsrua6aj2u0" path="res://objects/worldItems/mace.tscn" id="18_1nqs0"]
 [ext_resource type="PackedScene" uid="uid://dvrd4fpeevk4o" path="res://objects/worldItems/iceRod.tscn" id="18_nfivy"]
+[ext_resource type="PackedScene" uid="uid://cgnia4x8hmsxk" path="res://objects/worldItems/strongBow.tscn" id="20_1nqs0"]
+[ext_resource type="PackedScene" uid="uid://det6eov5dc4ie" path="res://objects/worldItems/bow.tscn" id="21_1iba3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jlsqs"]
 texture = ExtResource("2_c01mt")
@@ -174,3 +176,9 @@ position = Vector2(19, 81)
 
 [node name="axe" parent="." unique_id=161493568 instance=ExtResource("10_wp0k4")]
 position = Vector2(19, 49)
+
+[node name="collectableItem" parent="." unique_id=1653254330 instance=ExtResource("20_1nqs0")]
+position = Vector2(-50, -76)
+
+[node name="collectableItem2" parent="." unique_id=26825619 instance=ExtResource("21_1iba3")]
+position = Vector2(-54, 59)

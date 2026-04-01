@@ -32,6 +32,7 @@ item="Item you can pick up on the ground"
 artifact="artifacts"
 magWeap="magic weapon item"
 enem="Enemies"
+bow="bow item"
 
 [input]
 
