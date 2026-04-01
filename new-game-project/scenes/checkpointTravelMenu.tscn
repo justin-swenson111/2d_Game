@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://bok7mobjtsvfs" path="res://scripts/menus/ftMenu.gd" id="1_mm8na"]
 [ext_resource type="Script" uid="uid://cs1s4la56df7w" path="res://scripts/menus/travel.gd" id="2_jt7ig"]
 [ext_resource type="Texture2D" uid="uid://cxvinoa412j14" path="res://sprites/player/Shadowtest.png" id="4_5fh6i"]
+[ext_resource type="Script" uid="uid://by2k08x2hjfy2" path="res://scripts/menus/artiSelect.gd" id="5_cfpw3"]
 [ext_resource type="Script" uid="uid://bl6xbibdcp2k6" path="res://scripts/menus/return.gd" id="5_rarun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27edg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5r7l"]
 
 [node name="PlayerMenu" type="Node2D" unique_id=475428009]
 process_mode = 3
@@ -59,5 +62,31 @@ scale = Vector2(0.5, 0.5)
 text = "Return"
 script = ExtResource("5_rarun")
 
+[node name="artifact" type="Area2D" parent="." unique_id=520617972]
+position = Vector2(-20, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="artifact" unique_id=2053599998]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_w5r7l")
+
+[node name="MenuButton" type="MenuButton" parent="artifact" unique_id=1226407598]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = -22.0
+offset_bottom = -2.0
+
+[node name="wOption1" type="OptionButton" parent="artifact/MenuButton" unique_id=416533317]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+item_count = 2
+popup/item_0/text = "Hi"
+popup/item_0/id = 0
+popup/item_1/text = "Hi again"
+popup/item_1/id = 1
+script = ExtResource("5_cfpw3")
+
 [connection signal="item_selected" from="locations/MenuButton/wOption1" to="locations/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="item_selected" from="artifact/MenuButton/wOption1" to="artifact/MenuButton/wOption1" method="_on_item_selected"]

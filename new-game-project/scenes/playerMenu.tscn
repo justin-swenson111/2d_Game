@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cweix8mo4313a" path="res://scripts/menus/menuLoad.gd" id="1_cxu76"]
 [ext_resource type="Script" uid="uid://bl6xbibdcp2k6" path="res://scripts/menus/return.gd" id="2_27edg"]
-[ext_resource type="Script" uid="uid://by2k08x2hjfy2" path="res://scripts/menus/artiSelect.gd" id="2_vftbp"]
 [ext_resource type="Script" uid="uid://c14k8q1gfcgr3" path="res://scripts/menus/wep1.gd" id="3_hfe1u"]
 [ext_resource type="Script" uid="uid://cjno86p7jtac5" path="res://scripts/menus/wep2.gd" id="3_vftbp"]
 [ext_resource type="Texture2D" uid="uid://cxvinoa412j14" path="res://sprites/player/Shadowtest.png" id="4_hfe1u"]
@@ -20,33 +19,12 @@ script = ExtResource("1_cxu76")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1620224281]
 zoom = Vector2(5, 5)
 
-[node name="artifact" type="Area2D" parent="." unique_id=319379924]
-position = Vector2(-20, -45)
+[node name="weapon2" type="Area2D" parent="." unique_id=1191012553]
+position = Vector2(-20, -22.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="artifact" unique_id=1498878718]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon2" unique_id=427937062]
 scale = Vector2(3, 1)
 shape = SubResource("RectangleShape2D_27edg")
-
-[node name="MenuButton" type="MenuButton" parent="artifact" unique_id=521584227]
-offset_left = -30.0
-offset_top = -10.0
-offset_right = -22.0
-offset_bottom = -2.0
-
-[node name="wOption1" type="OptionButton" parent="artifact/MenuButton" unique_id=460454182]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
-scale = Vector2(0.5, 0.5)
-item_count = 2
-popup/item_0/text = "Hi"
-popup/item_0/id = 0
-popup/item_1/text = "Hi again"
-popup/item_1/id = 1
-script = ExtResource("2_vftbp")
-
-[node name="weapon2" type="Area2D" parent="." unique_id=1191012553]
-position = Vector2(-20, 0)
 
 [node name="MenuButton" type="MenuButton" parent="weapon2" unique_id=645578995]
 offset_left = -30.0
@@ -56,17 +34,13 @@ offset_bottom = -2.0
 
 [node name="wOption1" type="OptionButton" parent="weapon2/MenuButton" unique_id=587826105]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
+offset_right = 120.0
+offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_vftbp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon2" unique_id=427937062]
-scale = Vector2(3, 1)
-shape = SubResource("RectangleShape2D_27edg")
-
 [node name="weapon1" type="Area2D" parent="." unique_id=1230593616]
-position = Vector2(-20, -22.5)
+position = Vector2(-20, -45)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="weapon1" unique_id=521861261]
 scale = Vector2(3, 1)
@@ -80,8 +54,8 @@ offset_bottom = -2.0
 
 [node name="wOption1" type="OptionButton" parent="weapon1/MenuButton" unique_id=1072616016]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
+offset_right = 120.0
+offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 script = ExtResource("3_hfe1u")
 
@@ -111,8 +85,8 @@ offset_bottom = -2.0
 
 [node name="wOption1" type="OptionButton" parent="bow/MenuButton" unique_id=659582867]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
+offset_right = 120.0
+offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 item_count = 2
 popup/item_0/text = "Hi"
@@ -136,8 +110,8 @@ offset_bottom = -2.0
 
 [node name="wOption1" type="OptionButton" parent="magWeapon/MenuButton" unique_id=1246459764]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 20.0
+offset_right = 120.0
+offset_bottom = 40.0
 scale = Vector2(0.5, 0.5)
 item_count = 2
 popup/item_0/text = "Hi"
@@ -162,7 +136,6 @@ position = Vector2(-10, 37.5)
 scale = Vector2(10, 2.5)
 shape = SubResource("RectangleShape2D_hfe1u")
 
-[connection signal="item_selected" from="artifact/MenuButton/wOption1" to="artifact/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="item_selected" from="weapon2/MenuButton/wOption1" to="weapon2/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="item_selected" from="weapon1/MenuButton/wOption1" to="weapon1/MenuButton/wOption1" method="_on_item_selected"]
 [connection signal="item_selected" from="bow/MenuButton/wOption1" to="bow/MenuButton/wOption1" method="_on_item_selected"]

@@ -10,11 +10,22 @@ var itemList = Global.items
 
 var weaponSelect =[]
 
+var timer=0
+
+func _physics_process(delta: float) -> void:
+	if timer<0.25:
+		timer+=delta
+
+func _input(event: InputEvent) -> void:
+	if timer>=0.25:
+		if event.is_action("openMenu"):
+			print("closed")
+			$Button.emit_signal("pressed")
+
 func _ready() -> void:
 	self.z_index=10
 	wepRefresh()
 	itemRefresh()
-	artiRefresh()
 	magRefresh()
 	bowRefresh()
 
@@ -36,18 +47,7 @@ func wepRefresh():
 		wep1.add_item(i)
 		wep2.add_item(i)
 
-func artiRefresh():
-	var artifact=$artifact/MenuButton/wOption1
-	Global.collArtifacts.sort()
-	artifact.clear()
-	artifact.add_item(Global.curArtifact)
-	var items=Global.collArtifacts.duplicate()
-	var pos = items.find(Global.curArtifact)
-	if pos>=0:
-		items.remove_at(pos)
-	for i in items:
-		#if i!=Global.curArtifact or !first:
-			artifact.add_item(i)
+
 	
 func magRefresh():
 	var mag = $magWeapon/MenuButton/wOption1

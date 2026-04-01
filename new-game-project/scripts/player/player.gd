@@ -69,6 +69,7 @@ var curArtifact =""
 var dmgMultiplier = 1
 var resistanceMultiplier=1
 
+var timer=0
 
 
 
@@ -124,6 +125,10 @@ func _ready():
 
 #movement based on wasd presses
 func _physics_process(delta: float) -> void:
+	#timer to give a delay on opening the menu
+	if timer<1:
+		timer+=delta
+	
 	#If there is missing mana it starts a timer to recharge it
 	#one mana charge increase every 5 seconds
 	if mana!=maxMana:
@@ -212,11 +217,13 @@ func _input(event: InputEvent) -> void:
 				curWeaponSprite=weaponSprites[curMagWeapon]
 				$currentWeapon.texture=load(curWeaponSprite)
 	if event.is_action_pressed("openMenu"):
-		get_tree().paused=true
-		Global.paused=true
-		var menuInst = menu.instantiate()
-		menuInst.position=$mainCamera.global_position
-		get_tree().current_scene.add_child(menuInst)	
+		if timer>=0.25:
+			print("open")
+			get_tree().paused=true
+			Global.paused=true
+			var menuInst = menu.instantiate()
+			menuInst.position=$mainCamera.global_position
+			get_tree().current_scene.add_child(menuInst)	
 	if event.is_action_pressed("useItem"):
 		useItem()
 
