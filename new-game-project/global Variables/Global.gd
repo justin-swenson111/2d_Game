@@ -37,7 +37,7 @@ var weaponSprites = {
 	"axe":"res://sprites/weapon/Axe.png",
 	"mace":"res://sprites/weapon/Mace.png",
 	"axeStrong":"res://sprites/weapon/Axe.png",
-	"fireRod":"res://sprites/weapon/IceStaff.png",
+	"fireRod":"res://sprites/weapon/FireStaff.png",
 	"iceRod":"res://sprites/weapon/IceStaff.png",
 	"shockRod":"res://sprites/weapon/ShockStaff.png",
 	"bow":"res://sprites/weapon/BowandArrow.png",

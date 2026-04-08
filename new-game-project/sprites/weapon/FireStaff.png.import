@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl5pmxfcodflv"
-path="res://.godot/imported/Tree1.png-a29cdf7fcf5028caa103371f181a58e3.ctex"
+uid="uid://p7s6whx3ek2x"
+path="res://.godot/imported/FireStaff.png-2bd04935e169e4522c60aa4f2a23f779.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/obstacles/Tree1.png"
-dest_files=["res://.godot/imported/Tree1.png-a29cdf7fcf5028caa103371f181a58e3.ctex"]
+source_file="res://sprites/weapon/FireStaff.png"
+dest_files=["res://.godot/imported/FireStaff.png-2bd04935e169e4522c60aa4f2a23f779.ctex"]
 
 [params]
 
